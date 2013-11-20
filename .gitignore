@@ -1,5 +1,5 @@
 .DS_STORE
-modules
+modules/contrib
 themes
 tests/*report*.html
 tests/vendor
