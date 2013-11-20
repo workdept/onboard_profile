@@ -1,0 +1,8 @@
+.DS_STORE
+modules
+themes
+tests/*report*.html
+tests/vendor
+tests/bin
+tests/composer.lock
+tests/composer.phar

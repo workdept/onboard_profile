@@ -1,0 +1,162 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for On Board
+ * Using https://github.com/opdavies/linuxjournal_demo/blob/master/linuxjournal.install for boilerplate
+ */
+
+/**
+ * Implements hook_install().
+ *
+ * Run the hook_install() function from the minimal profile as part of this
+ * profile.
+ */
+function onboard_profile_install() {
+  include_once DRUPAL_ROOT . '/profiles/minimal/minimal.install';
+  minimal_install();
+
+  // Enable themes.
+  //$theme = 'whatever_theme';
+  $admin_theme = 'seven';
+  db_update('system')
+    ->fields(array('status' => 1))
+    ->condition('type', 'theme')
+    ->condition('name', $admin_theme)
+    ->execute();
+  theme_enable(array($theme));
+  variable_set('theme_default', $theme);
+  variable_set('admin_theme', $admin_theme);
+  variable_set('node_admin_theme', '1');
+
+  // Disable some blocks.
+  db_update('block')
+    ->fields(array('region' => -1))
+    ->condition('module', 'user')
+    ->condition('delta', 'login')
+    ->execute();
+  db_update('block')
+    ->fields(array('region' => -1))
+    ->condition('module', 'system')
+    ->condition('delta', 'navigation')
+    ->execute();
+
+  // Add text formats.
+  $filtered_html_format = array(
+    'format' => 'filtered_html',
+    'name' => 'Filtered HTML',
+    'weight' => 0,
+    'filters' => array(
+      // URL filter.
+      'filter_url' => array(
+        'weight' => 0,
+        'status' => 1,
+      ),
+      // HTML filter.
+      'filter_html' => array(
+        'weight' => 1,
+        'status' => 1,
+      ),
+      // Line break filter.
+      'filter_autop' => array(
+        'weight' => 2,
+        'status' => 1,
+      ),
+      // HTML corrector filter.
+      'filter_htmlcorrector' => array(
+        'weight' => 10,
+        'status' => 1,
+      ),
+    ),
+  );
+  $filtered_html_format = (object) $filtered_html_format;
+  filter_format_save($filtered_html_format);
+
+  $full_html_format = array(
+    'format' => 'full_html',
+    'name' => 'Full HTML',
+    'weight' => 1,
+    'filters' => array(
+      // URL filter.
+      'filter_url' => array(
+        'weight' => 0,
+        'status' => 1,
+      ),
+      // Line break filter.
+      'filter_autop' => array(
+        'weight' => 1,
+        'status' => 1,
+      ),
+      // HTML corrector filter.
+      'filter_htmlcorrector' => array(
+        'weight' => 10,
+        'status' => 1,
+      ),
+    ),
+  );
+  $full_html_format = (object) $full_html_format;
+  filter_format_save($full_html_format);
+
+  $raw_html_format = array(
+    'format' => 'raw_html',
+    'name' => 'Raw HTML',
+    'weight' => 2,
+  );
+  $raw_html_format = (object) $raw_html_format;
+  filter_format_save($raw_html_format);
+
+  // Add a 'Basic page' content type.
+  $types = array(
+    array(
+      'type' => 'page',
+      'name' => st('Basic page'),
+      'base' => 'node_content',
+      'description' => st("Use <em>basic pages</em> for your static content, such as an 'About us' page."),
+      'custom' => 1,
+      'modified' => 1,
+      'locked' => 0,
+    )
+  );
+
+  foreach ($types as $type) {
+    $type = node_type_set_defaults($type);
+    node_type_save($type);
+    node_add_body_field($type);
+  }
+
+  // Default 'Basic page' to not be promoted and don't display author
+  // information.
+  variable_set('node_options_page', array('status'));
+  variable_set('node_submitted_page', FALSE);
+
+  // Create new user roles for Administrators and Editors
+  $roles = array('administrator', 'editor');
+  foreach ($roles as $weight => $name) {
+    $role = new stdClass;
+    $role->name = $name;
+    $role->weight = $weight + 2; // New roles must have at least a weight of 2.
+
+    // Save the new role.
+    user_role_save($role);
+
+    if ($name == 'administrator') {
+      // Give the administrator role all permissions.
+      user_role_grant_permissions($role->rid, array_keys(module_invoke_all('permission')));
+
+      // Set this as the administrator role.
+      variable_set('user_admin_role', $role->rid);
+
+      // Assign user 1 the Developer role.
+      db_insert('users_roles')
+        ->fields(array('uid' => 1, 'rid' => $role->rid))
+        ->execute();
+    }
+  }
+
+  // Assign some default permissions.
+  $filtered_html_permission = filter_permission_name($filtered_html_format);
+  $raw_html_permission = filter_permission_name($raw_html_format);
+  user_role_grant_permissions(DRUPAL_ANONYMOUS_RID, array('access content'));
+  user_role_grant_permissions(DRUPAL_AUTHENTICATED_RID, array('access content'));
+}
+
