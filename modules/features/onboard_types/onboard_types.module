@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the OnBoard Types feature.
+ */
+
+include_once 'onboard_types.features.inc';
