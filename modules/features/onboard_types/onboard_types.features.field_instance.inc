@@ -184,6 +184,59 @@ function onboard_types_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-board_term-field_term_dates'
+  $field_instances['node-board_term-field_term_dates'] = array(
+    'bundle' => 'board_term',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'date',
+        'settings' => array(
+          'format_type' => 'long',
+          'fromto' => 'both',
+          'multiple_from' => '',
+          'multiple_number' => '',
+          'multiple_to' => '',
+        ),
+        'type' => 'date_default',
+        'weight' => 3,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_term_dates',
+    'label' => 'Term Dates',
+    'required' => 1,
+    'settings' => array(
+      'default_value' => 'blank',
+      'default_value2' => 'same',
+      'default_value_code' => '',
+      'default_value_code2' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'date',
+      'settings' => array(
+        'increment' => 15,
+        'input_format' => 'm/d/Y - H:i:s',
+        'input_format_custom' => '',
+        'label_position' => 'above',
+        'text_parts' => array(),
+        'year_range' => '-3:+3',
+      ),
+      'type' => 'date_text',
+      'weight' => 34,
+    ),
+  );
+
   // Exported field_instance: 'node-person-body'
   $field_instances['node-person-body'] = array(
     'bundle' => 'person',
@@ -234,6 +287,7 @@ function onboard_types_field_default_field_instances() {
   t('Body');
   t('Person');
   t('TODO: limit entity selection to boards in city taxonomy term related to this user!');
+  t('Term Dates');
 
   return $field_instances;
 }
