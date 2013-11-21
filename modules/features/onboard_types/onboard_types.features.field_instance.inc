@@ -77,8 +77,8 @@ function onboard_types_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'og_group_ref',
-    'label' => 'Groups audience',
-    'required' => FALSE,
+    'label' => 'City',
+    'required' => 1,
     'settings' => array(
       'behaviors' => array(
         'og_widget' => array(
@@ -88,6 +88,9 @@ function onboard_types_field_default_field_instances() {
           'default' => array(
             'widget_type' => 'options_select',
           ),
+          'status' => TRUE,
+        ),
+        'taxonomy-index' => array(
           'status' => TRUE,
         ),
       ),
@@ -106,6 +109,7 @@ function onboard_types_field_default_field_instances() {
       ),
     ),
     'widget' => array(
+      'active' => 0,
       'module' => 'og',
       'settings' => array(),
       'type' => 'og_complex',
@@ -396,9 +400,9 @@ function onboard_types_field_default_field_instances() {
   // Included for use with string extractors like potx.
   t('Board');
   t('Body');
+  t('City');
   t('Determine if this is an OG group.');
   t('Group');
-  t('Groups audience');
   t('Person');
   t('TODO: limit entity selection to boards in city taxonomy term related to this user!');
   t('Term Dates');
