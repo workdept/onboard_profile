@@ -5,3 +5,25 @@
  */
 
 include_once 'onboard_types.features.inc';
+
+function onboard_types_node_presave($node) {
+  if ($node->type == 'board_term') {
+    // If title is empty
+    if ($node->title == '') {
+      // Set title to a default value
+      $node->title = "Board Term";
+      // BOOKMARK
+      // TODO: Set this to a more human readable string composed of
+      // board name and person name.  This will make this easier to
+      // parse by default in views.
+    }
+  }
+
+  return $node;
+}
+
+function onboard_types_form_alter(&$form, &$form_state, $form_id) {
+  // BOOKMARK
+  // TODO: Alter display and required values of board term to suppress
+  // title field.
+}
