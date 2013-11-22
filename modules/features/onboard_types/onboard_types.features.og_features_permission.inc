@@ -99,9 +99,82 @@ function onboard_types_og_features_default_permissions() {
     ),
   );
 
-  // Exported og permission: 'taxonomy_term:city:update body field'
-  $permissions['taxonomy_term:city:update body field'] = array(
+  // Exported og permission: 'taxonomy_term:city:update field_application_action_title field'
+  $permissions['taxonomy_term:city:update field_application_action_title field'] = array(
     'roles' => array(
+      'administrator member' => 'administrator member',
+      'clerk' => 'clerk',
+    ),
+  );
+
+  // Exported og permission: 'taxonomy_term:city:update field_application_file field'
+  $permissions['taxonomy_term:city:update field_application_file field'] = array(
+    'roles' => array(
+      'administrator member' => 'administrator member',
+      'clerk' => 'clerk',
+    ),
+  );
+
+  // Exported og permission: 'taxonomy_term:city:update field_application_process field'
+  $permissions['taxonomy_term:city:update field_application_process field'] = array(
+    'roles' => array(
+      'administrator member' => 'administrator member',
+      'clerk' => 'clerk',
+    ),
+  );
+
+  // Exported og permission: 'taxonomy_term:city:update field_application_url field'
+  $permissions['taxonomy_term:city:update field_application_url field'] = array(
+    'roles' => array(
+      'administrator member' => 'administrator member',
+      'clerk' => 'clerk',
+    ),
+  );
+
+  // Exported og permission: 'taxonomy_term:city:update field_contact_email field'
+  $permissions['taxonomy_term:city:update field_contact_email field'] = array(
+    'roles' => array(
+      'administrator member' => 'administrator member',
+      'clerk' => 'clerk',
+    ),
+  );
+
+  // Exported og permission: 'taxonomy_term:city:update field_contact_name field'
+  $permissions['taxonomy_term:city:update field_contact_name field'] = array(
+    'roles' => array(
+      'administrator member' => 'administrator member',
+      'clerk' => 'clerk',
+    ),
+  );
+
+  // Exported og permission: 'taxonomy_term:city:update field_contact_phone field'
+  $permissions['taxonomy_term:city:update field_contact_phone field'] = array(
+    'roles' => array(
+      'administrator member' => 'administrator member',
+      'clerk' => 'clerk',
+    ),
+  );
+
+  // Exported og permission: 'taxonomy_term:city:update field_description field'
+  $permissions['taxonomy_term:city:update field_description field'] = array(
+    'roles' => array(
+      'administrator member' => 'administrator member',
+      'clerk' => 'clerk',
+    ),
+  );
+
+  // Exported og permission: 'taxonomy_term:city:update field_meeting_location field'
+  $permissions['taxonomy_term:city:update field_meeting_location field'] = array(
+    'roles' => array(
+      'administrator member' => 'administrator member',
+      'clerk' => 'clerk',
+    ),
+  );
+
+  // Exported og permission: 'taxonomy_term:city:update field_meeting_time field'
+  $permissions['taxonomy_term:city:update field_meeting_time field'] = array(
+    'roles' => array(
+      'administrator member' => 'administrator member',
       'clerk' => 'clerk',
     ),
   );
@@ -117,6 +190,7 @@ function onboard_types_og_features_default_permissions() {
   $permissions['taxonomy_term:city:update group_group field'] = array(
     'roles' => array(
       'administrator member' => 'administrator member',
+      'clerk' => 'clerk',
     ),
   );
 
@@ -140,15 +214,111 @@ function onboard_types_og_features_default_permissions() {
     ),
   );
 
-  // Exported og permission: 'taxonomy_term:city:view body field'
-  $permissions['taxonomy_term:city:view body field'] = array(
-    'roles' => array(),
+  // Exported og permission: 'taxonomy_term:city:view field_application_action_title field'
+  $permissions['taxonomy_term:city:view field_application_action_title field'] = array(
+    'roles' => array(
+      'administrator member' => 'administrator member',
+      'clerk' => 'clerk',
+      'member' => 'member',
+      'non-member' => 'non-member',
+    ),
+  );
+
+  // Exported og permission: 'taxonomy_term:city:view field_application_file field'
+  $permissions['taxonomy_term:city:view field_application_file field'] = array(
+    'roles' => array(
+      'administrator member' => 'administrator member',
+      'clerk' => 'clerk',
+      'member' => 'member',
+      'non-member' => 'non-member',
+    ),
+  );
+
+  // Exported og permission: 'taxonomy_term:city:view field_application_process field'
+  $permissions['taxonomy_term:city:view field_application_process field'] = array(
+    'roles' => array(
+      'administrator member' => 'administrator member',
+      'clerk' => 'clerk',
+      'member' => 'member',
+      'non-member' => 'non-member',
+    ),
+  );
+
+  // Exported og permission: 'taxonomy_term:city:view field_application_url field'
+  $permissions['taxonomy_term:city:view field_application_url field'] = array(
+    'roles' => array(
+      'administrator member' => 'administrator member',
+      'clerk' => 'clerk',
+      'member' => 'member',
+      'non-member' => 'non-member',
+    ),
+  );
+
+  // Exported og permission: 'taxonomy_term:city:view field_contact_email field'
+  $permissions['taxonomy_term:city:view field_contact_email field'] = array(
+    'roles' => array(
+      'administrator member' => 'administrator member',
+      'clerk' => 'clerk',
+      'member' => 'member',
+      'non-member' => 'non-member',
+    ),
+  );
+
+  // Exported og permission: 'taxonomy_term:city:view field_contact_name field'
+  $permissions['taxonomy_term:city:view field_contact_name field'] = array(
+    'roles' => array(
+      'administrator member' => 'administrator member',
+      'clerk' => 'clerk',
+      'member' => 'member',
+      'non-member' => 'non-member',
+    ),
+  );
+
+  // Exported og permission: 'taxonomy_term:city:view field_contact_phone field'
+  $permissions['taxonomy_term:city:view field_contact_phone field'] = array(
+    'roles' => array(
+      'administrator member' => 'administrator member',
+      'clerk' => 'clerk',
+      'member' => 'member',
+      'non-member' => 'non-member',
+    ),
+  );
+
+  // Exported og permission: 'taxonomy_term:city:view field_description field'
+  $permissions['taxonomy_term:city:view field_description field'] = array(
+    'roles' => array(
+      'administrator member' => 'administrator member',
+      'clerk' => 'clerk',
+      'member' => 'member',
+      'non-member' => 'non-member',
+    ),
+  );
+
+  // Exported og permission: 'taxonomy_term:city:view field_meeting_location field'
+  $permissions['taxonomy_term:city:view field_meeting_location field'] = array(
+    'roles' => array(
+      'administrator member' => 'administrator member',
+      'clerk' => 'clerk',
+      'member' => 'member',
+      'non-member' => 'non-member',
+    ),
+  );
+
+  // Exported og permission: 'taxonomy_term:city:view field_meeting_time field'
+  $permissions['taxonomy_term:city:view field_meeting_time field'] = array(
+    'roles' => array(
+      'administrator member' => 'administrator member',
+      'clerk' => 'clerk',
+      'member' => 'member',
+      'non-member' => 'non-member',
+    ),
   );
 
   // Exported og permission: 'taxonomy_term:city:view group_group field'
   $permissions['taxonomy_term:city:view group_group field'] = array(
     'roles' => array(
       'administrator member' => 'administrator member',
+      'clerk' => 'clerk',
       'member' => 'member',
       'non-member' => 'non-member',
     ),
