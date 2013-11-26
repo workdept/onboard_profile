@@ -1,6 +1,6 @@
 default:
   paths:
-      features: 'features'
+    features: 'features'
   extensions:
     Behat\MinkExtension\Extension:
       base_url: http://localhost:8080/
@@ -9,6 +9,8 @@ default:
         wd_host: "http://localhost:8643/wd/hub"
     Drupal\DrupalExtension\Extension:
       blackbox: ~
+      drush:
+        root: ../../..
 
   formatter:
     name: pretty,html
