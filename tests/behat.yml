@@ -11,6 +11,9 @@ default:
       blackbox: ~
       drush:
         root: ../../..
+      region_map:
+        First sidebar: ".region-sidebar-first"
+        Content: "#content"
 
   formatter:
     name: pretty,html
