@@ -20,6 +20,12 @@ dependencies[] = link
 dependencies[] = libraries
 dependencies[] = menu
 dependencies[] = number
+dependencies[] = og
+dependencies[] = og_access                                                     
+dependencies[] = og_context                                                    
+dependencies[] = og_field_access                                               
+dependencies[] = og_register 
+dependencies[] = og_ui
 dependencies[] = options
 dependencies[] = pathauto
 dependencies[] = rest_server
@@ -32,3 +38,4 @@ dependencies[] = token
 dependencies[] = views
 dependencies[] = views_ui
 
+dependencies[] = onboard_types

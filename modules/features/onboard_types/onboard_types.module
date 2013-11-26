@@ -5,3 +5,33 @@
  */
 
 include_once 'onboard_types.features.inc';
+
+function onboard_types_board_term_title($node) {
+  $person_id = $node->field_person['und'][0]['target_id'];
+  $person = entity_load_single('node', $person_id); 
+  $board_id = $node->field_board['und'][0]['target_id'];
+  $board = entity_load_single('node', $board_id); 
+
+  if ($person && $board) {
+    return $board->title . " / " . $person->title;
+  }
+
+  return "Board Term";
+}
+
+function onboard_types_node_presave($node) {
+  if ($node->type == 'board_term') {
+    if ($node->title == '') {
+      $node->title = onboard_types_board_term_title($node);
+    }
+  }
+
+  return $node;
+}
+
+function onboard_types_form_board_term_node_form_alter(&$form, &$form_state, $form_id) {
+  // Hide the ``title`` field and make it non-required.  It's value will
+  // be populated by ``onboard_types_node_presave()`` above. 
+  $form['title']['#access'] = FALSE;
+  $form['title']['#required'] = FALSE;
+}

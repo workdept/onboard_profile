@@ -74,3 +74,5 @@ projects[token][version] = "1.5"
 projects[views][subdir] = "contrib"
 projects[views][version] = "3.7"
 
+projects[og][subdir] = "contrib"
+projects[og][version] = "2.4"
