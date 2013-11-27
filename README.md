@@ -11,6 +11,7 @@ cd onboard_webroot
 mysql -uroot -e 'create database onboard_test'
 drush site-install onboard_profile  --account-name=admin --account-pass=admin --db-url=mysql://root@localhost/onboard_test --yes
 drush cc all
+drush php-eval 'node_access_rebuild();'
 drush runserver --server=builtin 8080
 ```
 

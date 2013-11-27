@@ -1,14 +1,22 @@
 default:
   paths:
-      features: 'features'
+    features: 'features'
   extensions:
     Behat\MinkExtension\Extension:
-      base_url: http://localhost:8080/
+      base_url: http://127.0.0.1:8080/
       goutte: ~
       selenium2:
         wd_host: "http://localhost:8643/wd/hub"
     Drupal\DrupalExtension\Extension:
       blackbox: ~
+      drush:
+        root: ../../..
+      region_map:
+        First sidebar: ".region-sidebar-first"
+        Content: "#content"
+      api_driver: "drupal"
+      drupal:
+        drupal_root: ../../..
 
   formatter:
     name: pretty,html

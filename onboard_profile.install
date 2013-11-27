@@ -29,18 +29,6 @@ function onboard_profile_install() {
   variable_set('admin_theme', $admin_theme);
   variable_set('node_admin_theme', '1');
 
-  // Disable some blocks.
-  db_update('block')
-    ->fields(array('region' => -1))
-    ->condition('module', 'user')
-    ->condition('delta', 'login')
-    ->execute();
-  db_update('block')
-    ->fields(array('region' => -1))
-    ->condition('module', 'system')
-    ->condition('delta', 'navigation')
-    ->execute();
-
   // Add text formats.
   $filtered_html_format = array(
     'format' => 'filtered_html',
