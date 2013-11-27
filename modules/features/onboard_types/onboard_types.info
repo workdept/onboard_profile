@@ -136,3 +136,5 @@ features[variable][] = node_preview_person
 features[variable][] = node_submitted_board
 features[variable][] = node_submitted_board_term
 features[variable][] = node_submitted_person
+
+files[] = tests/onboard_types.test
