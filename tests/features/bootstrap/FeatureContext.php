@@ -6,6 +6,18 @@ use Behat\Gherkin\Node\TableNode;
 
 class FeatureContext extends DrupalContext
 {
+  public function goToViewNode($node) {
+    parent::visit(sprintf("node/%d", $node->nid));
+  }
+
+  public function goToEditNode($node) {
+    parent::visit(sprintf("node/%d/edit", $node->nid));
+  }
+
+  public function goToDeleteNode($node) {
+    parent::visit(sprintf("node/%d/delete", $node->nid));
+  }
+
   /**
    * @Given /^cities:$/
    */
@@ -79,8 +91,7 @@ class FeatureContext extends DrupalContext
       return FALSE;
     }
 
-    $node = node_load(array_keys($entities['node'])[0]);
-    return $node;
+    return node_load(array_keys($entities['node'])[0]);
   }
 
   /**
@@ -95,7 +106,7 @@ class FeatureContext extends DrupalContext
    */
   public function goToViewBoard($board_name, $city_name) {
     $board = $this->getBoard($board_name, $city_name);
-    parent::visit(sprintf("node/%d", $board->nid));
+    $this->goToViewNode($board);
   }
 
   /**
@@ -103,7 +114,7 @@ class FeatureContext extends DrupalContext
    */
   public function goToEditBoard($board_name, $city_name) {
     $board = $this->getBoard($board_name, $city_name);
-    parent::visit(sprintf("node/%d/edit", $board->nid));
+    $this->goToEditNode($board);
   }
 
   /**
@@ -111,7 +122,60 @@ class FeatureContext extends DrupalContext
    */
   public function goToDeleteBoard($board_name, $city_name) {
     $board = $this->getBoard($board_name, $city_name);
-    parent::visit(sprintf("node/%d/delete", $board->nid));
+    $this->goToDeleteNode($board);
   }
 
+  /**
+   * @When /^I go to add a person$/
+   */
+  public function goToAddPerson() {
+    parent::visit("node/add/person");
+  }
+
+  /**
+   * @Given /^people:$/
+   */
+  public function people(TableNode $table) {
+    // Get the table rows.  We're going to change them
+    $rows = $table->getRows();
+    $name_idx = array_search('name', $rows[0]);
+    // Convert the 'name' column of the table to be
+    // 'title', the actual field name
+    $rows[0][$name_idx] = 'title';
+
+    // Update the rows in the table
+    $table->setRows($rows);
+    parent::createNodes('person', $table);
+  }
+
+  public function getPerson($person_name) {
+    $query = new EntityFieldQuery();
+    $entities = $query->entityCondition('entity_type', 'node')
+      ->propertyCondition('type', 'person')
+      ->propertyCondition('title', $person_name)
+      ->range(0, 1)
+      ->execute();
+
+    if (empty($entities['node'])) {
+      return FALSE;
+    }
+
+    return node_load(array_keys($entities['node'])[0]);
+  }
+
+  /**
+   * @When /^I go to edit the person "([^"]*)"$/
+   */
+  public function goToEditPerson($name) {
+    $person = $this->getPerson($name);
+    $this->goToEditNode($person);
+  }
+
+  /**
+   * @When /^I go to delete the person "([^"]*)"$/
+   */
+  public function goToDeletePerson($name) {
+    $person = $this->getPerson($name);
+    $this->goToDeleteNode($person);
+  }
 }
