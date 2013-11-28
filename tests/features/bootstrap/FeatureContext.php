@@ -41,4 +41,54 @@ class FeatureContext extends DrupalContext
       $this->assignClerk($user, $clerk_map['city']);
     } 
   }
+
+  /**
+   * @Given /^boards:$/
+   */
+  public function boards(TableNode $table) {
+    // Get the table rows.  We're going to change them
+    $rows = $table->getRows();
+    $city_idx = array_search('city', $rows[0]);
+    // Convert the 'city' column of the table to be
+    // 'og_group_ref', the actual field name
+    $rows[0][$city_idx] = 'og_group_ref';
+    for ($i = 1; $i < count($rows); $i++) {
+      // Convert the city name to a group id (in our case
+      // a taxonomy id)
+      $city = $this->getCity($rows[$i][$city_idx]);
+      $rows[$i][$city_idx] = $city->tid;
+    }
+    // Update the rows in the table
+    $table->setRows($rows);
+    // Call upstream to actually create the nodes
+    parent::createNodes('board', $table);
+  }
+
+
+  public function getBoard($board_name, $city_name) {
+    $city = $this->getCity($city_name);
+    $query = new EntityFieldQuery();
+    $entities = $query->entityCondition('entity_type', 'node')
+      ->propertyCondition('type', 'board')
+      ->propertyCondition('title', $board_name)
+      ->fieldCondition('og_group_ref', 'target_id', $city->tid, '=')
+      ->range(0, 1)
+      ->execute();
+
+    if (empty($entities['node'])) {
+      return FALSE;
+    }
+
+    $node = node_load(array_keys($entities['node'])[0]);
+    return $node;
+  }
+
+  /**
+   * @When /^I edit the board "([^"]*)" for "([^"]*)"$/
+   */
+  public function editBoard($board_name, $city_name) {
+    $board = $this->getBoard($board_name, $city_name);
+    parent::visit(sprintf("node/%d/edit", $board->nid));
+  }
+
 }
