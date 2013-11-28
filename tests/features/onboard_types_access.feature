@@ -65,7 +65,7 @@ Feature: Access controls for Onboard content types
       | title                 | author           | city         |
       | Beautification Board  | nancy            | Ferndale     |
     And I am logged in as "nancy"
-    When I edit the board "Beautification Board" for "Ferndale"
+    When I go to edit the board "Beautification Board" for "Ferndale"
     And I fill in "City Hall" for "Meeting Location"
     And I press "Save"
     Then I should see "Board Beautification Board has been updated"
@@ -85,7 +85,7 @@ Feature: Access controls for Onboard content types
       | title                 | author           | city         |
       | Beautification Board  | nancy            | Ferndale     |
     And I am logged in as "nancy"
-    When I delete the board "Beautification Board" for "Ferndale"
+    When I go to delete the board "Beautification Board" for "Ferndale"
     And I press "Delete"
     Then I should see "Board Beautification Board has been deleted"
 
@@ -107,7 +107,7 @@ Feature: Access controls for Onboard content types
       | Beautification Board  | nancy            | Ferndale     |
       | Parks Board           | ada              | Ypsilanti    |
     And I am logged in as "nancy"
-    When I edit the board "Parks Board" for "Ypsilanti"
+    When I go to edit the board "Parks Board" for "Ypsilanti"
     Then the response status code should be 403
 
   Scenario: Clerk cannot delete a board for another city
@@ -128,7 +128,7 @@ Feature: Access controls for Onboard content types
       | Beautification Board  | nancy            | Ferndale     |
       | Parks Board           | ada              | Ypsilanti    |
     And I am logged in as "nancy"
-    When I delete the board "Parks Board" for "Ypsilanti"
+    When I go to delete the board "Parks Board" for "Ypsilanti"
     Then the response status code should be 403
 
   Scenario: Clerk can edit another clerk's board for her city
@@ -148,7 +148,7 @@ Feature: Access controls for Onboard content types
       | Beautification Board  | nancy            | Ferndale     |
       | Parks Board           | allen            | Ferndale     |
     And I am logged in as "nancy"
-    When I edit the board "Parks Board" for "Ferndale"
+    When I go to edit the board "Parks Board" for "Ferndale"
     And I fill in "City Hall" for "Meeting Location"
     And I press "Save"
     Then I should see "Board Parks Board has been updated"
@@ -171,7 +171,7 @@ Feature: Access controls for Onboard content types
       | Beautification Board  | nancy            | Ferndale     |
       | Parks Board           | allen            | Ferndale     |
     And I am logged in as "nancy"
-    When I delete the board "Parks Board" for "Ferndale"
+    When I go to delete the board "Parks Board" for "Ferndale"
     And I press "Delete"
     Then I should see "Board Parks Board has been deleted"
 
@@ -189,7 +189,7 @@ Feature: Access controls for Onboard content types
       | title                 | author           | city         |
       | Beautification Board  | nancy            | Ferndale     |
     And I am not logged in
-    When I view the board "Beautification Board" for "Ferndale"
+    When I go to view the board "Beautification Board" for "Ferndale"
     Then the response status code should be 200
     And I should see "Beautification Board"
     And I should see "Ferndale"
