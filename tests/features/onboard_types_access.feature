@@ -71,10 +71,127 @@ Feature: Access controls for Onboard content types
     Then I should see "Board Beautification Board has been updated"
     And I should see "City Hall"
 
-  #Scenario: Clerk can delete their own board
+  Scenario: Clerk can delete their own board
+    Given cities:
+      | name      |
+      | Ferndale  |
+    And users:
+      | name  | status | 
+      | nancy | 1      |     
+    And clerks:
+      | user  | city     |
+      | nancy | Ferndale |
+    And boards:
+      | title                 | author           | city         |
+      | Beautification Board  | nancy            | Ferndale     |
+    And I am logged in as "nancy"
+    When I delete the board "Beautification Board" for "Ferndale"
+    And I press "Delete"
+    Then I should see "Board Beautification Board has been deleted"
 
-  #Scenario: Clerk cannot edit a board for another city
+  Scenario: Clerk cannot edit a board for another city
+    Given cities:
+      | name      |
+      | Ferndale  |
+      | Ypsilanti |
+    And users:
+      | name  | status |
+      | nancy | 1      |
+      | ada   | 1      |
+    And clerks:
+      | user  | city      |
+      | nancy | Ferndale  |
+      | ada   | Ypsilanti |
+    And boards:
+      | title                 | author           | city         |
+      | Beautification Board  | nancy            | Ferndale     |
+      | Parks Board           | ada              | Ypsilanti    |
+    And I am logged in as "nancy"
+    When I edit the board "Parks Board" for "Ypsilanti"
+    Then the response status code should be 403
 
-  #Scenario: Clerk cannot delete a board for another city
+  Scenario: Clerk cannot delete a board for another city
+    Given cities:
+      | name      |
+      | Ferndale  |
+      | Ypsilanti |
+    And users:
+      | name  | status |
+      | nancy | 1      |
+      | ada   | 1      |
+    And clerks:
+      | user  | city      |
+      | nancy | Ferndale  |
+      | ada   | Ypsilanti |
+    And boards:
+      | title                 | author           | city         |
+      | Beautification Board  | nancy            | Ferndale     |
+      | Parks Board           | ada              | Ypsilanti    |
+    And I am logged in as "nancy"
+    When I delete the board "Parks Board" for "Ypsilanti"
+    Then the response status code should be 403
 
-    # And print last response
+  Scenario: Clerk can edit another clerk's board for her city
+    Given cities:
+      | name      |
+      | Ferndale  |
+    And users:
+      | name  | status |
+      | nancy | 1      |
+      | allen | 1      |
+    And clerks:
+      | user  | city      |
+      | nancy | Ferndale  |
+      | allen | Ferndale |
+    And boards:
+      | title                 | author           | city         |
+      | Beautification Board  | nancy            | Ferndale     |
+      | Parks Board           | allen            | Ferndale     |
+    And I am logged in as "nancy"
+    When I edit the board "Parks Board" for "Ferndale"
+    And I fill in "City Hall" for "Meeting Location"
+    And I press "Save"
+    Then I should see "Board Parks Board has been updated"
+    And I should see "City Hall"
+
+  Scenario: Clerk can delete another clerk's board for her city
+    Given cities:
+      | name      |
+      | Ferndale  |
+    And users:
+      | name  | status |
+      | nancy | 1      |
+      | allen | 1      |
+    And clerks:
+      | user  | city      |
+      | nancy | Ferndale  |
+      | allen | Ferndale |
+    And boards:
+      | title                 | author           | city         |
+      | Beautification Board  | nancy            | Ferndale     |
+      | Parks Board           | allen            | Ferndale     |
+    And I am logged in as "nancy"
+    When I delete the board "Parks Board" for "Ferndale"
+    And I press "Delete"
+    Then I should see "Board Parks Board has been deleted"
+
+  Scenario: An anonymous user can view any board
+    Given cities:
+      | name      |
+      | Ferndale  |
+    And users:
+      | name  | status |
+      | nancy | 1      |
+    And clerks:
+      | user  | city      |
+      | nancy | Ferndale  |
+    And boards:
+      | title                 | author           | city         |
+      | Beautification Board  | nancy            | Ferndale     |
+    And I am not logged in
+    When I view the board "Beautification Board" for "Ferndale"
+    Then the response status code should be 200
+    And I should see "Beautification Board"
+    And I should see "Ferndale"
+
+    Then I should see "Beautification Board"

@@ -84,11 +84,27 @@ class FeatureContext extends DrupalContext
   }
 
   /**
+   * @When /^I view the board "([^"]*)" for "([^"]*)"$/
+   */
+  public function viewBoard($board_name, $city_name) {
+    $board = $this->getBoard($board_name, $city_name);
+    parent::visit(sprintf("node/%d", $board->nid));
+  }
+
+  /**
    * @When /^I edit the board "([^"]*)" for "([^"]*)"$/
    */
   public function editBoard($board_name, $city_name) {
     $board = $this->getBoard($board_name, $city_name);
     parent::visit(sprintf("node/%d/edit", $board->nid));
+  }
+
+  /**
+   * @When /^I delete the board "([^"]*)" for "([^"]*)"$/
+   */
+  public function deleteBoard($board_name, $city_name) {
+    $board = $this->getBoard($board_name, $city_name);
+    parent::visit(sprintf("node/%d/delete", $board->nid));
   }
 
 }
