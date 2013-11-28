@@ -84,6 +84,13 @@ class FeatureContext extends DrupalContext
   }
 
   /**
+   * @When /^I go to add a board$/
+   */
+  public function goToAddBoard() {
+    parent::visit("node/add/board");
+  }
+
+  /**
    * @When /^I go to view the board "([^"]*)" for "([^"]*)"$/
    */
   public function goToViewBoard($board_name, $city_name) {

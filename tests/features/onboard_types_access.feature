@@ -15,7 +15,7 @@ Feature: Access controls for Onboard content types
       | user  | city     |
       | nancy | Ferndale |
     And I am logged in as "nancy"
-    When I go to "node/add/board"
+    When I go to add a board 
     And I fill in "Name" with "Beautification Board"
     And I select "Ferndale" from "City"
     And I press "Save"
@@ -35,7 +35,7 @@ Feature: Access controls for Onboard content types
       | nancy | Ferndale  |
       | ada   | Ypsilanti |
     And I am logged in as "nancy"
-    When I go to "node/add/board"
+    When I go to add a board
     Then I should see "Create Board"
     And I should not see "Ypsilanti"
 
@@ -48,7 +48,7 @@ Feature: Access controls for Onboard content types
       | name  | status |
       | allen | 1      |
     And I am logged in as "allen"
-    When I go to "node/add/board"
+    When I go to add a board 
     Then the response status code should be 403
 
   Scenario: Clerk can edit their own board
