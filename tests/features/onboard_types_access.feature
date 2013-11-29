@@ -335,14 +335,115 @@ Feature: Access controls for Onboard content types
       | nancy | 1      |
       | allen | 1      |
     And clerks:
-      | user  | city      |
-      | nancy | Ferndale  |
+      | user  | city     |
+      | nancy | Ferndale |
       | allen | Ferndale |
     And people:
       | name          | author |
       | Test Person   | nancy  |
-      | Test Person 2 | allen    |
+      | Test Person 2 | allen  |
     And I am logged in as "nancy"
     When I go to delete the person "Test Person 2"
     And I press "Delete"
     Then I should see "Person Test Person 2 has been deleted"
+
+  Scenario: A user who is not a clerk cannot create a board term
+    Given cities:
+      | name      |
+      | Ferndale  |
+      | Ypsilanti |
+    And users:
+      | name  | status |
+      | nancy | 1      |
+      | allen | 1      |
+    And clerks:
+      | user  | city      |
+      | nancy | Ferndale  |
+    And boards:
+      | title                 | author           | city         |
+      | Beautification Board  | nancy            | Ferndale     |
+    And people:
+      | name        | author |
+      | Test Person | nancy  |
+    And I am logged in as "allen"
+    When I go to add a board term
+    Then the response status code should be 403
+
+  @javascript
+  Scenario: A clerk can create a board term for a board in her city
+    Given cities:
+      | name      |
+      | Ferndale  |
+    And users:
+      | name  | status |
+      | nancy | 1      |
+    And clerks:
+      | user  | city      |
+      | nancy | Ferndale  |
+    And boards:
+      | title                 | author           | city         |
+      | Beautification Board  | nancy            | Ferndale     |
+    And people:
+      | name        | author |
+      | Test Person | nancy  |
+    And I am logged in as "nancy"
+    When I go to add a board term
+    Given I fill in "Board" with "Beautification Board"
+    And I press the "enter" key in the "Board" field
+    And I fill in "Person" with "Test Person"
+    And I press the "enter" key in the "Board" field
+    And I fill in "field_term_dates[und][0][value][date]" with "12/24/1983"
+    And I fill in "field_term_dates[und][0][value2][date]" with "1/1/1985"
+    And I press "Save"
+    Then I should see "has been created" 
+
+  Scenario: A clerk can edit a board term for a board for her city
+    Given cities:
+      | name      |
+      | Ferndale  |
+    And users:
+      | name  | status |
+      | nancy | 1      |
+    And clerks:
+      | user  | city      |
+      | nancy | Ferndale  |
+    And boards:
+      | title                 | author           | city         |
+      | Beautification Board  | nancy            | Ferndale     |
+    And people:
+      | name        | author |
+      | Test Person | nancy  |
+    And board terms:
+      | city     | board                | person      | start     | end       | author |
+      | Ferndale | Beautification Board | Test Person | 3/15/2012 | 4/15/2013 | nancy |
+    And I am logged in as "nancy"
+    When I go to edit the board term for the city of "Ferndale" board "Beautification Board" for "Test Person"
+    And I fill in "field_term_dates[und][0][value][date]" with "3/1/2013"
+    And I fill in "field_term_dates[und][0][value2][date]" with "4/16/2013"
+    And I press "Save"
+    #Then print last response 
+    Then I should see "has been updated"
+
+  Scenario: A clerk can delete a board term for a board for her city
+    Given cities:
+      | name      |
+      | Ferndale  |
+    And users:
+      | name  | status |
+      | nancy | 1      |
+    And clerks:
+      | user  | city      |
+      | nancy | Ferndale  |
+    And boards:
+      | title                 | author           | city         |
+      | Beautification Board  | nancy            | Ferndale     |
+    And people:
+      | name        | author |
+      | Test Person | nancy  |
+    And board terms:
+      | city     | board                | person      | start     | end       | author |
+      | Ferndale | Beautification Board | Test Person | 3/15/2012 | 4/15/2013 | nancy |
+    And I am logged in as "nancy"
+    When I go to delete the board term for the city of "Ferndale" board "Beautification Board" for "Test Person"
+    And I press "Delete"
+    Then I should see "has been deleted"

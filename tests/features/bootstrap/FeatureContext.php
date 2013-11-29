@@ -76,7 +76,6 @@ class FeatureContext extends DrupalContext
     parent::createNodes('board', $table);
   }
 
-
   public function getBoard($board_name, $city_name) {
     $city = $this->getCity($city_name);
     $query = new EntityFieldQuery();
@@ -177,5 +176,86 @@ class FeatureContext extends DrupalContext
   public function goToDeletePerson($name) {
     $person = $this->getPerson($name);
     $this->goToDeleteNode($person);
+  }
+
+  public function getBoardTerm($city_name, $board_name, $person_name) {
+    $board = $this->getBoard($board_name, $city_name);
+    $person = $this->getPerson($person_name);
+    $query = new EntityFieldQuery();
+    //print_r($board);
+    //print_r($person);
+    $entities = $query->entityCondition('entity_type', 'node')
+      ->propertyCondition('type', 'board_term')
+      // BOOKMARK
+      // TODO: Figure out why querying with these conditions doesn't
+      // return any results
+      //->fieldCondition('field_board', 'target_id', $board->nid, '=')
+      //->fieldCondition('field_person', 'target_id', $person->nid, '=')
+      ->range(0, 1)
+      ->execute();
+
+    //print_r($entities);
+
+    if (empty($entities['node'])) {
+      return FALSE;
+    }
+
+    $node = node_load(array_keys($entities['node'])[0]);
+    //print_r($node);
+    return $node;
+  }
+
+  /**
+   * @Given /^board terms:$/
+   */
+  public function boardTerms(TableNode $table) {
+    $rows = $table->getRows();
+
+    $city_idx = array_search('city', $rows[0]);
+    $board_idx = array_search('board', $rows[0]);
+    $person_idx = array_search('person', $rows[0]);
+    $start_idx = array_search('start', $rows[0]);
+    $end_idx = array_search('end', $rows[0]);
+
+    $rows[0][$board_idx] = 'field_board';
+    $rows[0][$person_idx] = 'field_person';
+    array_splice($rows[0], $city_idx, $city_idx + 1);
+
+    for ($i = 1; $i < count($rows); $i++) {
+      $city_name = $rows[$i][$city_idx];
+      $board_name = $rows[$i][$board_idx];
+      $board = $this->getBoard($board_name, $city_name);
+      $person = $this->getPerson($rows[$i][$person_idx]);
+
+      $rows[$i][$board_idx] = $board->nid;
+      $rows[$i][$person_idx] = $person->nid;
+      array_splice($rows[$i], $city_idx, $city_idx + 1);
+    }
+    $table->setRows($rows);
+
+    parent::createNodes('board_term', $table);
+  }
+
+  /**
+   * @When /^I go to edit the board term for the city of "([^"]*)" board "([^"]*)" for "([^"]*)"$/
+   */
+  public function goToEditBoardTerm($city_name, $board_name, $person_name) {
+    $term = $this->getBoardTerm($city_name, $board_name, $person_name);
+    $this->goToEditNode($term);
+  }
+
+  /**
+   * @When /^I go to add a board term$/
+   */
+  public function goToAddBoardTerm() {
+    parent::visit("node/add/board-term");
+  }
+
+  /**
+   * @When /^I go to delete the board term for the city of "([^"]*)" board "([^"]*)" for "([^"]*)"$/
+   */
+  public function goToDeleteBoardTerm($city_name, $board_name, $person_name) {
+    $term = $this->getBoardTerm($city_name, $board_name, $person_name);
+    $this->goToDeleteNode($term);
   }
 }
