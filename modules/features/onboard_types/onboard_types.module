@@ -21,7 +21,7 @@ function onboard_types_board_term_title($node) {
 
 function onboard_types_node_presave($node) {
   if ($node->type == 'board_term') {
-    if ($node->title == '') {
+    if (!isset($node->title) || $node->title == '') {
       $node->title = onboard_types_board_term_title($node);
     }
   }
