@@ -182,26 +182,18 @@ class FeatureContext extends DrupalContext
     $board = $this->getBoard($board_name, $city_name);
     $person = $this->getPerson($person_name);
     $query = new EntityFieldQuery();
-    //print_r($board);
-    //print_r($person);
     $entities = $query->entityCondition('entity_type', 'node')
       ->propertyCondition('type', 'board_term')
-      // BOOKMARK
-      // TODO: Figure out why querying with these conditions doesn't
-      // return any results
-      //->fieldCondition('field_board', 'target_id', $board->nid, '=')
-      //->fieldCondition('field_person', 'target_id', $person->nid, '=')
+      ->fieldCondition('field_board', 'target_id', $board->nid, '=')
+      ->fieldCondition('field_person', 'target_id', $person->nid, '=')
       ->range(0, 1)
       ->execute();
-
-    //print_r($entities);
 
     if (empty($entities['node'])) {
       return FALSE;
     }
 
     $node = node_load(array_keys($entities['node'])[0]);
-    //print_r($node);
     return $node;
   }
 
