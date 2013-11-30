@@ -421,8 +421,67 @@ Feature: Access controls for Onboard content types
     And I fill in "field_term_dates[und][0][value][date]" with "3/1/2013"
     And I fill in "field_term_dates[und][0][value2][date]" with "4/16/2013"
     And I press "Save"
-    #Then print last response 
     Then I should see "has been updated"
+
+  Scenario: A clerk can edit a board term for a board for her city created by another clerk
+    Given cities:
+      | name      |
+      | Ferndale  |
+    And users:
+      | name  | status |
+      | nancy | 1      |
+      | allen | 1      |
+    And clerks:
+      | user  | city      |
+      | nancy | Ferndale  |
+      | allen | Ferndale  |
+    And boards:
+      | title                 | author           | city         |
+      | Beautification Board  | nancy            | Ferndale     |
+      | Parks Board           | allen            | Ferndale     |
+    And people:
+      | name          | author |
+      | Test Person   | nancy  |
+      | Test Person 2 | allen  |
+    And board terms:
+      | city     | board                | person      | start     | end       | author |
+      | Ferndale | Beautification Board | Test Person | 3/15/2012 | 4/15/2013 | nancy |
+      | Ferndale | Parks Board          | Test Person 2 | 2/15/2010 | 1/31/2011 | allen |
+    And I am logged in as "nancy"
+    When I go to edit the board term for the city of "Ferndale" board "Parks Board" for "Test Person 2"
+    And I fill in "field_term_dates[und][0][value][date]" with "3/1/2013"
+    And I fill in "field_term_dates[und][0][value2][date]" with "4/16/2013"
+    And I press "Save"
+    Then I should see "has been updated"
+
+  Scenario: A clerk cannot edit a board term for a board for another city
+    Given cities:
+      | name      |
+      | Ferndale  |
+      | Ypsilanti |
+    And users:
+      | name  | status |
+      | nancy | 1      |
+      | ada   | 1      |
+    And clerks:
+      | user  | city      |
+      | nancy | Ferndale  |
+      | ada   | Ypsilanti |
+    And boards:
+      | title                 | author           | city         |
+      | Beautification Board  | nancy            | Ferndale     |
+      | Parks Board           | ada              | Ypsilanti    |
+    And people:
+      | name          | author |
+      | Test Person   | nancy  |
+      | Test Person 2 | ada    |
+    And board terms:
+      | city     | board                 | person        | start     | end       | author |
+      | Ferndale  | Beautification Board | Test Person   | 3/15/2012 | 4/15/2013 | nancy |
+      | Ypsilanti | Parks Board          | Test Person 2 | 2/15/2010 | 1/31/2011 | ada   |
+    And I am logged in as "nancy"
+    When I go to edit the board term for the city of "Ypsilanti" board "Parks Board" for "Test Person 2"
+    Then the response status code should be 403
 
   Scenario: A clerk can delete a board term for a board for her city
     Given cities:
@@ -445,5 +504,63 @@ Feature: Access controls for Onboard content types
       | Ferndale | Beautification Board | Test Person | 3/15/2012 | 4/15/2013 | nancy |
     And I am logged in as "nancy"
     When I go to delete the board term for the city of "Ferndale" board "Beautification Board" for "Test Person"
+    And I press "Delete"
+    Then I should see "has been deleted"
+
+  Scenario: A clerk cannot delete a board term for a board for another city
+    Given cities:
+      | name      |
+      | Ferndale  |
+      | Ypsilanti |
+    And users:
+      | name  | status |
+      | nancy | 1      |
+      | ada   | 1      |
+    And clerks:
+      | user  | city      |
+      | nancy | Ferndale  |
+      | ada   | Ypsilanti |
+    And boards:
+      | title                 | author           | city         |
+      | Beautification Board  | nancy            | Ferndale     |
+      | Parks Board           | ada              | Ypsilanti    |
+    And people:
+      | name          | author |
+      | Test Person   | nancy  |
+      | Test Person 2 | ada    |
+    And board terms:
+      | city     | board                 | person        | start     | end       | author |
+      | Ferndale  | Beautification Board | Test Person   | 3/15/2012 | 4/15/2013 | nancy |
+      | Ypsilanti | Parks Board          | Test Person 2 | 2/15/2010 | 1/31/2011 | ada   |
+    And I am logged in as "nancy"
+    When I go to delete the board term for the city of "Ypsilanti" board "Parks Board" for "Test Person 2"
+    Then the response status code should be 403
+
+  Scenario: A clerk can delete a board term for a board for her city created by another clerk
+    Given cities:
+      | name      |
+      | Ferndale  |
+    And users:
+      | name  | status |
+      | nancy | 1      |
+      | allen | 1      |
+    And clerks:
+      | user  | city      |
+      | nancy | Ferndale  |
+      | allen | Ferndale  |
+    And boards:
+      | title                 | author           | city         |
+      | Beautification Board  | nancy            | Ferndale     |
+      | Parks Board           | allen            | Ferndale     |
+    And people:
+      | name          | author |
+      | Test Person   | nancy  |
+      | Test Person 2 | allen  |
+    And board terms:
+      | city     | board                | person      | start     | end       | author |
+      | Ferndale | Beautification Board | Test Person | 3/15/2012 | 4/15/2013 | nancy |
+      | Ferndale | Parks Board          | Test Person 2 | 2/15/2010 | 1/31/2011 | allen |
+    And I am logged in as "nancy"
+    When I go to edit the board term for the city of "Ferndale" board "Parks Board" for "Test Person 2"
     And I press "Delete"
     Then I should see "has been deleted"
