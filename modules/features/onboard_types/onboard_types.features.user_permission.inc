@@ -14,8 +14,8 @@ function onboard_types_user_default_permissions() {
   $permissions['create board content'] = array(
     'name' => 'create board content',
     'roles' => array(
+      'administrator' => 'administrator',
       'clerk' => 'clerk',
-      'editor' => 'editor',
     ),
     'module' => 'node',
   );
@@ -24,6 +24,7 @@ function onboard_types_user_default_permissions() {
   $permissions['create board_term content'] = array(
     'name' => 'create board_term content',
     'roles' => array(
+      'administrator' => 'administrator',
       'clerk' => 'clerk',
     ),
     'module' => 'node',
@@ -33,6 +34,7 @@ function onboard_types_user_default_permissions() {
   $permissions['create person content'] = array(
     'name' => 'create person content',
     'roles' => array(
+      'administrator' => 'administrator',
       'clerk' => 'clerk',
     ),
     'module' => 'node',
@@ -42,7 +44,7 @@ function onboard_types_user_default_permissions() {
   $permissions['delete any board content'] = array(
     'name' => 'delete any board content',
     'roles' => array(
-      'editor' => 'editor',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -50,14 +52,18 @@ function onboard_types_user_default_permissions() {
   // Exported permission: 'delete any board_term content'.
   $permissions['delete any board_term content'] = array(
     'name' => 'delete any board_term content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'delete any person content'.
   $permissions['delete any person content'] = array(
     'name' => 'delete any person content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'node',
   );
 
@@ -65,8 +71,8 @@ function onboard_types_user_default_permissions() {
   $permissions['delete own board content'] = array(
     'name' => 'delete own board content',
     'roles' => array(
+      'administrator' => 'administrator',
       'clerk' => 'clerk',
-      'editor' => 'editor',
     ),
     'module' => 'node',
   );
@@ -75,6 +81,7 @@ function onboard_types_user_default_permissions() {
   $permissions['delete own board_term content'] = array(
     'name' => 'delete own board_term content',
     'roles' => array(
+      'administrator' => 'administrator',
       'clerk' => 'clerk',
     ),
     'module' => 'node',
@@ -84,6 +91,7 @@ function onboard_types_user_default_permissions() {
   $permissions['delete own person content'] = array(
     'name' => 'delete own person content',
     'roles' => array(
+      'administrator' => 'administrator',
       'clerk' => 'clerk',
     ),
     'module' => 'node',
@@ -93,7 +101,7 @@ function onboard_types_user_default_permissions() {
   $permissions['edit any board content'] = array(
     'name' => 'edit any board content',
     'roles' => array(
-      'editor' => 'editor',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -101,14 +109,18 @@ function onboard_types_user_default_permissions() {
   // Exported permission: 'edit any board_term content'.
   $permissions['edit any board_term content'] = array(
     'name' => 'edit any board_term content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'edit any person content'.
   $permissions['edit any person content'] = array(
     'name' => 'edit any person content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'node',
   );
 
@@ -116,8 +128,8 @@ function onboard_types_user_default_permissions() {
   $permissions['edit own board content'] = array(
     'name' => 'edit own board content',
     'roles' => array(
+      'administrator' => 'administrator',
       'clerk' => 'clerk',
-      'editor' => 'editor',
     ),
     'module' => 'node',
   );
@@ -126,6 +138,7 @@ function onboard_types_user_default_permissions() {
   $permissions['edit own board_term content'] = array(
     'name' => 'edit own board_term content',
     'roles' => array(
+      'administrator' => 'administrator',
       'clerk' => 'clerk',
     ),
     'module' => 'node',
@@ -135,6 +148,7 @@ function onboard_types_user_default_permissions() {
   $permissions['edit own person content'] = array(
     'name' => 'edit own person content',
     'roles' => array(
+      'administrator' => 'administrator',
       'clerk' => 'clerk',
     ),
     'module' => 'node',
