@@ -480,7 +480,7 @@ function onboard_types_field_default_field_instances() {
     'bundle' => 'board_term',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => 'TODO: limit entity selection to boards in city taxonomy term related to this user!',
+    'description' => '',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -827,7 +827,6 @@ function onboard_types_field_default_field_instances() {
   t('Primary Contact Email');
   t('Primary Contact Name');
   t('Primary Contact Phone Number');
-  t('TODO: limit entity selection to boards in city taxonomy term related to this user!');
   t('Term Dates');
 
   return $field_instances;

@@ -194,18 +194,17 @@ function onboard_types_field_default_field_bases() {
     'locked' => 0,
     'module' => 'entityreference',
     'settings' => array(
-      'handler' => 'base',
+      'handler' => 'views',
       'handler_settings' => array(
         'behaviors' => array(
           'views-select-list' => array(
             'status' => 0,
           ),
         ),
-        'sort' => array(
-          'type' => 'none',
-        ),
-        'target_bundles' => array(
-          'board' => 'board',
+        'view' => array(
+          'args' => array(),
+          'display_name' => 'entityreference',
+          'view_name' => 'my_boards',
         ),
       ),
       'target_type' => 'node',
