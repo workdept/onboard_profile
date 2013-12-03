@@ -6,11 +6,102 @@
 
 include_once 'onboard_types.features.inc';
 
-function onboard_types_board_term_title($node) {
-  $person_id = $node->field_person['und'][0]['target_id'];
-  $person = entity_load_single('node', $person_id); 
+define('ONBOARD_CITY_FIELD', 'og_group_ref');
+define('ONBOARD_CITY_GROUP_TYPE', 'taxonomy_term');
+define('ONBOARD_CITY_GROUP_FIELD', 'vocabulary_machine_name');
+define('ONBOARD_CITY_GROUP_NAME', 'city');
+define('ONBOARD_CLERK_ROLE_NAME', 'clerk');
+
+
+function _onboard_types_entity_is_city_group($entity) {
+  if (isset($entity->{ONBOARD_CITY_GROUP_FIELD}) &&
+      $entity->{ONBOARD_CITY_GROUP_FIELD} == ONBOARD_CITY_GROUP_NAME) {
+    return TRUE;
+  }
+  else {
+    return FALSE;
+  }
+}
+
+/**
+ * Returns the Organic Groups group ID for a user with the given user ID.
+ */
+function onboard_types_get_user_city($uid) {
+  $user = user_load($uid);
+  $user_groups = og_get_groups_by_user($user);
+  if (!isset($user_groups[ONBOARD_CITY_GROUP_TYPE])) {
+    return FALSE;
+  }
+
+  $gids = $user_groups[ONBOARD_CITY_GROUP_TYPE]; 
+  foreach (entity_load(ONBOARD_CITY_GROUP_TYPE, $gids) as $gid => $entity) {
+    if (_onboard_types_entity_is_city_group($entity)) {
+      foreach(og_get_user_roles(ONBOARD_CITY_GROUP_TYPE, $gid, $uid) as $role) {      
+        if ($role == ONBOARD_CLERK_ROLE_NAME) {
+          return $gid;
+        }
+      }
+    }
+  }
+
+  // None of the users groups match the city group, or they're not a clerk
+  return FALSE;
+}
+
+/**
+ * Set the the city relationship of a node.
+ */
+function onboard_types_set_city(&$node, $city_id) {
+  $node->{ONBOARD_CITY_FIELD}['und']['0']['target_id'] = $city_id;
+}
+
+/**
+ * Return the city ID for a node's city.
+ */
+function onboard_types_get_city_id($node) {
+  if (isset($node->{ONBOARD_CITY_FIELD}) &&
+      isset($node->{ONBOARD_CITY_FIELD}['und']) &&
+      isset($node->{ONBOARD_CITY_FIELD}['und']['0']) &&
+      isset($node->{ONBOARD_CITY_FIELD}['und']['0']['target_id'])) {
+    return $node->{ONBOARD_CITY_FIELD}['und']['0']['target_id'];
+  }
+
+  return FALSE;
+}
+
+/**
+ * Return TRUE if a node has an associated city.
+ */
+function onboard_types_has_city($node) {
+  return onboard_types_get_city_id($node) !== FALSE;
+}
+
+/**
+ * Set the value of the "City" field based on the user creating the node.
+ */
+function onboard_types_set_city_from_user(&$node) {
+  $city_id = onboard_types_get_user_city($node->uid);
+  if ($city_id) {
+    onboard_types_set_city($node, $city_id);
+  }
+}
+
+function onboard_types_get_board($node) {
   $board_id = $node->field_board['und'][0]['target_id'];
-  $board = entity_load_single('node', $board_id); 
+  return entity_load_single('node', $board_id); 
+}
+
+function onboard_types_get_person($node) {
+  $person_id = $node->field_person['und'][0]['target_id'];
+  return entity_load_single('node', $person_id); 
+}
+
+/**
+ * Return a reasonable default title for a board term.
+ */
+function onboard_types_board_term_title($node) {
+  $person = onboard_types_get_person($node);
+  $board = onboard_types_get_board($node);
 
   if ($person && $board) {
     return $board->title . " / " . $person->title;
@@ -19,11 +110,43 @@ function onboard_types_board_term_title($node) {
   return "Board Term";
 }
 
+function onboard_types_node_presave_board($node) {
+  if (!onboard_types_has_city($node)) {
+    onboard_types_set_city_from_user($node);
+  }
+
+  return $node;
+}
+
+function onboard_types_node_presave_board_term($node) {
+  if (!isset($node->title) || $node->title == '') {
+    $node->title = onboard_types_board_term_title($node);
+  }
+
+  $board = onboard_types_get_board($node); 
+  $city_id = onboard_types_get_city_id($board);
+  onboard_types_set_city($node, $city_id);
+
+  return $node;
+}
+
+function onboard_types_node_presave_person($node) {
+  if (!onboard_types_has_city($node)) {
+    onboard_types_set_city_from_user($node);
+  }
+
+  return $node;
+}
+
 function onboard_types_node_presave($node) {
-  if ($node->type == 'board_term') {
-    if (!isset($node->title) || $node->title == '') {
-      $node->title = onboard_types_board_term_title($node);
-    }
+  if ($node->type == 'board') {
+    return onboard_types_node_presave_board($node);
+  }
+  else if ($node->type == 'person') {
+    return onboard_types_node_presave_person($node);
+  }
+  else if ($node->type == 'board_term') {
+    return onboard_types_node_presave_board_term($node);
   }
 
   return $node;
