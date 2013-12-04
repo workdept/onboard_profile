@@ -41,12 +41,10 @@ Feature: Automatic field values for custom content types
       | Test Person | nancy  |
     And I am logged in as "nancy"
     When I go to add a board term
-    And I fill in "Board" with "Beautification Board"
-    And I press the "enter" key in the "Board" field
-    And I fill in "Person" with "Test Person"
-    And I press the "enter" key in the "Person" field
     And I fill in "field_term_dates[und][0][value][date]" with "12/24/1983"
     And I fill in "field_term_dates[und][0][value2][date]" with "1/1/1985"
+    And I select "Beautification Board" from the "Board" autocomplete field
+    And I select "Test Person" from the "Person" autocomplete field
     And I press "Save"
     Then I should see "has been created" 
     And I should see "Ferndale"

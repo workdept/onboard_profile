@@ -250,4 +250,22 @@ class FeatureContext extends DrupalContext
     $term = $this->getBoardTerm($city_name, $board_name, $person_name);
     $this->goToDeleteNode($term);
   }
+
+  /**
+   * @Given /^I wait (\d+) seconds?$/
+   */
+  public function iWait($seconds) {
+    sleep($seconds);
+  }
+
+  /**
+   * @Given /^I select "([^"]*)" from the "([^"]*)" autocomplete field$/
+   */
+  public function iSelectFromTheAutocompleteField($value, $field) {
+    $this->getSession()->getPage()->fillField($field, $value);
+    $this->iWait(1);
+    // Down arrow
+    parent::pressKey(40, $field);
+    parent::pressKey("enter", $field);
+  }
 }
