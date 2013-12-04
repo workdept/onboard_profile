@@ -33,6 +33,7 @@ dependencies[] = pathauto
 dependencies[] = rest_server
 dependencies[] = services
 dependencies[] = services_views
+dependencies[] = shortcut
 dependencies[] = strongarm
 dependencies[] = taxonomy
 dependencies[] = text
