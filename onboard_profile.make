@@ -11,6 +11,12 @@ projects[drupal][download][url] = "http://files.aegir.cc/dev/drupal-7.24.1.tar.g
 projects[addressfield][subdir] = "contrib"
 projects[addressfield][version] = "1.0-beta4"
 
+projects[admin_menu][subdir] = "contrib"
+projects[admin_menu][version] = "3.0-rc4"
+
+projects[adminimal_admin_menu][subdir] = "contrib"
+projects[adminimal_admin_menu][version] = "1.4"
+
 projects[boxes][subdir] = "contrib"
 projects[boxes][version] = "1.1"
 
@@ -79,3 +85,10 @@ projects[views_bulk_operatinos][version] = "3.1"
 
 projects[og][subdir] = "contrib"
 projects[og][version] = "2.4"
+
+; Themes
+
+projects[adminimal_theme][type] = "theme"
+projects[adminimal_theme][download][type] = "git"
+projects[adminimal_theme][download][url] = "git://git.drupal.org/project/adminimal_theme.git"
+projects[adminimal_theme][download][branch] = "7.x-1.x"

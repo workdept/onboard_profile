@@ -17,8 +17,8 @@ function onboard_profile_install() {
   minimal_install();
 
   // Enable themes.
-  //$theme = 'whatever_theme';
-  $admin_theme = 'seven';
+  $theme = 'adminimal';
+  $admin_theme = 'adminimal';
   db_update('system')
     ->fields(array('status' => 1))
     ->condition('type', 'theme')
