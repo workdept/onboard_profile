@@ -137,6 +137,7 @@ features[user_permission][] = edit any person content
 features[user_permission][] = edit own board content
 features[user_permission][] = edit own board_term content
 features[user_permission][] = edit own person content
+features[user_permission][] = view own unpublished content
 features[user_role][] = clerk
 features[variable][] = field_bundle_settings_node__board
 features[variable][] = field_bundle_settings_node__board_term
