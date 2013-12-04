@@ -36,6 +36,7 @@ dependencies[] = taxonomy
 dependencies[] = text
 dependencies[] = token
 dependencies[] = views
+dependencies[] = views_bulk_operations
 dependencies[] = views_ui
 
 dependencies[] = onboard_types
