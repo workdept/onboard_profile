@@ -416,6 +416,7 @@ function onboard_types_field_default_field_instances() {
   $field_instances['node-board-og_group_ref'] = array(
     'bundle' => 'board',
     'default_value' => NULL,
+    'default_value_function' => '',
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -436,7 +437,7 @@ function onboard_types_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'og_group_ref',
     'label' => 'City',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
       'behaviors' => array(
         'og_widget' => array(
@@ -447,6 +448,9 @@ function onboard_types_field_default_field_instances() {
             'widget_type' => 'options_select',
           ),
           'status' => TRUE,
+        ),
+        'prepopulate' => array(
+          'status' => 0,
         ),
         'taxonomy-index' => array(
           'status' => TRUE,
