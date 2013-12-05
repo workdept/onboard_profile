@@ -158,3 +158,45 @@ function onboard_types_form_board_term_node_form_alter(&$form, &$form_state, $fo
   $form['title']['#access'] = FALSE;
   $form['title']['#required'] = FALSE;
 }
+
+/**
+ * Implements hook_node_view().
+ *
+ * Add management links to board type.
+ */
+function onboard_types_node_view($node, $view_mode, $langcode) {
+  // only show management links during certain view modes
+  $edity_view_mode = ($view_mode == 'full' || $view_mode == 'teaser');
+
+  if ($edity_view_mode) {
+    // remove "read more"
+    unset($node->content['links']['node']);
+
+    if ($node->type == 'board') {
+      $node->content['links']['add_board_term'] = array(
+        '#links' => array(
+          array(
+            'title' => 'add board term',
+            'href' => 'node/add/board-term?field_board=' . $node->nid,
+          ),
+        ),
+      );
+    }
+
+    if ($node->type == 'board_term') {
+      $node->content['links']['manage_board_term'] = array(
+        '#links' => array(
+          array(
+            'title' => 'edit',
+            'href' => 'node/' . $node->nid . '/edit',
+          ),
+          array(
+            'title' => 'delete',
+            'href' => 'node/' . $node->nid . '/delete',
+          ),
+        ),
+      );
+    }
+  }
+}
+

@@ -479,6 +479,7 @@ function onboard_types_field_default_field_instances() {
   $field_instances['node-board_term-field_board'] = array(
     'bundle' => 'board_term',
     'default_value' => NULL,
+    'default_value_function' => 'entityreference_prepopulate_field_default_value',
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -503,6 +504,16 @@ function onboard_types_field_default_field_instances() {
     'label' => 'Board',
     'required' => 1,
     'settings' => array(
+      'behaviors' => array(
+        'prepopulate' => array(
+          'action' => 'none',
+          'action_on_edit' => 0,
+          'fallback' => 'none',
+          'og_context' => 0,
+          'skip_perm' => 0,
+          'status' => 1,
+        ),
+      ),
       'user_register_form' => FALSE,
     ),
     'widget' => array(

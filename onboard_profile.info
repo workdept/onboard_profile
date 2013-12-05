@@ -15,6 +15,7 @@ dependencies[] = ctools
 dependencies[] = date
 dependencies[] = diff
 dependencies[] = entityreference
+dependencies[] = entityreference_prepopulate
 dependencies[] = features
 dependencies[] = field_ui
 dependencies[] = googleanalytics

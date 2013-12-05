@@ -47,6 +47,9 @@ projects[entityreference][download][branch] = "7.x-1.x"
 projects[entityreference][type] = "module"
 projects[entityreference][subdir] = "contrib"
 
+projects[entityreference_prepopulate][subdir] = "contrib"
+projects[entityreference_prepopulate][version] = "1.3"
+
 projects[features][download][type] = "git"
 projects[features][download][url] = "git://git.drupal.org/project/features.git"
 projects[features][download][branch] = "7.x-2.x"
