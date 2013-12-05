@@ -4,6 +4,23 @@ Feature: Automatic field values for custom content types
   As a clerk 
   I need to be able to have some field values automatically assigned
 
+  Scenario: City field of Board is automatically populated
+    Given cities:
+      | name      |
+      | Ferndale  |
+    And users:
+      | name  | status | 
+      | nancy | 1      |     
+    And clerks:
+      | user  | city     |
+      | nancy | Ferndale |
+    And I am logged in as "nancy"
+    When I go to add a board 
+    And I fill in "Name" with "Beautification Board"
+    And I press "Save"
+    Then I should see "Board Beautification Board has been created"
+    And I should see "Ferndale"
+
   Scenario: City field of Person is automatically populated
     Given cities:
       | name      |

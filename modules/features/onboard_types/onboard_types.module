@@ -114,8 +114,6 @@ function onboard_types_node_presave_board($node) {
   if (!onboard_types_has_city($node)) {
     onboard_types_set_city_from_user($node);
   }
-
-  return $node;
 }
 
 function onboard_types_node_presave_board_term($node) {
@@ -126,30 +124,24 @@ function onboard_types_node_presave_board_term($node) {
   $board = onboard_types_get_board($node); 
   $city_id = onboard_types_get_city_id($board);
   onboard_types_set_city($node, $city_id);
-
-  return $node;
 }
 
 function onboard_types_node_presave_person($node) {
   if (!onboard_types_has_city($node)) {
     onboard_types_set_city_from_user($node);
   }
-
-  return $node;
 }
 
 function onboard_types_node_presave($node) {
   if ($node->type == 'board') {
-    return onboard_types_node_presave_board($node);
+    onboard_types_node_presave_board($node);
   }
   else if ($node->type == 'person') {
-    return onboard_types_node_presave_person($node);
+    onboard_types_node_presave_person($node);
   }
   else if ($node->type == 'board_term') {
-    return onboard_types_node_presave_board_term($node);
+    onboard_types_node_presave_board_term($node);
   }
-
-  return $node;
 }
 
 function onboard_types_form_board_term_node_form_alter(&$form, &$form_state, $form_id) {
