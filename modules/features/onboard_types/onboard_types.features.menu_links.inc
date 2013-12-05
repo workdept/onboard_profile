@@ -10,65 +10,17 @@
 function onboard_types_menu_default_menu_links() {
   $menu_links = array();
 
-  // Exported menu link: shortcuts-onboard_add-city:admin/structure/taxonomy/city/add
-  $menu_links['shortcuts-onboard_add-city:admin/structure/taxonomy/city/add'] = array(
-    'menu_name' => 'shortcuts-onboard',
-    'link_path' => 'admin/structure/taxonomy/city/add',
-    'router_path' => 'admin/structure/taxonomy/%/add',
-    'link_title' => 'Add city',
+  // Exported menu link: menu-manage-my-city_add-board-term:node/add/board-term
+  $menu_links['menu-manage-my-city_add-board-term:node/add/board-term'] = array(
+    'menu_name' => 'menu-manage-my-city',
+    'link_path' => 'node/add/board-term',
+    'router_path' => 'node/add/board-term',
+    'link_title' => 'Add board term',
     'options' => array(
-      'identifier' => 'shortcuts-onboard_add-city:admin/structure/taxonomy/city/add',
-    ),
-    'module' => 'menu',
-    'hidden' => 0,
-    'external' => 0,
-    'has_children' => 0,
-    'expanded' => 0,
-    'weight' => -47,
-    'customized' => 0,
-  );
-  // Exported menu link: shortcuts-onboard_add-people-boards-or-board-terms:node/add
-  $menu_links['shortcuts-onboard_add-people-boards-or-board-terms:node/add'] = array(
-    'menu_name' => 'shortcuts-onboard',
-    'link_path' => 'node/add',
-    'router_path' => 'node/add',
-    'link_title' => 'Add people, boards, or board terms',
-    'options' => array(
-      'identifier' => 'shortcuts-onboard_add-people-boards-or-board-terms:node/add',
-    ),
-    'module' => 'menu',
-    'hidden' => 0,
-    'external' => 0,
-    'has_children' => 0,
-    'expanded' => 0,
-    'weight' => -50,
-    'customized' => 0,
-  );
-  // Exported menu link: shortcuts-onboard_find-people-boards-or-board-terms:admin/content
-  $menu_links['shortcuts-onboard_find-people-boards-or-board-terms:admin/content'] = array(
-    'menu_name' => 'shortcuts-onboard',
-    'link_path' => 'admin/content',
-    'router_path' => 'admin/content',
-    'link_title' => 'Find people, boards, or board terms',
-    'options' => array(
-      'identifier' => 'shortcuts-onboard_find-people-boards-or-board-terms:admin/content',
-    ),
-    'module' => 'menu',
-    'hidden' => 0,
-    'external' => 0,
-    'has_children' => 0,
-    'expanded' => 0,
-    'weight' => -49,
-    'customized' => 0,
-  );
-  // Exported menu link: shortcuts-onboard_manage-cities:admin/structure/taxonomy/city
-  $menu_links['shortcuts-onboard_manage-cities:admin/structure/taxonomy/city'] = array(
-    'menu_name' => 'shortcuts-onboard',
-    'link_path' => 'admin/structure/taxonomy/city',
-    'router_path' => 'admin/structure/taxonomy/%',
-    'link_title' => 'Manage cities',
-    'options' => array(
-      'identifier' => 'shortcuts-onboard_manage-cities:admin/structure/taxonomy/city',
+      'attributes' => array(
+        'title' => '',
+      ),
+      'identifier' => 'menu-manage-my-city_add-board-term:node/add/board-term',
     ),
     'module' => 'menu',
     'hidden' => 0,
@@ -76,14 +28,113 @@ function onboard_types_menu_default_menu_links() {
     'has_children' => 0,
     'expanded' => 0,
     'weight' => -48,
-    'customized' => 0,
+    'customized' => 1,
+  );
+  // Exported menu link: menu-manage-my-city_add-board:node/add/board
+  $menu_links['menu-manage-my-city_add-board:node/add/board'] = array(
+    'menu_name' => 'menu-manage-my-city',
+    'link_path' => 'node/add/board',
+    'router_path' => 'node/add/board',
+    'link_title' => 'Add board',
+    'options' => array(
+      'attributes' => array(
+        'title' => '',
+      ),
+      'identifier' => 'menu-manage-my-city_add-board:node/add/board',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -49,
+    'customized' => 1,
+  );
+  // Exported menu link: menu-manage-my-city_add-person:node/add/person
+  $menu_links['menu-manage-my-city_add-person:node/add/person'] = array(
+    'menu_name' => 'menu-manage-my-city',
+    'link_path' => 'node/add/person',
+    'router_path' => 'node/add/person',
+    'link_title' => 'Add person',
+    'options' => array(
+      'attributes' => array(
+        'title' => '',
+      ),
+      'identifier' => 'menu-manage-my-city_add-person:node/add/person',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -47,
+    'customized' => 1,
+  );
+  // Exported menu link: menu-manage-my-city_get-help:<front>
+  $menu_links['menu-manage-my-city_get-help:<front>'] = array(
+    'menu_name' => 'menu-manage-my-city',
+    'link_path' => '<front>',
+    'router_path' => '',
+    'link_title' => 'Get help',
+    'options' => array(
+      'attributes' => array(
+        'title' => '',
+      ),
+      'identifier' => 'menu-manage-my-city_get-help:<front>',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 1,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -46,
+    'customized' => 1,
+  );
+  // Exported menu link: menu-manage-my-city_log-out:user/logout
+  $menu_links['menu-manage-my-city_log-out:user/logout'] = array(
+    'menu_name' => 'menu-manage-my-city',
+    'link_path' => 'user/logout',
+    'router_path' => 'user/logout',
+    'link_title' => 'Log out',
+    'options' => array(
+      'attributes' => array(
+        'title' => '',
+      ),
+      'identifier' => 'menu-manage-my-city_log-out:user/logout',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -45,
+    'customized' => 1,
+  );
+  // Exported menu link: menu-manage-my-city_my-boards:user/boards
+  $menu_links['menu-manage-my-city_my-boards:user/boards'] = array(
+    'menu_name' => 'menu-manage-my-city',
+    'link_path' => 'user/boards',
+    'router_path' => 'user/boards',
+    'link_title' => 'My boards',
+    'options' => array(
+      'identifier' => 'menu-manage-my-city_my-boards:user/boards',
+    ),
+    'module' => 'system',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -50,
+    'customized' => 1,
   );
   // Translatables
   // Included for use with string extractors like potx.
-  t('Add city');
-  t('Add people, boards, or board terms');
-  t('Find people, boards, or board terms');
-  t('Manage cities');
+  t('Add board');
+  t('Add board term');
+  t('Add person');
+  t('Get help');
+  t('Log out');
+  t('My boards');
 
 
   return $menu_links;
