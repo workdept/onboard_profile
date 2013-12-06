@@ -1,6 +1,6 @@
 @api
 Feature: Access controls for Onboard content types
-  In order to manage boards, board terms and people
+  In order to manage boards, board terms and members
   As a clerk 
   I need to be able to edit and delete items I'm responsible for and prevent others from having unauthorized access
 
@@ -217,7 +217,7 @@ Feature: Access controls for Onboard content types
     And I should see "Beautification Board"
     And I should see "Ferndale"
 
-  Scenario: User who is not a clerk cannot create a Person 
+  Scenario: User who is not a clerk cannot create a Member 
     Given cities:
       | name      |
       | Ferndale  |
@@ -226,10 +226,10 @@ Feature: Access controls for Onboard content types
       | name  | status |
       | allen | 1      |
     And I am logged in as "allen"
-    When I go to add a person 
+    When I go to add a member 
     Then the response status code should be 403
 
-  Scenario: Clerk can create a Person
+  Scenario: Clerk can create a Member
     Given cities:
       | name      |
       | Ferndale  |
@@ -240,26 +240,26 @@ Feature: Access controls for Onboard content types
       | user  | city      |
       | nancy | Ferndale  |
     And I am logged in as "nancy"
-    When I go to add a person
-    And I fill in "Name" with "Test Person"
+    When I go to add a member
+    And I fill in "Name" with "Test Member"
     And I fill in "Email" with "test@email.com"
     And I press "Save"
-    Then I should see "Person Test Person has been created"
+    Then I should see "Member Test Member has been created"
 
   @javascript
-  Scenario: Admin creates a person for a city that they're not a member of
+  Scenario: Admin creates a member for a city that they're not a member of
     Given cities:
       | name      |
       | Ferndale  |
     And I am logged in as a user with the "administrator" role
-    When I go to add a person
-    And I fill in "Name" with "Test Person"
+    When I go to add a member
+    And I fill in "Name" with "Test Member"
     And I fill in "Email" with "test@email.com"
     And I select "Ferndale" from the "Other groups" autocomplete field
     And I press "Save"
-    Then I should see "Person Test Person has been created"
+    Then I should see "Member Test Member has been created"
 
-  Scenario: Clerk can edit a person she created
+  Scenario: Clerk can edit a member she created
     Given cities:
       | name      |
       | Ferndale  |
@@ -269,17 +269,17 @@ Feature: Access controls for Onboard content types
     And clerks:
       | user  | city      |
       | nancy | Ferndale  |
-    And people:
+    And members:
       | name        | author |
-      | Test Person | nancy  |
+      | Test Member | nancy  |
     And I am logged in as "nancy"
-    When I go to edit the person "Test Person"
+    When I go to edit the member "Test Member"
     And I fill in "Email" with "test@email.com"
     And I press "Save"
-    Then I should see "Person Test Person has been updated"
+    Then I should see "Member Test Member has been updated"
     And I should see "test@email.com"
 
-  Scenario: Clerk can delete a person she created
+  Scenario: Clerk can delete a member she created
     Given cities:
       | name      |
       | Ferndale  |
@@ -289,15 +289,15 @@ Feature: Access controls for Onboard content types
     And clerks:
       | user  | city      |
       | nancy | Ferndale  |
-    And people:
+    And members:
       | name        | author |
-      | Test Person | nancy  |
+      | Test Member | nancy  |
     And I am logged in as "nancy"
-    When I go to delete the person "Test Person"
+    When I go to delete the member "Test Member"
     And I press "Delete"
-    Then I should see "Person Test Person has been deleted"
+    Then I should see "Member Test Member has been deleted"
 
-  Scenario: Clerk cannot edit a person from another city
+  Scenario: Clerk cannot edit a member from another city
     Given cities:
       | name      |
       | Ferndale  |
@@ -310,15 +310,15 @@ Feature: Access controls for Onboard content types
       | user  | city      |
       | nancy | Ferndale  |
       | ada   | Ypsilanti |
-    And people:
+    And members:
       | name          | author |
-      | Test Person   | nancy  |
-      | Test Person 2 | ada    |
+      | Test Member   | nancy  |
+      | Test Member 2 | ada    |
     And I am logged in as "nancy"
-    When I go to edit the person "Test Person 2"
+    When I go to edit the member "Test Member 2"
     Then the response status code should be 403
 
-  Scenario: Clerk cannot delete a person from another city
+  Scenario: Clerk cannot delete a member from another city
     Given cities:
       | name      |
       | Ferndale  |
@@ -331,15 +331,15 @@ Feature: Access controls for Onboard content types
       | user  | city      |
       | nancy | Ferndale  |
       | ada   | Ypsilanti |
-    And people:
+    And members:
       | name          | author |
-      | Test Person   | nancy  |
-      | Test Person 2 | ada    |
+      | Test Member   | nancy  |
+      | Test Member 2 | ada    |
     And I am logged in as "nancy"
-    When I go to delete the person "Test Person 2"
+    When I go to delete the member "Test Member 2"
     Then the response status code should be 403
 
-  Scenario: Clerk can edit a person from her city
+  Scenario: Clerk can edit a member from her city
     Given cities:
       | name      |
       | Ferndale  |
@@ -351,18 +351,18 @@ Feature: Access controls for Onboard content types
       | user  | city      |
       | nancy | Ferndale  |
       | allen | Ferndale |
-    And people:
+    And members:
       | name          | author |
-      | Test Person   | nancy  |
-      | Test Person 2 | allen    |
+      | Test Member   | nancy  |
+      | Test Member 2 | allen    |
     And I am logged in as "nancy"
-    When I go to edit the person "Test Person 2"
+    When I go to edit the member "Test Member 2"
     And I fill in "Email" with "test2@email.com"
     And I press "Save"
-    Then I should see "Person Test Person 2 has been updated"
+    Then I should see "Member Test Member 2 has been updated"
     And I should see "test2@email.com"
 
-  Scenario: Clerk can delete a person from her city
+  Scenario: Clerk can delete a member from her city
     Given cities:
       | name      |
       | Ferndale  |
@@ -374,14 +374,14 @@ Feature: Access controls for Onboard content types
       | user  | city     |
       | nancy | Ferndale |
       | allen | Ferndale |
-    And people:
+    And members:
       | name          | author |
-      | Test Person   | nancy  |
-      | Test Person 2 | allen  |
+      | Test Member   | nancy  |
+      | Test Member 2 | allen  |
     And I am logged in as "nancy"
-    When I go to delete the person "Test Person 2"
+    When I go to delete the member "Test Member 2"
     And I press "Delete"
-    Then I should see "Person Test Person 2 has been deleted"
+    Then I should see "Member Test Member 2 has been deleted"
 
   Scenario: A user who is not a clerk cannot create a board term
     Given cities:
@@ -398,9 +398,9 @@ Feature: Access controls for Onboard content types
     And boards:
       | title                 | author           | city         |
       | Beautification Board  | nancy            | Ferndale     |
-    And people:
+    And members:
       | name        | author |
-      | Test Person | nancy  |
+      | Test Member | nancy  |
     And I am logged in as "allen"
     When I go to add a board term
     Then the response status code should be 403
@@ -419,15 +419,15 @@ Feature: Access controls for Onboard content types
     And boards:
       | title                | author | city     |
       | Beautification Board | nancy  | Ferndale |
-    And people:
+    And members:
       | name        | author |
-      | Test Person | nancy  |
+      | Test Member | nancy  |
     And I am logged in as "nancy"
     When I go to add a board term
     And I fill in "field_term_dates[und][0][value][date]" with "12/24/1983"
     And I fill in "field_term_dates[und][0][value2][date]" with "1/1/1985"
     And I select "Beautification Board" from the "Board" autocomplete field
-    And I select "Test Person" from the "Person" autocomplete field
+    And I select "Test Member" from the "Member" autocomplete field
     And I press "Save"
     Then I should see "has been created" 
 
@@ -445,18 +445,18 @@ Feature: Access controls for Onboard content types
     And boards:
       | title                | author | city     |
       | Beautification Board | nancy  | Ferndale |
-    And people:
+    And members:
       | name        | author |
-      | Test Person | nancy  |
+      | Test Member | nancy  |
     And I am logged in as a user with the "administrator" role
     When I go to add a board term
     And I fill in "field_term_dates[und][0][value][date]" with "12/24/1983"
     And I fill in "field_term_dates[und][0][value2][date]" with "1/1/1985"
     And I select "Beautification Board" from the "Board" autocomplete field
-    And I select "Test Person" from the "Person" autocomplete field
+    And I select "Test Member" from the "Member" autocomplete field
     And I press "Save"
     Then I should see "has been created" 
-    And I should see "Test Person"
+    And I should see "Test Member"
     And I should see "Beautification Board"
 
 
@@ -473,14 +473,14 @@ Feature: Access controls for Onboard content types
     And boards:
       | title                 | author           | city         |
       | Beautification Board  | nancy            | Ferndale     |
-    And people:
+    And members:
       | name        | author |
-      | Test Person | nancy  |
+      | Test Member | nancy  |
     And board terms:
-      | city     | board                | person      | start     | end       | author |
-      | Ferndale | Beautification Board | Test Person | 3/15/2012 | 4/15/2013 | nancy |
+      | city     | board                | member      | start     | end       | author |
+      | Ferndale | Beautification Board | Test Member | 3/15/2012 | 4/15/2013 | nancy |
     And I am logged in as "nancy"
-    When I go to edit the board term for the city of "Ferndale" board "Beautification Board" for "Test Person"
+    When I go to edit the board term for the city of "Ferndale" board "Beautification Board" for "Test Member"
     And I fill in "field_term_dates[und][0][value][date]" with "3/1/2013"
     And I fill in "field_term_dates[und][0][value2][date]" with "4/16/2013"
     And I press "Save"
@@ -502,16 +502,16 @@ Feature: Access controls for Onboard content types
       | title                 | author           | city         |
       | Beautification Board  | nancy            | Ferndale     |
       | Parks Board           | allen            | Ferndale     |
-    And people:
+    And members:
       | name          | author |
-      | Test Person   | nancy  |
-      | Test Person 2 | allen  |
+      | Test Member   | nancy  |
+      | Test Member 2 | allen  |
     And board terms:
-      | city     | board                | person      | start     | end       | author |
-      | Ferndale | Beautification Board | Test Person | 3/15/2012 | 4/15/2013 | nancy |
-      | Ferndale | Parks Board          | Test Person 2 | 2/15/2010 | 1/31/2011 | allen |
+      | city     | board                | member      | start     | end       | author |
+      | Ferndale | Beautification Board | Test Member | 3/15/2012 | 4/15/2013 | nancy |
+      | Ferndale | Parks Board          | Test Member 2 | 2/15/2010 | 1/31/2011 | allen |
     And I am logged in as "nancy"
-    When I go to edit the board term for the city of "Ferndale" board "Parks Board" for "Test Person 2"
+    When I go to edit the board term for the city of "Ferndale" board "Parks Board" for "Test Member 2"
     And I fill in "field_term_dates[und][0][value][date]" with "3/1/2013"
     And I fill in "field_term_dates[und][0][value2][date]" with "4/16/2013"
     And I press "Save"
@@ -534,16 +534,16 @@ Feature: Access controls for Onboard content types
       | title                 | author           | city         |
       | Beautification Board  | nancy            | Ferndale     |
       | Parks Board           | ada              | Ypsilanti    |
-    And people:
+    And members:
       | name          | author |
-      | Test Person   | nancy  |
-      | Test Person 2 | ada    |
+      | Test Member   | nancy  |
+      | Test Member 2 | ada    |
     And board terms:
-      | city     | board                 | person        | start     | end       | author |
-      | Ferndale  | Beautification Board | Test Person   | 3/15/2012 | 4/15/2013 | nancy |
-      | Ypsilanti | Parks Board          | Test Person 2 | 2/15/2010 | 1/31/2011 | ada   |
+      | city     | board                 | member        | start     | end       | author |
+      | Ferndale  | Beautification Board | Test Member   | 3/15/2012 | 4/15/2013 | nancy |
+      | Ypsilanti | Parks Board          | Test Member 2 | 2/15/2010 | 1/31/2011 | ada   |
     And I am logged in as "nancy"
-    When I go to edit the board term for the city of "Ypsilanti" board "Parks Board" for "Test Person 2"
+    When I go to edit the board term for the city of "Ypsilanti" board "Parks Board" for "Test Member 2"
     Then the response status code should be 403
 
   Scenario: A clerk can delete a board term for a board for her city
@@ -559,14 +559,14 @@ Feature: Access controls for Onboard content types
     And boards:
       | title                 | author           | city         |
       | Beautification Board  | nancy            | Ferndale     |
-    And people:
+    And members:
       | name        | author |
-      | Test Person | nancy  |
+      | Test Member | nancy  |
     And board terms:
-      | city     | board                | person      | start     | end       | author |
-      | Ferndale | Beautification Board | Test Person | 3/15/2012 | 4/15/2013 | nancy |
+      | city     | board                | member      | start     | end       | author |
+      | Ferndale | Beautification Board | Test Member | 3/15/2012 | 4/15/2013 | nancy |
     And I am logged in as "nancy"
-    When I go to delete the board term for the city of "Ferndale" board "Beautification Board" for "Test Person"
+    When I go to delete the board term for the city of "Ferndale" board "Beautification Board" for "Test Member"
     And I press "Delete"
     Then I should see "has been deleted"
 
@@ -587,16 +587,16 @@ Feature: Access controls for Onboard content types
       | title                 | author           | city         |
       | Beautification Board  | nancy            | Ferndale     |
       | Parks Board           | ada              | Ypsilanti    |
-    And people:
+    And members:
       | name          | author |
-      | Test Person   | nancy  |
-      | Test Person 2 | ada    |
+      | Test Member   | nancy  |
+      | Test Member 2 | ada    |
     And board terms:
-      | city     | board                 | person        | start     | end       | author |
-      | Ferndale  | Beautification Board | Test Person   | 3/15/2012 | 4/15/2013 | nancy |
-      | Ypsilanti | Parks Board          | Test Person 2 | 2/15/2010 | 1/31/2011 | ada   |
+      | city     | board                 | member        | start     | end       | author |
+      | Ferndale  | Beautification Board | Test Member   | 3/15/2012 | 4/15/2013 | nancy |
+      | Ypsilanti | Parks Board          | Test Member 2 | 2/15/2010 | 1/31/2011 | ada   |
     And I am logged in as "nancy"
-    When I go to delete the board term for the city of "Ypsilanti" board "Parks Board" for "Test Person 2"
+    When I go to delete the board term for the city of "Ypsilanti" board "Parks Board" for "Test Member 2"
     Then the response status code should be 403
 
   Scenario: A clerk can delete a board term for a board for her city created by another clerk
@@ -615,15 +615,15 @@ Feature: Access controls for Onboard content types
       | title                 | author           | city         |
       | Beautification Board  | nancy            | Ferndale     |
       | Parks Board           | allen            | Ferndale     |
-    And people:
+    And members:
       | name          | author |
-      | Test Person   | nancy  |
-      | Test Person 2 | allen  |
+      | Test Member   | nancy  |
+      | Test Member 2 | allen  |
     And board terms:
-      | city     | board                | person      | start     | end       | author |
-      | Ferndale | Beautification Board | Test Person | 3/15/2012 | 4/15/2013 | nancy |
-      | Ferndale | Parks Board          | Test Person 2 | 2/15/2010 | 1/31/2011 | allen |
+      | city     | board                | member      | start     | end       | author |
+      | Ferndale | Beautification Board | Test Member | 3/15/2012 | 4/15/2013 | nancy |
+      | Ferndale | Parks Board          | Test Member 2 | 2/15/2010 | 1/31/2011 | allen |
     And I am logged in as "nancy"
-    When I go to edit the board term for the city of "Ferndale" board "Parks Board" for "Test Person 2"
+    When I go to edit the board term for the city of "Ferndale" board "Parks Board" for "Test Member 2"
     And I press "Delete"
     Then I should see "has been deleted"

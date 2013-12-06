@@ -47,8 +47,8 @@ function onboard_types_og_features_default_permissions() {
     ),
   );
 
-  // Exported og permission: 'taxonomy_term:city:create person content'
-  $permissions['taxonomy_term:city:create person content'] = array(
+  // Exported og permission: 'taxonomy_term:city:create member content'
+  $permissions['taxonomy_term:city:create member content'] = array(
     'roles' => array(
       'administrator member' => 'administrator member',
       'clerk' => 'clerk',
@@ -71,8 +71,8 @@ function onboard_types_og_features_default_permissions() {
     ),
   );
 
-  // Exported og permission: 'taxonomy_term:city:delete any person content'
-  $permissions['taxonomy_term:city:delete any person content'] = array(
+  // Exported og permission: 'taxonomy_term:city:delete any member content'
+  $permissions['taxonomy_term:city:delete any member content'] = array(
     'roles' => array(
       'administrator member' => 'administrator member',
       'clerk' => 'clerk',
@@ -95,8 +95,8 @@ function onboard_types_og_features_default_permissions() {
     ),
   );
 
-  // Exported og permission: 'taxonomy_term:city:delete own person content'
-  $permissions['taxonomy_term:city:delete own person content'] = array(
+  // Exported og permission: 'taxonomy_term:city:delete own member content'
+  $permissions['taxonomy_term:city:delete own member content'] = array(
     'roles' => array(
       'administrator member' => 'administrator member',
       'clerk' => 'clerk',
@@ -159,8 +159,8 @@ function onboard_types_og_features_default_permissions() {
     ),
   );
 
-  // Exported og permission: 'taxonomy_term:city:update any person content'
-  $permissions['taxonomy_term:city:update any person content'] = array(
+  // Exported og permission: 'taxonomy_term:city:update any member content'
+  $permissions['taxonomy_term:city:update any member content'] = array(
     'roles' => array(
       'administrator member' => 'administrator member',
       'clerk' => 'clerk',
@@ -263,8 +263,8 @@ function onboard_types_og_features_default_permissions() {
     ),
   );
 
-  // Exported og permission: 'taxonomy_term:city:update field_person field'
-  $permissions['taxonomy_term:city:update field_person field'] = array(
+  // Exported og permission: 'taxonomy_term:city:update field_member field'
+  $permissions['taxonomy_term:city:update field_member field'] = array(
     'roles' => array(
       'administrator member' => 'administrator member',
       'clerk' => 'clerk',
@@ -323,8 +323,8 @@ function onboard_types_og_features_default_permissions() {
     ),
   );
 
-  // Exported og permission: 'taxonomy_term:city:update own person content'
-  $permissions['taxonomy_term:city:update own person content'] = array(
+  // Exported og permission: 'taxonomy_term:city:update own member content'
+  $permissions['taxonomy_term:city:update own member content'] = array(
     'roles' => array(
       'administrator member' => 'administrator member',
       'clerk' => 'clerk',
@@ -447,8 +447,8 @@ function onboard_types_og_features_default_permissions() {
     ),
   );
 
-  // Exported og permission: 'taxonomy_term:city:view field_person field'
-  $permissions['taxonomy_term:city:view field_person field'] = array(
+  // Exported og permission: 'taxonomy_term:city:view field_member field'
+  $permissions['taxonomy_term:city:view field_member field'] = array(
     'roles' => array(
       'administrator member' => 'administrator member',
       'clerk' => 'clerk',

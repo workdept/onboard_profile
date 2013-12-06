@@ -53,7 +53,7 @@ function onboard_types_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'field_bundle_settings_node__person';
+  $strongarm->name = 'field_bundle_settings_node__member';
   $strongarm->value = array(
     'view_modes' => array(),
     'extra_fields' => array(
@@ -68,7 +68,7 @@ function onboard_types_strongarm() {
       'display' => array(),
     ),
   );
-  $export['field_bundle_settings_node__person'] = $strongarm;
+  $export['field_bundle_settings_node__member'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -87,9 +87,9 @@ function onboard_types_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'menu_options_person';
+  $strongarm->name = 'menu_options_member';
   $strongarm->value = array();
-  $export['menu_options_person'] = $strongarm;
+  $export['menu_options_member'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -108,9 +108,9 @@ function onboard_types_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'menu_parent_person';
+  $strongarm->name = 'menu_parent_member';
   $strongarm->value = 'main-menu:0';
-  $export['menu_parent_person'] = $strongarm;
+  $export['menu_parent_member'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -135,12 +135,12 @@ function onboard_types_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'node_options_person';
+  $strongarm->name = 'node_options_member';
   $strongarm->value = array(
     0 => 'status',
-    1 => 'revision',
+    1 => 'promote',
   );
-  $export['node_options_person'] = $strongarm;
+  $export['node_options_member'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -159,9 +159,9 @@ function onboard_types_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'node_preview_person';
+  $strongarm->name = 'node_preview_member';
   $strongarm->value = '1';
-  $export['node_preview_person'] = $strongarm;
+  $export['node_preview_member'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -180,9 +180,9 @@ function onboard_types_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'node_submitted_person';
+  $strongarm->name = 'node_submitted_member';
   $strongarm->value = 0;
-  $export['node_submitted_person'] = $strongarm;
+  $export['node_submitted_member'] = $strongarm;
 
   return $export;
 }
