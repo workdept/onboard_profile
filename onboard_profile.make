@@ -55,8 +55,6 @@ projects[features][download][url] = "git://git.drupal.org/project/features.git"
 projects[features][download][branch] = "7.x-2.x"
 projects[features][type] = "module"
 projects[features][subdir] = "contrib"
-projects[features][patch][export_shortcuts][url] = "https://drupal.org/files/features-986968-24.patch"
-projects[features][patch][export_shortcuts][md5] = "053096a4f607aaa8470e4a22db3dc0bb"
 
 projects[git_deploy][subdir] = "contrib"
 projects[git_deploy][version] = "2.x-dev"
