@@ -9,3 +9,4 @@ projects[drupal][download][url] = "http://files.aegir.cc/dev/drupal-7.24.1.tar.g
 projects[onboard_profile][type] = profile
 projects[onboard_profile][download][type] = git
 projects[onboard_profile][download][url] = https://github.com/bnchdrff/onboard_profile.git
+projects[onboard_profile][download][branch] = segfault
