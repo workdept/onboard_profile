@@ -1,6 +1,6 @@
 @api
 Feature: Automatic field values for custom content types 
-  In order to manage boards, board terms and people with minimum data entry
+  In order to manage boards, board terms and members with minimum data entry
   As a clerk 
   I need to be able to have some field values automatically assigned
 
@@ -21,7 +21,7 @@ Feature: Automatic field values for custom content types
     Then I should see "Board Beautification Board has been created"
     And I should see "Ferndale"
 
-  Scenario: City field of Person is automatically populated
+  Scenario: City field of Member is automatically populated
     Given cities:
       | name      |
       | Ferndale  |
@@ -32,25 +32,25 @@ Feature: Automatic field values for custom content types
       | user  | city     |
       | nancy | Ferndale |
     And I am logged in as "nancy"
-    When I go to add a person
-    And I fill in "Name" with "Test Person"
+    When I go to add a member
+    And I fill in "Name" with "Test Member"
     And I fill in "Email" with "test@email.com"
     And I press "Save"
-    Then I should see "Person Test Person has been created"
+    Then I should see "Member Test Member has been created"
     And I should see "Ferndale"
 
   @javascript
-  Scenario: An administrator can manually set the City field of a Person
+  Scenario: An administrator can manually set the City field of a Member
     Given cities:
       | name      |
       | Ferndale  |
     And I am logged in as a user with the "administrator" role
-    When I go to add a person
-    And I fill in "Name" with "Test Person"
+    When I go to add a member
+    And I fill in "Name" with "Test Member"
     And I fill in "Email" with "test@email.com"
     And I select "Ferndale" from the "Other groups" autocomplete field
     And I press "Save"
-    Then I should see "Person Test Person has been created"
+    Then I should see "Member Test Member has been created"
     And I should see "Ferndale"
 
   @javascript
@@ -67,15 +67,15 @@ Feature: Automatic field values for custom content types
     And boards:
       | title                 | author           | city         |
       | Beautification Board  | nancy            | Ferndale     |
-    And people:
+    And members:
       | name        | author |
-      | Test Person | nancy  |
+      | Test Member | nancy  |
     And I am logged in as "nancy"
     When I go to add a board term
     And I fill in "field_term_dates[und][0][value][date]" with "12/24/1983"
     And I fill in "field_term_dates[und][0][value2][date]" with "1/1/1985"
     And I select "Beautification Board" from the "Board" autocomplete field
-    And I select "Test Person" from the "Person" autocomplete field
+    And I select "Test Member" from the "Member" autocomplete field
     And I press "Save"
     Then I should see "has been created" 
     And I should see "Ferndale"
@@ -101,9 +101,9 @@ Feature: Automatic field values for custom content types
       | Beautification Board  | nancy  | Ferndale  |
       | Parks Board           | ada    | Ypsilanti |
       | School Board          | allen  | Ferndale  |
-    And people:
+    And members:
       | name        | author |
-      | Test Person | nancy  |
+      | Test Member | nancy  |
     And I am logged in as "nancy"
     When I go to add a board term
     And I fill in "field_term_dates[und][0][value][date]" with "12/24/1983"
@@ -115,7 +115,7 @@ Feature: Automatic field values for custom content types
     And I should not see "Parks Board"
 
   @javascript
-  Scenario: Person field is limited to people in a clerk's city when adding a Board Term
+  Scenario: Member field is limited to members in a clerk's city when adding a Board Term
     Given cities:
       | name      |
       | Ferndale  |
@@ -133,20 +133,20 @@ Feature: Automatic field values for custom content types
     And boards:
       | title                 | author | city      |
       | Beautification Board  | nancy  | Ferndale  |
-    And people:
+    And members:
       | name          | author |
-      | Test Person   | nancy  |
-      | Test Person 2 | allen  |
-      | Test Person 3 | ada    |
+      | Test Member   | nancy  |
+      | Test Member 2 | allen  |
+      | Test Member 3 | ada    |
     And I am logged in as "nancy"
     When I go to add a board term
     And I fill in "field_term_dates[und][0][value][date]" with "12/24/1983"
     And I fill in "field_term_dates[und][0][value2][date]" with "1/1/1985"
-    And I fill in "Test" for "Person"
+    And I fill in "Test" for "Member"
     And I wait 1 second
-    Then I should see "Test Person"
-    And I should see "Test Person 2"
-    And I should not see "Test Person 3"
+    Then I should see "Test Member"
+    And I should see "Test Member 2"
+    And I should not see "Test Member 3"
 
   @javascript
   Scenario: An administrator can see all boards when adding a Board Term
@@ -169,9 +169,9 @@ Feature: Automatic field values for custom content types
       | Beautification Board  | nancy  | Ferndale  |
       | Parks Board           | ada    | Ypsilanti |
       | School Board          | allen  | Ferndale  |
-    And people:
+    And members:
       | name        | author |
-      | Test Person | nancy  |
+      | Test Member | nancy  |
     And I am logged in as a user with the "administrator" role
     When I go to add a board term
     And I fill in "field_term_dates[und][0][value][date]" with "12/24/1983"
@@ -183,7 +183,7 @@ Feature: Automatic field values for custom content types
     And I should see "Parks Board"
 
   @javascript
-  Scenario: An administrator can see all available people when adding a Board Term
+  Scenario: An administrator can see all available members when adding a Board Term
     Given cities:
       | name      |
       | Ferndale  |
@@ -201,17 +201,17 @@ Feature: Automatic field values for custom content types
     And boards:
       | title                 | author | city      |
       | Beautification Board  | nancy  | Ferndale  |
-    And people:
+    And members:
       | name          | author |
-      | Test Person   | nancy  |
-      | Test Person 2 | allen  |
-      | Test Person 3 | ada    |
+      | Test Member   | nancy  |
+      | Test Member 2 | allen  |
+      | Test Member 3 | ada    |
     And I am logged in as a user with the "administrator" role
     When I go to add a board term
     And I fill in "field_term_dates[und][0][value][date]" with "12/24/1983"
     And I fill in "field_term_dates[und][0][value2][date]" with "1/1/1985"
-    And I fill in "Test" for "Person"
+    And I fill in "Test" for "Member"
     And I wait 1 second
-    Then I should see "Test Person"
-    And I should see "Test Person 2"
-    And I should see "Test Person 3"
+    Then I should see "Test Member"
+    And I should see "Test Member 2"
+    And I should see "Test Member 3"

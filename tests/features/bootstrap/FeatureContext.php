@@ -125,16 +125,16 @@ class FeatureContext extends DrupalContext
   }
 
   /**
-   * @When /^I go to add a person$/
+   * @When /^I go to add a member$/
    */
-  public function goToAddPerson() {
-    parent::visit("node/add/person");
+  public function goToAddMember() {
+    parent::visit("node/add/member");
   }
 
   /**
-   * @Given /^people:$/
+   * @Given /^members:$/
    */
-  public function people(TableNode $table) {
+  public function members(TableNode $table) {
     // Get the table rows.  We're going to change them
     $rows = $table->getRows();
     $name_idx = array_search('name', $rows[0]);
@@ -144,14 +144,14 @@ class FeatureContext extends DrupalContext
 
     // Update the rows in the table
     $table->setRows($rows);
-    parent::createNodes('person', $table);
+    parent::createNodes('member', $table);
   }
 
-  public function getPerson($person_name) {
+  public function getMember($member_name) {
     $query = new EntityFieldQuery();
     $entities = $query->entityCondition('entity_type', 'node')
-      ->propertyCondition('type', 'person')
-      ->propertyCondition('title', $person_name)
+      ->propertyCondition('type', 'member')
+      ->propertyCondition('title', $member_name)
       ->range(0, 1)
       ->execute();
 
@@ -163,29 +163,29 @@ class FeatureContext extends DrupalContext
   }
 
   /**
-   * @When /^I go to edit the person "([^"]*)"$/
+   * @When /^I go to edit the member "([^"]*)"$/
    */
-  public function goToEditPerson($name) {
-    $person = $this->getPerson($name);
-    $this->goToEditNode($person);
+  public function goToEditMember($name) {
+    $member = $this->getMember($name);
+    $this->goToEditNode($member);
   }
 
   /**
-   * @When /^I go to delete the person "([^"]*)"$/
+   * @When /^I go to delete the member "([^"]*)"$/
    */
-  public function goToDeletePerson($name) {
-    $person = $this->getPerson($name);
-    $this->goToDeleteNode($person);
+  public function goToDeleteMember($name) {
+    $member = $this->getMember($name);
+    $this->goToDeleteNode($member);
   }
 
-  public function getBoardTerm($city_name, $board_name, $person_name) {
+  public function getBoardTerm($city_name, $board_name, $member_name) {
     $board = $this->getBoard($board_name, $city_name);
-    $person = $this->getPerson($person_name);
+    $member = $this->getMember($member_name);
     $query = new EntityFieldQuery();
     $entities = $query->entityCondition('entity_type', 'node')
       ->propertyCondition('type', 'board_term')
       ->fieldCondition('field_board', 'target_id', $board->nid, '=')
-      ->fieldCondition('field_person', 'target_id', $person->nid, '=')
+      ->fieldCondition('field_member', 'target_id', $member->nid, '=')
       ->range(0, 1)
       ->execute();
 
@@ -205,22 +205,22 @@ class FeatureContext extends DrupalContext
 
     $city_idx = array_search('city', $rows[0]);
     $board_idx = array_search('board', $rows[0]);
-    $person_idx = array_search('person', $rows[0]);
+    $member_idx = array_search('member', $rows[0]);
     $start_idx = array_search('start', $rows[0]);
     $end_idx = array_search('end', $rows[0]);
 
     $rows[0][$board_idx] = 'field_board';
-    $rows[0][$person_idx] = 'field_person';
+    $rows[0][$member_idx] = 'field_member';
     array_splice($rows[0], $city_idx, $city_idx + 1);
 
     for ($i = 1; $i < count($rows); $i++) {
       $city_name = $rows[$i][$city_idx];
       $board_name = $rows[$i][$board_idx];
       $board = $this->getBoard($board_name, $city_name);
-      $person = $this->getPerson($rows[$i][$person_idx]);
+      $member = $this->getMember($rows[$i][$member_idx]);
 
       $rows[$i][$board_idx] = $board->nid;
-      $rows[$i][$person_idx] = $person->nid;
+      $rows[$i][$member_idx] = $member->nid;
       array_splice($rows[$i], $city_idx, $city_idx + 1);
     }
     $table->setRows($rows);
@@ -231,8 +231,8 @@ class FeatureContext extends DrupalContext
   /**
    * @When /^I go to edit the board term for the city of "([^"]*)" board "([^"]*)" for "([^"]*)"$/
    */
-  public function goToEditBoardTerm($city_name, $board_name, $person_name) {
-    $term = $this->getBoardTerm($city_name, $board_name, $person_name);
+  public function goToEditBoardTerm($city_name, $board_name, $member_name) {
+    $term = $this->getBoardTerm($city_name, $board_name, $member_name);
     $this->goToEditNode($term);
   }
 
@@ -246,8 +246,8 @@ class FeatureContext extends DrupalContext
   /**
    * @When /^I go to delete the board term for the city of "([^"]*)" board "([^"]*)" for "([^"]*)"$/
    */
-  public function goToDeleteBoardTerm($city_name, $board_name, $person_name) {
-    $term = $this->getBoardTerm($city_name, $board_name, $person_name);
+  public function goToDeleteBoardTerm($city_name, $board_name, $member_name) {
+    $term = $this->getBoardTerm($city_name, $board_name, $member_name);
     $this->goToDeleteNode($term);
   }
 

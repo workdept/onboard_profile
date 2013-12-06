@@ -50,17 +50,17 @@ function onboard_types_menu_default_menu_links() {
     'weight' => -49,
     'customized' => 1,
   );
-  // Exported menu link: menu-manage-my-city_add-person:node/add/person
-  $menu_links['menu-manage-my-city_add-person:node/add/person'] = array(
+  // Exported menu link: menu-manage-my-city_add-member:node/add/member
+  $menu_links['menu-manage-my-city_add-member:node/add/member'] = array(
     'menu_name' => 'menu-manage-my-city',
-    'link_path' => 'node/add/person',
-    'router_path' => 'node/add/person',
-    'link_title' => 'Add person',
+    'link_path' => 'node/add/member',
+    'router_path' => 'node/add',
+    'link_title' => 'Add member',
     'options' => array(
       'attributes' => array(
         'title' => '',
       ),
-      'identifier' => 'menu-manage-my-city_add-person:node/add/person',
+      'identifier' => 'menu-manage-my-city_add-member:node/add/member',
     ),
     'module' => 'menu',
     'hidden' => 0,
@@ -131,7 +131,7 @@ function onboard_types_menu_default_menu_links() {
   // Included for use with string extractors like potx.
   t('Add board');
   t('Add board term');
-  t('Add person');
+  t('Add member');
   t('Get help');
   t('Log out');
   t('My boards');

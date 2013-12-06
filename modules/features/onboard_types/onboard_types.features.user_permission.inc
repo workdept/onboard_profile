@@ -30,11 +30,10 @@ function onboard_types_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: 'create person content'.
-  $permissions['create person content'] = array(
-    'name' => 'create person content',
+  // Exported permission: 'create member content'.
+  $permissions['create member content'] = array(
+    'name' => 'create member content',
     'roles' => array(
-      'administrator' => 'administrator',
       'clerk' => 'clerk',
     ),
     'module' => 'node',
@@ -58,12 +57,10 @@ function onboard_types_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: 'delete any person content'.
-  $permissions['delete any person content'] = array(
-    'name' => 'delete any person content',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
+  // Exported permission: 'delete any member content'.
+  $permissions['delete any member content'] = array(
+    'name' => 'delete any member content',
+    'roles' => array(),
     'module' => 'node',
   );
 
@@ -87,11 +84,10 @@ function onboard_types_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: 'delete own person content'.
-  $permissions['delete own person content'] = array(
-    'name' => 'delete own person content',
+  // Exported permission: 'delete own member content'.
+  $permissions['delete own member content'] = array(
+    'name' => 'delete own member content',
     'roles' => array(
-      'administrator' => 'administrator',
       'clerk' => 'clerk',
     ),
     'module' => 'node',
@@ -115,12 +111,10 @@ function onboard_types_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: 'edit any person content'.
-  $permissions['edit any person content'] = array(
-    'name' => 'edit any person content',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
+  // Exported permission: 'edit any member content'.
+  $permissions['edit any member content'] = array(
+    'name' => 'edit any member content',
+    'roles' => array(),
     'module' => 'node',
   );
 
@@ -144,11 +138,10 @@ function onboard_types_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: 'edit own person content'.
-  $permissions['edit own person content'] = array(
-    'name' => 'edit own person content',
+  // Exported permission: 'edit own member content'.
+  $permissions['edit own member content'] = array(
+    'name' => 'edit own member content',
     'roles' => array(
-      'administrator' => 'administrator',
       'clerk' => 'clerk',
     ),
     'module' => 'node',

@@ -41,11 +41,11 @@ function onboard_types_node_info() {
       'base' => 'node_content',
       'description' => '',
       'has_title' => '1',
-      'title_label' => t('don\'t need a title, TODO REMOVE THIS'),
+      'title_label' => t('Title (hidden)'),
       'help' => '',
     ),
-    'person' => array(
-      'name' => t('Person'),
+    'member' => array(
+      'name' => t('Member'),
       'base' => 'node_content',
       'description' => '',
       'has_title' => '1',

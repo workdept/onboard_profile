@@ -381,13 +381,13 @@ function onboard_types_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_person'
-  $field_bases['field_person'] = array(
+  // Exported field_base: 'field_member'
+  $field_bases['field_member'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_person',
+    'field_name' => 'field_member',
     'foreign keys' => array(
       'node' => array(
         'columns' => array(
@@ -415,7 +415,7 @@ function onboard_types_field_default_field_bases() {
           'type' => 'none',
         ),
         'target_bundles' => array(
-          'person' => 'person',
+          'member' => 'member',
         ),
       ),
       'target_type' => 'node',

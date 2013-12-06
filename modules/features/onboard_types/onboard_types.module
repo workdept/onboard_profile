@@ -91,20 +91,20 @@ function onboard_types_get_board($node) {
   return entity_load_single('node', $board_id); 
 }
 
-function onboard_types_get_person($node) {
-  $person_id = $node->field_person['und'][0]['target_id'];
-  return entity_load_single('node', $person_id); 
+function onboard_types_get_member($node) {
+  $member_id = $node->field_member['und'][0]['target_id'];
+  return entity_load_single('node', $member_id); 
 }
 
 /**
  * Return a reasonable default title for a board term.
  */
 function onboard_types_board_term_title($node) {
-  $person = onboard_types_get_person($node);
+  $member = onboard_types_get_member($node);
   $board = onboard_types_get_board($node);
 
-  if ($person && $board) {
-    return $board->title . " / " . $person->title;
+  if ($member && $board) {
+    return $board->title . " / " . $member->title;
   }
 
   return "Board Term";
@@ -126,7 +126,7 @@ function onboard_types_node_presave_board_term($node) {
   onboard_types_set_city($node, $city_id);
 }
 
-function onboard_types_node_presave_person($node) {
+function onboard_types_node_presave_member($node) {
   if (!onboard_types_has_city($node)) {
     onboard_types_set_city_from_user($node);
   }
@@ -136,8 +136,8 @@ function onboard_types_node_presave($node) {
   if ($node->type == 'board') {
     onboard_types_node_presave_board($node);
   }
-  else if ($node->type == 'person') {
-    onboard_types_node_presave_person($node);
+  else if ($node->type == 'member') {
+    onboard_types_node_presave_member($node);
   }
   else if ($node->type == 'board_term') {
     onboard_types_node_presave_board_term($node);

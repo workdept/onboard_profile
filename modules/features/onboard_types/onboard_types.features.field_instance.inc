@@ -529,14 +529,15 @@ function onboard_types_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'entityreference_autocomplete',
-      'weight' => 2,
+      'weight' => 1,
     ),
   );
 
-  // Exported field_instance: 'node-board_term-field_person'
-  $field_instances['node-board_term-field_person'] = array(
+  // Exported field_instance: 'node-board_term-field_member'
+  $field_instances['node-board_term-field_member'] = array(
     'bundle' => 'board_term',
     'default_value' => NULL,
+    'default_value_function' => '',
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -547,7 +548,7 @@ function onboard_types_field_default_field_instances() {
           'link' => FALSE,
         ),
         'type' => 'entityreference_label',
-        'weight' => 1,
+        'weight' => 5,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -557,10 +558,15 @@ function onboard_types_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_person',
-    'label' => 'Person',
-    'required' => 1,
+    'field_name' => 'field_member',
+    'label' => 'Member',
+    'required' => 0,
     'settings' => array(
+      'behaviors' => array(
+        'prepopulate' => array(
+          'status' => 0,
+        ),
+      ),
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -572,7 +578,7 @@ function onboard_types_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'entityreference_autocomplete',
-      'weight' => 1,
+      'weight' => 2,
     ),
   );
 
@@ -692,12 +698,12 @@ function onboard_types_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-person-field_address'
-  $field_instances['node-person-field_address'] = array(
-    'bundle' => 'person',
+  // Exported field_instance: 'node-member-field_address'
+  $field_instances['node-member-field_address'] = array(
+    'bundle' => 'member',
     'default_value' => array(
       0 => array(
-        'element_key' => 'node|person|field_address|und|0',
+        'element_key' => 'node|member|field_address|und|0',
         'thoroughfare' => '',
         'premise' => '',
         'locality' => '',
@@ -719,7 +725,7 @@ function onboard_types_field_default_field_instances() {
           'use_widget_handlers' => 1,
         ),
         'type' => 'addressfield_default',
-        'weight' => 1,
+        'weight' => 3,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -739,23 +745,25 @@ function onboard_types_field_default_field_instances() {
       'active' => 1,
       'module' => 'addressfield',
       'settings' => array(
-        'available_countries' => array(),
+        'available_countries' => array(
+          'US' => 'US',
+        ),
         'format_handlers' => array(
           'address' => 'address',
-          'address-hide-country' => 0,
+          'address-hide-country' => 'address-hide-country',
+          'name-oneline' => 'name-oneline',
           'organisation' => 0,
           'name-full' => 0,
-          'name-oneline' => 0,
         ),
       ),
       'type' => 'addressfield_standard',
-      'weight' => 2,
+      'weight' => 3,
     ),
   );
 
-  // Exported field_instance: 'node-person-field_contact_email'
-  $field_instances['node-person-field_contact_email'] = array(
-    'bundle' => 'person',
+  // Exported field_instance: 'node-member-field_contact_email'
+  $field_instances['node-member-field_contact_email'] = array(
+    'bundle' => 'member',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
@@ -765,7 +773,7 @@ function onboard_types_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 2,
+        'weight' => 1,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -793,9 +801,9 @@ function onboard_types_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-person-field_contact_phone'
-  $field_instances['node-person-field_contact_phone'] = array(
-    'bundle' => 'person',
+  // Exported field_instance: 'node-member-field_contact_phone'
+  $field_instances['node-member-field_contact_phone'] = array(
+    'bundle' => 'member',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
@@ -805,7 +813,7 @@ function onboard_types_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 3,
+        'weight' => 2,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -829,14 +837,15 @@ function onboard_types_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 3,
+      'weight' => 2,
     ),
   );
 
-  // Exported field_instance: 'node-person-og_group_ref'
-  $field_instances['node-person-og_group_ref'] = array(
-    'bundle' => 'person',
+  // Exported field_instance: 'node-member-og_group_ref'
+  $field_instances['node-member-og_group_ref'] = array(
+    'bundle' => 'member',
     'default_value' => NULL,
+    'default_value_function' => '',
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -845,7 +854,7 @@ function onboard_types_field_default_field_instances() {
         'module' => 'og_ui',
         'settings' => array(),
         'type' => 'og_list_default',
-        'weight' => 4,
+        'weight' => 0,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -868,6 +877,9 @@ function onboard_types_field_default_field_instances() {
             'widget_type' => 'options_select',
           ),
           'status' => TRUE,
+        ),
+        'prepopulate' => array(
+          'status' => 0,
         ),
         'taxonomy-index' => array(
           'status' => TRUE,
@@ -963,7 +975,7 @@ function onboard_types_field_default_field_instances() {
   t('Mailing Address');
   t('Meeting Location');
   t('Meeting Time');
-  t('Person');
+  t('Member');
   t('Phone');
   t('Primary Contact Email');
   t('Primary Contact Name');
