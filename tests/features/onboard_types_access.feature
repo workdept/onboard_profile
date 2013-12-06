@@ -477,8 +477,8 @@ Feature: Access controls for Onboard content types
       | name        | author |
       | Test Member | nancy  |
     And board terms:
-      | city     | board                | member      | start     | end       | author |
-      | Ferndale | Beautification Board | Test Member | 3/15/2012 | 4/15/2013 | nancy |
+      | city     | board                | member      | field_term_dates     | author |
+      | Ferndale | Beautification Board | Test Member | 3/15/2012, 4/15/2013 | nancy  |
     And I am logged in as "nancy"
     When I go to edit the board term for the city of "Ferndale" board "Beautification Board" for "Test Member"
     And I fill in "field_term_dates[und][0][value][date]" with "3/1/2013"
@@ -507,9 +507,9 @@ Feature: Access controls for Onboard content types
       | Test Member   | nancy  |
       | Test Member 2 | allen  |
     And board terms:
-      | city     | board                | member      | start     | end       | author |
-      | Ferndale | Beautification Board | Test Member | 3/15/2012 | 4/15/2013 | nancy |
-      | Ferndale | Parks Board          | Test Member 2 | 2/15/2010 | 1/31/2011 | allen |
+      | city     | board                | member        | field_term_dates     | author |
+      | Ferndale | Beautification Board | Test Member   | 3/15/2012, 4/15/2013 | nancy  |
+      | Ferndale | Parks Board          | Test Member 2 | 2/15/2010, 1/31/2011 | allen  |
     And I am logged in as "nancy"
     When I go to edit the board term for the city of "Ferndale" board "Parks Board" for "Test Member 2"
     And I fill in "field_term_dates[und][0][value][date]" with "3/1/2013"
@@ -539,9 +539,9 @@ Feature: Access controls for Onboard content types
       | Test Member   | nancy  |
       | Test Member 2 | ada    |
     And board terms:
-      | city     | board                 | member        | start     | end       | author |
-      | Ferndale  | Beautification Board | Test Member   | 3/15/2012 | 4/15/2013 | nancy |
-      | Ypsilanti | Parks Board          | Test Member 2 | 2/15/2010 | 1/31/2011 | ada   |
+      | city     | board                 | member        | field_term_dates     | author |
+      | Ferndale  | Beautification Board | Test Member   | 3/15/2012, 4/15/2013 | nancy  |
+      | Ypsilanti | Parks Board          | Test Member 2 | 2/15/2010, 1/31/2011 | ada    |
     And I am logged in as "nancy"
     When I go to edit the board term for the city of "Ypsilanti" board "Parks Board" for "Test Member 2"
     Then the response status code should be 403
@@ -563,8 +563,8 @@ Feature: Access controls for Onboard content types
       | name        | author |
       | Test Member | nancy  |
     And board terms:
-      | city     | board                | member      | start     | end       | author |
-      | Ferndale | Beautification Board | Test Member | 3/15/2012 | 4/15/2013 | nancy |
+      | city     | board                | member      | field_term_dates     | author |
+      | Ferndale | Beautification Board | Test Member | 3/15/2012, 4/15/2013 | nancy  |
     And I am logged in as "nancy"
     When I go to delete the board term for the city of "Ferndale" board "Beautification Board" for "Test Member"
     And I press "Delete"
@@ -592,9 +592,9 @@ Feature: Access controls for Onboard content types
       | Test Member   | nancy  |
       | Test Member 2 | ada    |
     And board terms:
-      | city     | board                 | member        | start     | end       | author |
-      | Ferndale  | Beautification Board | Test Member   | 3/15/2012 | 4/15/2013 | nancy |
-      | Ypsilanti | Parks Board          | Test Member 2 | 2/15/2010 | 1/31/2011 | ada   |
+      | city     | board                 | member        | field_term_dates     | author |
+      | Ferndale  | Beautification Board | Test Member   | 3/15/2012, 4/15/2013 | nancy  |
+      | Ypsilanti | Parks Board          | Test Member 2 | 2/15/2010, 1/31/2011 | ada    |
     And I am logged in as "nancy"
     When I go to delete the board term for the city of "Ypsilanti" board "Parks Board" for "Test Member 2"
     Then the response status code should be 403
@@ -620,10 +620,10 @@ Feature: Access controls for Onboard content types
       | Test Member   | nancy  |
       | Test Member 2 | allen  |
     And board terms:
-      | city     | board                | member      | start     | end       | author |
-      | Ferndale | Beautification Board | Test Member | 3/15/2012 | 4/15/2013 | nancy |
-      | Ferndale | Parks Board          | Test Member 2 | 2/15/2010 | 1/31/2011 | allen |
+      | city     | board                | member        | field_term_dates     | author |
+      | Ferndale | Beautification Board | Test Member   | 3/15/2012, 4/15/2013 | nancy  |
+      | Ferndale | Parks Board          | Test Member 2 | 2/15/2010, 1/31/2011 | allen  |
     And I am logged in as "nancy"
-    When I go to edit the board term for the city of "Ferndale" board "Parks Board" for "Test Member 2"
+    When I go to delete the board term for the city of "Ferndale" board "Parks Board" for "Test Member 2"
     And I press "Delete"
     Then I should see "has been deleted"
