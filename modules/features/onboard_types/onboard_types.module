@@ -169,7 +169,10 @@ function onboard_types_node_view($node, $view_mode, $langcode) {
         '#links' => array(
           array(
             'title' => 'add board term',
-            'href' => 'node/add/board-term?field_board=' . $node->nid,
+            'href' => 'node/add/board-term',
+            'query' => array(
+              'field_board' => $node->nid,
+            ),
           ),
         ),
       );
