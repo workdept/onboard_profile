@@ -93,30 +93,6 @@ function onboard_profile_install() {
   $raw_html_format = (object) $raw_html_format;
   filter_format_save($raw_html_format);
 
-  // Add a 'Basic page' content type.
-  $types = array(
-    array(
-      'type' => 'page',
-      'name' => st('Basic page'),
-      'base' => 'node_content',
-      'description' => st("Use <em>basic pages</em> for your static content, such as an 'About us' page."),
-      'custom' => 1,
-      'modified' => 1,
-      'locked' => 0,
-    )
-  );
-
-  foreach ($types as $type) {
-    $type = node_type_set_defaults($type);
-    node_type_save($type);
-    node_add_body_field($type);
-  }
-
-  // Default 'Basic page' to not be promoted and don't display author
-  // information.
-  variable_set('node_options_page', array('status'));
-  variable_set('node_submitted_page', FALSE);
-
   // Create new user roles for Administrators and Editors
   $roles = array('administrator', 'editor');
   foreach ($roles as $weight => $name) {
