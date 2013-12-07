@@ -71,6 +71,9 @@ projects[libraries][version] = "2.1"
 projects[pathauto][subdir] = "contrib"
 projects[pathauto][version] = "1.2"
 
+projects[publishcontent][subdir] = "contrib"
+projects[publishcontent][version] = "1.2"
+
 projects[services][subdir] = "contrib"
 projects[services][version] = "3.5"
 
