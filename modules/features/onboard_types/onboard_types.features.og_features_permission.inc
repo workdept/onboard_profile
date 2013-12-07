@@ -118,6 +118,72 @@ function onboard_types_og_features_default_permissions() {
     ),
   );
 
+  // Exported og permission: 'taxonomy_term:city:publish any board content'
+  $permissions['taxonomy_term:city:publish any board content'] = array(
+    'roles' => array(
+      'administrator member' => 'administrator member',
+    ),
+  );
+
+  // Exported og permission: 'taxonomy_term:city:publish any board_term content'
+  $permissions['taxonomy_term:city:publish any board_term content'] = array(
+    'roles' => array(
+      'administrator member' => 'administrator member',
+    ),
+  );
+
+  // Exported og permission: 'taxonomy_term:city:publish any member content'
+  $permissions['taxonomy_term:city:publish any member content'] = array(
+    'roles' => array(
+      'administrator member' => 'administrator member',
+    ),
+  );
+
+  // Exported og permission: 'taxonomy_term:city:publish editable board content'
+  $permissions['taxonomy_term:city:publish editable board content'] = array(
+    'roles' => array(
+      'administrator member' => 'administrator member',
+      'clerk' => 'clerk',
+    ),
+  );
+
+  // Exported og permission: 'taxonomy_term:city:publish editable board_term content'
+  $permissions['taxonomy_term:city:publish editable board_term content'] = array(
+    'roles' => array(
+      'administrator member' => 'administrator member',
+      'clerk' => 'clerk',
+    ),
+  );
+
+  // Exported og permission: 'taxonomy_term:city:publish editable member content'
+  $permissions['taxonomy_term:city:publish editable member content'] = array(
+    'roles' => array(
+      'administrator member' => 'administrator member',
+      'clerk' => 'clerk',
+    ),
+  );
+
+  // Exported og permission: 'taxonomy_term:city:publish own board content'
+  $permissions['taxonomy_term:city:publish own board content'] = array(
+    'roles' => array(
+      'administrator member' => 'administrator member',
+    ),
+  );
+
+  // Exported og permission: 'taxonomy_term:city:publish own board_term content'
+  $permissions['taxonomy_term:city:publish own board_term content'] = array(
+    'roles' => array(
+      'administrator member' => 'administrator member',
+    ),
+  );
+
+  // Exported og permission: 'taxonomy_term:city:publish own member content'
+  $permissions['taxonomy_term:city:publish own member content'] = array(
+    'roles' => array(
+      'administrator member' => 'administrator member',
+    ),
+  );
+
   // Exported og permission: 'taxonomy_term:city:subscribe'
   $permissions['taxonomy_term:city:subscribe'] = array(
     'roles' => array(
@@ -128,6 +194,72 @@ function onboard_types_og_features_default_permissions() {
   // Exported og permission: 'taxonomy_term:city:subscribe without approval'
   $permissions['taxonomy_term:city:subscribe without approval'] = array(
     'roles' => array(),
+  );
+
+  // Exported og permission: 'taxonomy_term:city:unpublish any board content'
+  $permissions['taxonomy_term:city:unpublish any board content'] = array(
+    'roles' => array(
+      'administrator member' => 'administrator member',
+    ),
+  );
+
+  // Exported og permission: 'taxonomy_term:city:unpublish any board_term content'
+  $permissions['taxonomy_term:city:unpublish any board_term content'] = array(
+    'roles' => array(
+      'administrator member' => 'administrator member',
+    ),
+  );
+
+  // Exported og permission: 'taxonomy_term:city:unpublish any member content'
+  $permissions['taxonomy_term:city:unpublish any member content'] = array(
+    'roles' => array(
+      'administrator member' => 'administrator member',
+    ),
+  );
+
+  // Exported og permission: 'taxonomy_term:city:unpublish editable board content'
+  $permissions['taxonomy_term:city:unpublish editable board content'] = array(
+    'roles' => array(
+      'administrator member' => 'administrator member',
+      'clerk' => 'clerk',
+    ),
+  );
+
+  // Exported og permission: 'taxonomy_term:city:unpublish editable board_term content'
+  $permissions['taxonomy_term:city:unpublish editable board_term content'] = array(
+    'roles' => array(
+      'administrator member' => 'administrator member',
+      'clerk' => 'clerk',
+    ),
+  );
+
+  // Exported og permission: 'taxonomy_term:city:unpublish editable member content'
+  $permissions['taxonomy_term:city:unpublish editable member content'] = array(
+    'roles' => array(
+      'administrator member' => 'administrator member',
+      'clerk' => 'clerk',
+    ),
+  );
+
+  // Exported og permission: 'taxonomy_term:city:unpublish own board content'
+  $permissions['taxonomy_term:city:unpublish own board content'] = array(
+    'roles' => array(
+      'administrator member' => 'administrator member',
+    ),
+  );
+
+  // Exported og permission: 'taxonomy_term:city:unpublish own board_term content'
+  $permissions['taxonomy_term:city:unpublish own board_term content'] = array(
+    'roles' => array(
+      'administrator member' => 'administrator member',
+    ),
+  );
+
+  // Exported og permission: 'taxonomy_term:city:unpublish own member content'
+  $permissions['taxonomy_term:city:unpublish own member content'] = array(
+    'roles' => array(
+      'administrator member' => 'administrator member',
+    ),
   );
 
   // Exported og permission: 'taxonomy_term:city:unsubscribe'

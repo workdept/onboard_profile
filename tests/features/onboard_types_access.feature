@@ -111,6 +111,23 @@ Feature: Access controls for Onboard content types
     When I go to delete the board "Beautification Board" for "Ferndale"
     Then the response status code should be 403
 
+  Scenario: Clerk can unpublish their own board
+    Given cities:
+      | name      |
+      | Ferndale  |
+    And users:
+      | name  | status | 
+      | nancy | 1      |     
+    And clerks:
+      | user  | city     |
+      | nancy | Ferndale |
+    And boards:
+      | title                 | author           | city         |
+      | Beautification Board  | nancy            | Ferndale     |
+    And I am logged in as "nancy"
+    When I unpublish the board "Beautification Board" of "Ferndale"
+    Then the board "Beautification Board" of "Ferndale" is unpublished
+
   Scenario: Clerk cannot edit a board for another city
     Given cities:
       | name      |
@@ -261,6 +278,23 @@ Feature: Access controls for Onboard content types
     And I fill in "Email" with "test@email.com"
     And I press "Save"
     Then I should see "Member Test Member has been created"
+
+  Scenario: Clerk can unpublish a Member
+    Given cities:
+      | name      |
+      | Ferndale  |
+    And users:
+      | name  | status |
+      | nancy | 1      |
+    And clerks:
+      | user  | city      |
+      | nancy | Ferndale  |
+    And members:
+      | name        | author |
+      | Test Member | nancy  |
+    And I am logged in as "nancy"
+    When I unpublish the member "Test Member"
+    Then the member "Test Member" is unpublished
 
   @javascript
   Scenario: Admin creates a member for a city that they're not a member of
@@ -491,7 +525,6 @@ Feature: Access controls for Onboard content types
     And I should see "Test Member"
     And I should see "Beautification Board"
 
-
   Scenario: A clerk can edit a board term for a board for her city
     Given cities:
       | name      |
@@ -629,6 +662,29 @@ Feature: Access controls for Onboard content types
     And I am logged in as "nancy"
     When I go to delete the board term for the city of "Ypsilanti" board "Parks Board" for "Test Member 2"
     Then the response status code should be 403
+
+  Scenario: A clerk can unpublish a board term for a board for her city
+    Given cities:
+      | name      |
+      | Ferndale  |
+    And users:
+      | name  | status |
+      | nancy | 1      |
+    And clerks:
+      | user  | city      |
+      | nancy | Ferndale  |
+    And boards:
+      | title                 | author           | city         |
+      | Beautification Board  | nancy            | Ferndale     |
+    And members:
+      | name        | author |
+      | Test Member | nancy  |
+    And board terms:
+      | city     | board                | member      | field_term_dates     | author |
+      | Ferndale | Beautification Board | Test Member | 3/15/2012, 4/15/2013 | nancy  |
+    And I am logged in as "nancy"
+    When I unpublish the board term for the city of "Ferndale" board "Beautification Board" for "Test Member"
+    Then the board term for the city of "Ferndale" board "Beautification Board" for "Test Member" is unpublished
 
   Scenario: A clerk cannot delete a board term for a board for her city created by another clerk
     Given cities:
