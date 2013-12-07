@@ -53,6 +53,11 @@ function onboard_types_context_default_contexts() {
         1 => 1,
       ),
     ),
+    'user' => array(
+      'values' => array(
+        'clerk' => 'clerk',
+      ),
+    ),
   );
   $context->reactions = array(
     'block' => array(
@@ -66,7 +71,7 @@ function onboard_types_context_default_contexts() {
       ),
     ),
   );
-  $context->condition_mode = 0;
+  $context->condition_mode = 1;
   $export['clerks'] = $context;
 
   return $export;
