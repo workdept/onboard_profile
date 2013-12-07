@@ -69,7 +69,6 @@ function onboard_types_user_default_permissions() {
     'name' => 'delete own board content',
     'roles' => array(
       'administrator' => 'administrator',
-      'clerk' => 'clerk',
     ),
     'module' => 'node',
   );
@@ -79,7 +78,6 @@ function onboard_types_user_default_permissions() {
     'name' => 'delete own board_term content',
     'roles' => array(
       'administrator' => 'administrator',
-      'clerk' => 'clerk',
     ),
     'module' => 'node',
   );
@@ -87,9 +85,7 @@ function onboard_types_user_default_permissions() {
   // Exported permission: 'delete own member content'.
   $permissions['delete own member content'] = array(
     'name' => 'delete own member content',
-    'roles' => array(
-      'clerk' => 'clerk',
-    ),
+    'roles' => array(),
     'module' => 'node',
   );
 

@@ -2,7 +2,7 @@
 Feature: Access controls for Onboard content types
   In order to manage boards, board terms and members
   As a clerk 
-  I need to be able to edit and delete items I'm responsible for and prevent others from having unauthorized access
+  I need to be able to edit and unpublish items I'm responsible for and prevent others from having unauthorized access
 
   Scenario: Clerk creates a Board for her City
     Given cities:
@@ -94,7 +94,7 @@ Feature: Access controls for Onboard content types
     Then I should see "Board Beautification Board has been updated"
     And I should see "City Hall"
 
-  Scenario: Clerk can delete their own board
+  Scenario: Clerk cannot delete their own board
     Given cities:
       | name      |
       | Ferndale  |
@@ -109,8 +109,7 @@ Feature: Access controls for Onboard content types
       | Beautification Board  | nancy            | Ferndale     |
     And I am logged in as "nancy"
     When I go to delete the board "Beautification Board" for "Ferndale"
-    And I press "Delete"
-    Then I should see "Board Beautification Board has been deleted"
+    Then the response status code should be 403
 
   Scenario: Clerk cannot edit a board for another city
     Given cities:
@@ -154,6 +153,24 @@ Feature: Access controls for Onboard content types
     When I go to delete the board "Parks Board" for "Ypsilanti"
     Then the response status code should be 403
 
+  Scenario: Admin can delete a board
+    Given cities:
+      | name      |
+      | Ferndale  |
+    And users:
+      | name  | status |
+      | nancy | 1      |
+    And clerks:
+      | user  | city      |
+      | nancy | Ferndale  |
+    And boards:
+      | title                 | author           | city         |
+      | Beautification Board  | nancy            | Ferndale     |
+    And I am logged in as a user with the "administrator" role
+    When I go to delete the board "Beautification Board" for "Ferndale"
+    And I press "Delete"
+    Then I should see "has been deleted"
+
   Scenario: Clerk can edit another clerk's board for her city
     Given cities:
       | name      |
@@ -177,7 +194,7 @@ Feature: Access controls for Onboard content types
     Then I should see "Board Parks Board has been updated"
     And I should see "City Hall"
 
-  Scenario: Clerk can delete another clerk's board for her city
+  Scenario: Clerk cannot delete another clerk's board for her city
     Given cities:
       | name      |
       | Ferndale  |
@@ -195,8 +212,7 @@ Feature: Access controls for Onboard content types
       | Parks Board           | allen            | Ferndale     |
     And I am logged in as "nancy"
     When I go to delete the board "Parks Board" for "Ferndale"
-    And I press "Delete"
-    Then I should see "Board Parks Board has been deleted"
+    Then the response status code should be 403
 
   Scenario: An anonymous user can view any board
     Given cities:
@@ -279,7 +295,7 @@ Feature: Access controls for Onboard content types
     Then I should see "Member Test Member has been updated"
     And I should see "test@email.com"
 
-  Scenario: Clerk can delete a member she created
+  Scenario: Clerk cannot delete a member she created
     Given cities:
       | name      |
       | Ferndale  |
@@ -294,8 +310,7 @@ Feature: Access controls for Onboard content types
       | Test Member | nancy  |
     And I am logged in as "nancy"
     When I go to delete the member "Test Member"
-    And I press "Delete"
-    Then I should see "Member Test Member has been deleted"
+    Then the response status code should be 403
 
   Scenario: Clerk cannot edit a member from another city
     Given cities:
@@ -362,7 +377,7 @@ Feature: Access controls for Onboard content types
     Then I should see "Member Test Member 2 has been updated"
     And I should see "test2@email.com"
 
-  Scenario: Clerk can delete a member from her city
+  Scenario: Clerk cannot delete a member from her city
     Given cities:
       | name      |
       | Ferndale  |
@@ -380,8 +395,25 @@ Feature: Access controls for Onboard content types
       | Test Member 2 | allen  |
     And I am logged in as "nancy"
     When I go to delete the member "Test Member 2"
+    Then the response status code should be 403
+
+  Scenario: Admin can delete a member created by another user
+    Given cities:
+      | name      |
+      | Ferndale  |
+    And users:
+      | name  | status |
+      | nancy | 1      |
+    And clerks:
+      | user  | city      |
+      | nancy | Ferndale  |
+    And members:
+      | name        | author |
+      | Test Member | nancy  |
+    And I am logged in as a user with the "administrator" role
+    When I go to delete the member "Test Member"
     And I press "Delete"
-    Then I should see "Member Test Member 2 has been deleted"
+    Then I should see "has been deleted"
 
   Scenario: A user who is not a clerk cannot create a board term
     Given cities:
@@ -546,7 +578,7 @@ Feature: Access controls for Onboard content types
     When I go to edit the board term for the city of "Ypsilanti" board "Parks Board" for "Test Member 2"
     Then the response status code should be 403
 
-  Scenario: A clerk can delete a board term for a board for her city
+  Scenario: A clerk cannot delete a board term for a board for her city
     Given cities:
       | name      |
       | Ferndale  |
@@ -567,8 +599,7 @@ Feature: Access controls for Onboard content types
       | Ferndale | Beautification Board | Test Member | 3/15/2012, 4/15/2013 | nancy  |
     And I am logged in as "nancy"
     When I go to delete the board term for the city of "Ferndale" board "Beautification Board" for "Test Member"
-    And I press "Delete"
-    Then I should see "has been deleted"
+    Then the response status code should be 403
 
   Scenario: A clerk cannot delete a board term for a board for another city
     Given cities:
@@ -599,7 +630,7 @@ Feature: Access controls for Onboard content types
     When I go to delete the board term for the city of "Ypsilanti" board "Parks Board" for "Test Member 2"
     Then the response status code should be 403
 
-  Scenario: A clerk can delete a board term for a board for her city created by another clerk
+  Scenario: A clerk cannot delete a board term for a board for her city created by another clerk
     Given cities:
       | name      |
       | Ferndale  |
@@ -625,5 +656,28 @@ Feature: Access controls for Onboard content types
       | Ferndale | Parks Board          | Test Member 2 | 2/15/2010, 1/31/2011 | allen  |
     And I am logged in as "nancy"
     When I go to delete the board term for the city of "Ferndale" board "Parks Board" for "Test Member 2"
+    Then the response status code should be 403
+
+  Scenario: An admin can delete a board term created by another user
+    Given cities:
+      | name      |
+      | Ferndale  |
+    And users:
+      | name  | status |
+      | nancy | 1      |
+    And clerks:
+      | user  | city      |
+      | nancy | Ferndale  |
+    And boards:
+      | title                 | author           | city         |
+      | Beautification Board  | nancy            | Ferndale     |
+    And members:
+      | name        | author |
+      | Test Member | nancy  |
+    And board terms:
+      | city     | board                | member      | field_term_dates     | author |
+      | Ferndale | Beautification Board | Test Member | 3/15/2012, 4/15/2013 | nancy  |
+    And I am logged in as a user with the "administrator" role
+    When I go to delete the board term for the city of "Ferndale" board "Beautification Board" for "Test Member"
     And I press "Delete"
     Then I should see "has been deleted"

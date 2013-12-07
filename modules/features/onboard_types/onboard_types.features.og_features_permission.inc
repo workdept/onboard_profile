@@ -59,7 +59,6 @@ function onboard_types_og_features_default_permissions() {
   $permissions['taxonomy_term:city:delete any board content'] = array(
     'roles' => array(
       'administrator member' => 'administrator member',
-      'clerk' => 'clerk',
     ),
   );
 
@@ -67,7 +66,6 @@ function onboard_types_og_features_default_permissions() {
   $permissions['taxonomy_term:city:delete any board_term content'] = array(
     'roles' => array(
       'administrator member' => 'administrator member',
-      'clerk' => 'clerk',
     ),
   );
 
@@ -75,7 +73,6 @@ function onboard_types_og_features_default_permissions() {
   $permissions['taxonomy_term:city:delete any member content'] = array(
     'roles' => array(
       'administrator member' => 'administrator member',
-      'clerk' => 'clerk',
     ),
   );
 
@@ -83,7 +80,6 @@ function onboard_types_og_features_default_permissions() {
   $permissions['taxonomy_term:city:delete own board content'] = array(
     'roles' => array(
       'administrator member' => 'administrator member',
-      'clerk' => 'clerk',
     ),
   );
 
@@ -91,7 +87,6 @@ function onboard_types_og_features_default_permissions() {
   $permissions['taxonomy_term:city:delete own board_term content'] = array(
     'roles' => array(
       'administrator member' => 'administrator member',
-      'clerk' => 'clerk',
     ),
   );
 
@@ -99,7 +94,6 @@ function onboard_types_og_features_default_permissions() {
   $permissions['taxonomy_term:city:delete own member content'] = array(
     'roles' => array(
       'administrator member' => 'administrator member',
-      'clerk' => 'clerk',
     ),
   );
 
