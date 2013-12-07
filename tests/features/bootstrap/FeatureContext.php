@@ -1,8 +1,11 @@
 <?php
 
-use Drupal\DrupalExtension\Context\DrupalContext;
 use Behat\Behat\Exception\PendingException;
+use Behat\Behat\Context\Step\When;
+use Behat\Behat\Context\Step\Then;
 use Behat\Gherkin\Node\TableNode;
+
+use Drupal\DrupalExtension\Context\DrupalContext;
 
 class FeatureContext extends DrupalContext
 {
@@ -267,5 +270,55 @@ class FeatureContext extends DrupalContext
     // Down arrow
     parent::pressKey(40, $field);
     parent::pressKey("enter", $field);
+  }
+
+  public function unpublishNode($node) {
+    $this->goToViewNode($node);
+    return new When("I click \"Unpublish\"");
+  }
+
+  /**
+   * @When /^I unpublish the board "([^"]*)" of "([^"]*)"$/
+   */
+  public function unpublishBoard($board_name, $city_name) {
+    $board = $this->getBoard($board_name, $city_name);
+    return $this->unpublishNode($board);
+  }
+
+  /**
+   * @Then /^the board "([^"]*)" of "([^"]*)" is unpublished$/
+   */
+  public function assertBoardUnpublished($board_name, $city_name) {
+    return new Then("I should see \"has been unpublished\"");
+  }
+
+  /**
+   * @When /^I unpublish the member "([^"]*)"$/
+   */
+  public function unpublishMember($name) {
+    $member = $this->getMember($name);
+    return $this->unpublishNode($member);
+  }
+
+  /**
+   * @Then /^the member "([^"]*)" is unpublished$/
+   */
+  public function assertMemberUnpublished($name) {
+    return new Then("I should see \"has been unpublished\"");
+  }
+
+  /**
+   * @When /^I unpublish the board term for the city of "([^"]*)" board "([^"]*)" for "([^"]*)"$/
+   */
+  public function unpublishBoardTerm($city_name, $board_name, $member_name) {
+    $term = $this->getBoardTerm($city_name, $board_name, $member_name);
+    return $this->unpublishNode($term);
+  }
+
+  /**
+   * @Then /^the board term for the city of "([^"]*)" board "([^"]*)" for "([^"]*)" is unpublished$/
+   */
+  public function assertBoardTermUnpublished($city_name, $board_name, $member_name) {
+    return new Then("I should see \"has been unpublished\"");
   }
 }

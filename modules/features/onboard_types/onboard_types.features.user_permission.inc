@@ -69,7 +69,6 @@ function onboard_types_user_default_permissions() {
     'name' => 'delete own board content',
     'roles' => array(
       'administrator' => 'administrator',
-      'clerk' => 'clerk',
     ),
     'module' => 'node',
   );
@@ -79,7 +78,6 @@ function onboard_types_user_default_permissions() {
     'name' => 'delete own board_term content',
     'roles' => array(
       'administrator' => 'administrator',
-      'clerk' => 'clerk',
     ),
     'module' => 'node',
   );
@@ -87,9 +85,7 @@ function onboard_types_user_default_permissions() {
   // Exported permission: 'delete own member content'.
   $permissions['delete own member content'] = array(
     'name' => 'delete own member content',
-    'roles' => array(
-      'clerk' => 'clerk',
-    ),
+    'roles' => array(),
     'module' => 'node',
   );
 
@@ -145,6 +141,174 @@ function onboard_types_user_default_permissions() {
       'clerk' => 'clerk',
     ),
     'module' => 'node',
+  );
+
+  // Exported permission: 'publish any board content'.
+  $permissions['publish any board content'] = array(
+    'name' => 'publish any board content',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'publishcontent',
+  );
+
+  // Exported permission: 'publish any board_term content'.
+  $permissions['publish any board_term content'] = array(
+    'name' => 'publish any board_term content',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'publishcontent',
+  );
+
+  // Exported permission: 'publish any member content'.
+  $permissions['publish any member content'] = array(
+    'name' => 'publish any member content',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'publishcontent',
+  );
+
+  // Exported permission: 'publish editable board content'.
+  $permissions['publish editable board content'] = array(
+    'name' => 'publish editable board content',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'clerk' => 'clerk',
+    ),
+    'module' => 'publishcontent',
+  );
+
+  // Exported permission: 'publish editable board_term content'.
+  $permissions['publish editable board_term content'] = array(
+    'name' => 'publish editable board_term content',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'clerk' => 'clerk',
+    ),
+    'module' => 'publishcontent',
+  );
+
+  // Exported permission: 'publish editable member content'.
+  $permissions['publish editable member content'] = array(
+    'name' => 'publish editable member content',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'clerk' => 'clerk',
+    ),
+    'module' => 'publishcontent',
+  );
+
+  // Exported permission: 'publish own board content'.
+  $permissions['publish own board content'] = array(
+    'name' => 'publish own board content',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'publishcontent',
+  );
+
+  // Exported permission: 'publish own board_term content'.
+  $permissions['publish own board_term content'] = array(
+    'name' => 'publish own board_term content',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'publishcontent',
+  );
+
+  // Exported permission: 'publish own member content'.
+  $permissions['publish own member content'] = array(
+    'name' => 'publish own member content',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'publishcontent',
+  );
+
+  // Exported permission: 'unpublish any board content'.
+  $permissions['unpublish any board content'] = array(
+    'name' => 'unpublish any board content',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'publishcontent',
+  );
+
+  // Exported permission: 'unpublish any board_term content'.
+  $permissions['unpublish any board_term content'] = array(
+    'name' => 'unpublish any board_term content',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'publishcontent',
+  );
+
+  // Exported permission: 'unpublish any member content'.
+  $permissions['unpublish any member content'] = array(
+    'name' => 'unpublish any member content',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'publishcontent',
+  );
+
+  // Exported permission: 'unpublish editable board content'.
+  $permissions['unpublish editable board content'] = array(
+    'name' => 'unpublish editable board content',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'clerk' => 'clerk',
+    ),
+    'module' => 'publishcontent',
+  );
+
+  // Exported permission: 'unpublish editable board_term content'.
+  $permissions['unpublish editable board_term content'] = array(
+    'name' => 'unpublish editable board_term content',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'clerk' => 'clerk',
+    ),
+    'module' => 'publishcontent',
+  );
+
+  // Exported permission: 'unpublish editable member content'.
+  $permissions['unpublish editable member content'] = array(
+    'name' => 'unpublish editable member content',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'clerk' => 'clerk',
+    ),
+    'module' => 'publishcontent',
+  );
+
+  // Exported permission: 'unpublish own board content'.
+  $permissions['unpublish own board content'] = array(
+    'name' => 'unpublish own board content',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'publishcontent',
+  );
+
+  // Exported permission: 'unpublish own board_term content'.
+  $permissions['unpublish own board_term content'] = array(
+    'name' => 'unpublish own board_term content',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'publishcontent',
+  );
+
+  // Exported permission: 'unpublish own member content'.
+  $permissions['unpublish own member content'] = array(
+    'name' => 'unpublish own member content',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'publishcontent',
   );
 
   // Exported permission: 'view own unpublished content'.
