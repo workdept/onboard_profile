@@ -321,5 +321,15 @@ function onboard_types_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'view revisions'.
+  $permissions['view revisions'] = array(
+    'name' => 'view revisions',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'clerk' => 'clerk',
+    ),
+    'module' => 'node',
+  );
+
   return $permissions;
 }

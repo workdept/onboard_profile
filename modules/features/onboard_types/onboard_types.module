@@ -152,6 +152,28 @@ function onboard_types_form_board_term_node_form_alter(&$form, &$form_state, $fo
 }
 
 /**
+ * Remove the revision information form input from node creation/edit forms.
+ */
+function onboard_types_remove_revision_form(&$form) {
+  $form['revision_information']['#access'] = false;
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function onboard_types_form_alter(&$form, &$form_state, $form_id) {
+  $user = $GLOBALS['user'];
+  if (($form_id == 'board_node_form' ||
+       $form_id === 'member_node_form' || 
+       $form_id === 'board_term_node_form') &&
+      !in_array('administrator', $user->roles)) {
+    // Remove the revision information input for node forms for
+    // our custom content types.  Don't do this for admin users.
+    onboard_types_remove_revision_form($form);
+  }
+}
+
+/**
  * Implements hook_node_view().
  *
  * Add management links to board type.
@@ -194,4 +216,3 @@ function onboard_types_node_view($node, $view_mode, $langcode) {
     }
   }
 }
-

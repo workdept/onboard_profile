@@ -197,6 +197,7 @@ features[user_permission][] = unpublish own board content
 features[user_permission][] = unpublish own board_term content
 features[user_permission][] = unpublish own member content
 features[user_permission][] = view own unpublished content
+features[user_permission][] = view revisions
 features[user_role][] = clerk
 features[uuid_node][] = 18aeee0d-abfc-4463-bbeb-f1762c6ff923
 features[uuid_node][] = db6dd32f-330c-40b2-98fb-c15be223dc56
