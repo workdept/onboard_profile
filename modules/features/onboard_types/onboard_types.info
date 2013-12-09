@@ -8,6 +8,7 @@ dependencies[] = addressfield
 dependencies[] = context
 dependencies[] = ctools
 dependencies[] = date
+dependencies[] = date_popup
 dependencies[] = date_views
 dependencies[] = entityreference
 dependencies[] = entityreference_prepopulate
