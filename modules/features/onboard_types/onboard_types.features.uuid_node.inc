@@ -12,7 +12,7 @@ function onboard_types_uuid_features_default_content() {
 
   $nodes[] = array(
   'uid' => 1,
-  'title' => 'About local government',
+  'title' => 'About Local Government',
   'log' => '',
   'status' => 1,
   'comment' => 0,
@@ -34,7 +34,7 @@ function onboard_types_uuid_features_default_content() {
 );
   $nodes[] = array(
   'uid' => 1,
-  'title' => 'About us',
+  'title' => 'About Us',
   'log' => '',
   'status' => 1,
   'comment' => 0,
