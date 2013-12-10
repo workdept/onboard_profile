@@ -216,3 +216,12 @@ function onboard_types_node_view($node, $view_mode, $langcode) {
     }
   }
 }
+
+/**
+ * Implements hook_ctools_plugin_directory().
+ */
+function onboard_types_ctools_plugin_directory($module, $plugin) {
+  if ($module == 'entityreference' && $plugin == 'selection') {
+    return 'plugins/selection';
+  }
+}
