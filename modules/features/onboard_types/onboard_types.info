@@ -229,4 +229,4 @@ features[views_view][] = recent_updates
 features_exclude[menu_links][main-menu_about-local-government:node/5] = main-menu_about-local-government:node/5
 features_exclude[menu_links][main-menu_about-us:node/4] = main-menu_about-us:node/4
 
-files[] = plugins/selection/multiviews.inc
+files[] = plugins/selection/adminviews.inc

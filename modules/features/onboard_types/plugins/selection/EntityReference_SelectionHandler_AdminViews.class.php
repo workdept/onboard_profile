@@ -3,13 +3,13 @@
 /**
  * Entity handler for Views.
  */
-class EntityReference_SelectionHandler_MultiViews implements EntityReference_SelectionHandler {
+class EntityReference_SelectionHandler_AdminViews implements EntityReference_SelectionHandler {
 
   /**
    * Implements EntityReferenceHandler::getInstance().
    */
   public static function getInstance($field, $instance = NULL, $entity_type = NULL, $entity = NULL) {
-    return new EntityReference_SelectionHandler_MultiViews($field, $instance);
+    return new EntityReference_SelectionHandler_AdminViews($field, $instance);
   }
 
   protected function __construct($field, $instance) {
