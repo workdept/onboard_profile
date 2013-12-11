@@ -421,6 +421,9 @@ function onboard_types_field_default_field_bases() {
             'status' => 0,
           ),
         ),
+        'target_bundles' => array(
+          'member' => 'member',
+        ),
         'view' => array(
           'args' => array(),
           'display_name' => 'entityreference',

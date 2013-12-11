@@ -40,6 +40,16 @@ class EntityReference_SelectionHandler_AdminViews implements EntityReference_Sel
       }
     }
 
+    /**
+     * Internal form field used to set the target bundles setting which is
+     * required by inline_entity_form.
+     */ 
+    $form['target_bundles'] = array(
+      '#type' => 'value',
+      '#value' => array(),
+    );
+
+
     // The value of the 'view_and_display' select below will need to be split
     // into 'view_name' and 'view_display' in the final submitted values, so
     // we massage the data at validate time on the wrapping element (not
@@ -223,4 +233,32 @@ function onboard_types_view_settings_validate($element, &$form_state, $form) {
 
   $value = array('view_name' => $view, 'display_name' => $display, 'args' => $args);
   form_set_value($element, $value, $form_state);
+
+  if ($element['#id'] == 'edit-field-settings-handler-settings-view') {
+    // @hack: Set the target bundles based on the view. We do this here, rather
+    // than in the validator for the ``target_bundles`` form field so we don't
+    // have to split the view name and display name twice.
+    //
+    // The same validator gets called twice, so we only do this for the
+    // view field and not the admin view field.
+    _onboard_types_set_target_bundles_from_view($view, $display, $form, $form_state);
+  }
+}
+
+/**
+ * Set the target_bundles form field (and ultimately setting) from the view
+ */
+function _onboard_types_set_target_bundles_from_view($view_name, $display_name, $form, &$form_state) {
+  $element = $form['field']['settings']['handler']['handler_settings']['target_bundles'];
+  $view = views_get_view($view_name);
+  $target_bundles = array();
+
+  if (isset($view->display[$display_name]->display_options['filters']) && isset($view->display[$display_name]->display_options['filters']['type'])) {
+    $target_bundles = $view->display[$display_name]->display_options['filters']['type']['value'];
+  }
+  else if (isset($view->display['default']->display_options['filters']) && isset($view->display['default']->display_options['filters']['type'])) {
+    $target_bundles = $view->display['default']->display_options['filters']['type']['value'];
+  }
+
+  form_set_value($element, $target_bundles, $form_state);
 }

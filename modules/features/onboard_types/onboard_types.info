@@ -14,6 +14,7 @@ dependencies[] = entityreference
 dependencies[] = entityreference_prepopulate
 dependencies[] = features
 dependencies[] = file
+dependencies[] = inline_entity_form
 dependencies[] = list
 dependencies[] = menu
 dependencies[] = node
