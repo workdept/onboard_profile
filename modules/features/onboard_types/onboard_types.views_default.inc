@@ -200,39 +200,47 @@ function onboard_types_views_default_views() {
   $handler->display->display_options['relationships']['og_membership_rel']['id'] = 'og_membership_rel';
   $handler->display->display_options['relationships']['og_membership_rel']['table'] = 'node';
   $handler->display->display_options['relationships']['og_membership_rel']['field'] = 'og_membership_rel';
-  $handler->display->display_options['relationships']['og_membership_rel']['required'] = TRUE;
   /* Relationship: OG membership: Group Taxonomy term from OG membership */
   $handler->display->display_options['relationships']['og_membership_related_taxonomy_term_group']['id'] = 'og_membership_related_taxonomy_term_group';
   $handler->display->display_options['relationships']['og_membership_related_taxonomy_term_group']['table'] = 'og_membership';
   $handler->display->display_options['relationships']['og_membership_related_taxonomy_term_group']['field'] = 'og_membership_related_taxonomy_term_group';
   $handler->display->display_options['relationships']['og_membership_related_taxonomy_term_group']['relationship'] = 'og_membership_rel';
-  $handler->display->display_options['relationships']['og_membership_related_taxonomy_term_group']['label'] = 'OG group';
-  /* Relationship: OG membership: OG membership from Taxonomy term group */
-  $handler->display->display_options['relationships']['og_membership_rel_group']['id'] = 'og_membership_rel_group';
-  $handler->display->display_options['relationships']['og_membership_rel_group']['table'] = 'taxonomy_term_data';
-  $handler->display->display_options['relationships']['og_membership_rel_group']['field'] = 'og_membership_rel_group';
-  $handler->display->display_options['relationships']['og_membership_rel_group']['relationship'] = 'og_membership_related_taxonomy_term_group';
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Contextual filter: OG membership: Entity id */
-  $handler->display->display_options['arguments']['etid']['id'] = 'etid';
-  $handler->display->display_options['arguments']['etid']['table'] = 'og_membership';
-  $handler->display->display_options['arguments']['etid']['field'] = 'etid';
-  $handler->display->display_options['arguments']['etid']['relationship'] = 'og_membership_rel_group';
-  $handler->display->display_options['arguments']['etid']['default_action'] = 'default';
-  $handler->display->display_options['arguments']['etid']['default_argument_type'] = 'current_user';
-  $handler->display->display_options['arguments']['etid']['summary']['number_of_records'] = '0';
-  $handler->display->display_options['arguments']['etid']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['etid']['summary_options']['items_per_page'] = '25';
+  /* Contextual filter: OG membership: Group ID */
+  $handler->display->display_options['arguments']['gid']['id'] = 'gid';
+  $handler->display->display_options['arguments']['gid']['table'] = 'og_membership';
+  $handler->display->display_options['arguments']['gid']['field'] = 'gid';
+  $handler->display->display_options['arguments']['gid']['relationship'] = 'og_membership_rel';
+  $handler->display->display_options['arguments']['gid']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['gid']['default_argument_type'] = 'og_user_groups';
+  $handler->display->display_options['arguments']['gid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['gid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['gid']['summary_options']['items_per_page'] = '25';
   /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
     'board' => 'board',
+  );
+  /* Filter criterion: OG membership: State */
+  $handler->display->display_options['filters']['state']['id'] = 'state';
+  $handler->display->display_options['filters']['state']['table'] = 'og_membership';
+  $handler->display->display_options['filters']['state']['field'] = 'state';
+  $handler->display->display_options['filters']['state']['value'] = array(
+    1 => '1',
+  );
+  /* Filter criterion: OG membership: Group_type */
+  $handler->display->display_options['filters']['group_type']['id'] = 'group_type';
+  $handler->display->display_options['filters']['group_type']['table'] = 'og_membership';
+  $handler->display->display_options['filters']['group_type']['field'] = 'group_type';
+  $handler->display->display_options['filters']['group_type']['relationship'] = 'og_membership_rel';
+  $handler->display->display_options['filters']['group_type']['value'] = array(
+    'taxonomy_term' => 'taxonomy_term',
   );
 
   /* Display: Page */
