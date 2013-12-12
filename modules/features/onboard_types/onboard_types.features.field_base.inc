@@ -194,8 +194,13 @@ function onboard_types_field_default_field_bases() {
     'locked' => 0,
     'module' => 'entityreference',
     'settings' => array(
-      'handler' => 'views',
+      'handler' => 'adminviews',
       'handler_settings' => array(
+        'admin_view' => array(
+          'args' => array(),
+          'display_name' => 'entityreference_admin',
+          'view_name' => 'my_boards',
+        ),
         'behaviors' => array(
           'views-select-list' => array(
             'status' => 0,
@@ -404,24 +409,60 @@ function onboard_types_field_default_field_bases() {
     'locked' => 0,
     'module' => 'entityreference',
     'settings' => array(
-      'handler' => 'base',
+      'handler' => 'adminviews',
       'handler_settings' => array(
+        'admin_view' => array(
+          'args' => array(),
+          'display_name' => 'entityreference_admin',
+          'view_name' => 'my_members',
+        ),
         'behaviors' => array(
           'views-select-list' => array(
             'status' => 0,
           ),
         ),
-        'sort' => array(
-          'type' => 'none',
-        ),
-        'target_bundles' => array(
-          'member' => 'member',
+        'view' => array(
+          'args' => array(),
+          'display_name' => 'entityreference',
+          'view_name' => 'my_members',
         ),
       ),
       'target_type' => 'node',
     ),
     'translatable' => 0,
     'type' => 'entityreference',
+  );
+
+  // Exported field_base: 'field_members_max'
+  $field_bases['field_members_max'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_members_max',
+    'foreign keys' => array(),
+    'indexes' => array(),
+    'locked' => 0,
+    'module' => 'number',
+    'settings' => array(),
+    'translatable' => 0,
+    'type' => 'number_integer',
+  );
+
+  // Exported field_base: 'field_members_min'
+  $field_bases['field_members_min'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_members_min',
+    'foreign keys' => array(),
+    'indexes' => array(),
+    'locked' => 0,
+    'module' => 'number',
+    'settings' => array(),
+    'translatable' => 0,
+    'type' => 'number_integer',
   );
 
   // Exported field_base: 'field_term_dates'
