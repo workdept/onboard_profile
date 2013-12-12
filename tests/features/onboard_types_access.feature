@@ -21,6 +21,7 @@ Feature: Access controls for Onboard content types
     And I press "Save"
     Then I should see "Board Beautification Board has been created"
 
+
   @javascript
   Scenario: Admin creates a board for a city that they're not a member of
     Given cities:
@@ -60,7 +61,40 @@ Feature: Access controls for Onboard content types
     And I am logged in as "nancy"
     When I go to add a board
     Then I should see "Create Board"
+    And I should see "Ferndale"
     And I should not see "Ypsilanti"
+    Given I am logged in as "ada"
+    When I go to add a board
+    Then I should see "Create Board"
+    And I should see "Ypsilanti"
+    And I should not see "Ferndale"
+
+  Scenario: Clerk can see her own boards in her dashboard but not others' boards
+    Given cities:
+      | name      |
+      | Ferndale  |
+      | Ypsilanti |
+    And users:
+      | name  | status |
+      | nancy | 1      |
+      | ada   | 1      |
+    And clerks:
+      | user  | city      |
+      | nancy | Ferndale  |
+      | ada   | Ypsilanti |
+    And boards:
+      | title          | author | city      |
+      | Dale of Ferns  | nancy  | Ferndale  |
+      | Lanti of Ypsis | ada    | Ypsilanti |
+    And I am logged in as "nancy"
+    When I go to my dashboard
+    Then I should see "Dale of Ferns"
+    And I should not see "Lanti of Ypsis"
+    Given I am logged in as "ada"
+    When I go to my dashboard
+    Then I should see "Lanti of Ypsis"
+    And I should not see "Dale of Ferns"
+
 
   Scenario: User who is not a clerk cannot create a board
     Given cities:

@@ -321,4 +321,12 @@ class FeatureContext extends DrupalContext
   public function assertBoardTermUnpublished($city_name, $board_name, $member_name) {
     return new Then("I should see \"has been unpublished\"");
   }
+
+  /**
+   * @When /^I go to my dashboard$/
+   */
+  public function goToMyDashboard() {
+    parent::visit("user/boards");
+  }
+
 }
