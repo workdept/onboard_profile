@@ -328,5 +328,18 @@ class FeatureContext extends DrupalContext
   public function goToMyDashboard() {
     parent::visit("user/boards");
   }
+  
+  /**
+   * @Then /^I should see the city field$/
+   */
+  public function shouldSeeCityField() {
+    return new Then("I should see a \"#edit-og-group-ref\" element");
+  }
 
+  /**
+   * @Then /^I should not see the city field$/
+   */
+  public function shouldNotSeeCityField() {
+    return new Then("I should not see a \"#edit-og-group-ref\" element");
+  }
 }
