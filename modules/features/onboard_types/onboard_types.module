@@ -159,6 +159,13 @@ function onboard_types_remove_revision_form(&$form) {
 }
 
 /**
+ * Hide the city field.
+ */
+function onboard_types_hide_city_field(&$form) {
+  $form['og_group_ref']['#access'] = FALSE;
+}
+
+/**
  * Implements hook_form_alter().
  */
 function onboard_types_form_alter(&$form, &$form_state, $form_id) {
@@ -170,6 +177,7 @@ function onboard_types_form_alter(&$form, &$form_state, $form_id) {
     // Remove the revision information input for node forms for
     // our custom content types.  Don't do this for admin users.
     onboard_types_remove_revision_form($form);
+    onboard_types_hide_city_field($form);
   }
 }
 
