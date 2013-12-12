@@ -62,6 +62,9 @@ projects[git_deploy][version] = "2.x-dev"
 projects[google_analytics][subdir] = "contrib"
 projects[google_analytics][version] = "1.4"
 
+projects[inline_entity_form][subdir] = "contrib"
+projects[inline_entity_form][version] = "1.3"
+
 projects[link][subdir] = "contrib"
 projects[link][version] = "1.2"
 
