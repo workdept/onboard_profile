@@ -231,6 +231,7 @@ function onboard_types_views_default_views() {
   $handler->display->display_options['filters']['state']['id'] = 'state';
   $handler->display->display_options['filters']['state']['table'] = 'og_membership';
   $handler->display->display_options['filters']['state']['field'] = 'state';
+  $handler->display->display_options['filters']['state']['relationship'] = 'og_membership_rel';
   $handler->display->display_options['filters']['state']['value'] = array(
     1 => '1',
   );
