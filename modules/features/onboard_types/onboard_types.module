@@ -225,3 +225,18 @@ function onboard_types_ctools_plugin_directory($module, $plugin) {
     return 'plugins/selection';
   }
 }
+
+/**
+ * Implements hook_user_login().
+ *
+ * If user is a clerk, redirect to user/boards after login.
+ */
+function onboard_types_user_login(&$edit, $account) {
+  $is_not_edit_page = (!isset($_POST['form_id']) || $_POST['form_id']);
+  $is_clerk = $is_not_edit_page && in_array('clerk', $account->roles);
+
+  if ($is_clerk) {
+    $_GET['destination'] = 'user/boards';
+  }
+}
+
