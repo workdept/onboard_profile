@@ -4,6 +4,34 @@ Feature: Automatic field values for custom content types
   As a clerk 
   I need to be able to have some field values automatically assigned
 
+  Scenario: City field of Board is hidden for clerks 
+    Given cities:
+      | name      |
+      | Ferndale  |
+    And users:
+      | name  | status | 
+      | nancy | 1      |     
+    And clerks:
+      | user  | city     |
+      | nancy | Ferndale |
+    And I am logged in as "nancy"
+    When I go to add a board 
+    Then I should not see the city field
+
+  Scenario: City field of Board is visible for administrators
+    Given cities:
+      | name      |
+      | Ferndale  |
+    And users:
+      | name  | status | 
+      | nancy | 1      |     
+    And clerks:
+      | user  | city     |
+      | nancy | Ferndale |
+    And I am logged in as a user with the "administrator" role
+    When I go to add a board
+    Then I should see the city field
+
   Scenario: City field of Board is automatically populated
     Given cities:
       | name      |
@@ -20,6 +48,34 @@ Feature: Automatic field values for custom content types
     And I press "Save"
     Then I should see "Board Beautification Board has been created"
     And I should see "Ferndale"
+
+  Scenario: City field of Member is not visible for clerks
+    Given cities:
+      | name      |
+      | Ferndale  |
+    And users:
+      | name  | status | 
+      | nancy | 1      |     
+    And clerks:
+      | user  | city     |
+      | nancy | Ferndale |
+    And I am logged in as "nancy"
+    When I go to add a member
+    Then I should not see the city field
+
+  Scenario: City field of Member is visible for administrators 
+    Given cities:
+      | name      |
+      | Ferndale  |
+    And users:
+      | name  | status | 
+      | nancy | 1      |     
+    And clerks:
+      | user  | city     |
+      | nancy | Ferndale |
+    And I am logged in as a user with the "administrator" role
+    When I go to add a member
+    Then I should see the city field
 
   Scenario: City field of Member is automatically populated
     Given cities:
@@ -52,6 +108,46 @@ Feature: Automatic field values for custom content types
     And I press "Save"
     Then I should see "Member Test Member has been created"
     And I should see "Ferndale"
+
+  Scenario: City field of Board Term is hidden from clerks 
+    Given cities:
+      | name      |
+      | Ferndale  |
+    And users:
+      | name  | status |
+      | nancy | 1      |
+    And clerks:
+      | user  | city      |
+      | nancy | Ferndale  |
+    And boards:
+      | title                 | author           | city         |
+      | Beautification Board  | nancy            | Ferndale     |
+    And members:
+      | name        | author |
+      | Test Member | nancy  |
+    And I am logged in as "nancy"
+    When I go to add a board term
+    Then I should not see the city field
+
+  Scenario: City field of Board Term is visible for administrators
+    Given cities:
+      | name      |
+      | Ferndale  |
+    And users:
+      | name  | status |
+      | nancy | 1      |
+    And clerks:
+      | user  | city      |
+      | nancy | Ferndale  |
+    And boards:
+      | title                 | author           | city         |
+      | Beautification Board  | nancy            | Ferndale     |
+    And members:
+      | name        | author |
+      | Test Member | nancy  |
+    And I am logged in as a user with the "administrator" role
+    When I go to add a board term
+    Then I should see the city field
 
   @javascript
   Scenario: City field of Board Term is automatically populated
