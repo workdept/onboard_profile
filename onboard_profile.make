@@ -114,7 +114,7 @@ projects[adminimal_theme][download][type] = "git"
 projects[adminimal_theme][download][url] = "git://git.drupal.org/project/adminimal_theme.git"
 projects[adminimal_theme][download][branch] = "7.x-1.x"
 
-projects[bootstrap][type] = "theme
+projects[bootstrap][type] = "theme"
 projects[bootstrap][download][type] = "git"
 projects[bootstrap][download][url] = "git://git.drupal.org/project/bootstrap.git"
 projects[bootstrap][download][branch] = "7.x-3.0"
