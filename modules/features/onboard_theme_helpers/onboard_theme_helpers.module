@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Onboard Theme Helpers feature.
+ */
+
+include_once 'onboard_theme_helpers.features.inc';

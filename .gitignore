@@ -1,8 +1,8 @@
 .DS_STORE
 modules/contrib
-themes
 tests/*report*.html
 tests/vendor
 tests/bin
 tests/composer.lock
 tests/composer.phar
+themes/bootstrap

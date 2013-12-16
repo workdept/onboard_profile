@@ -17,17 +17,19 @@ function onboard_profile_install() {
   minimal_install();
 
   // Enable themes.
-  //$theme = 'adminimal';
+  $theme = 'onboard_theme';
   $admin_theme = 'adminimal';
+  // "Enable" the admin theme w/o additional hooks called by theme_enable()
   db_update('system')
     ->fields(array('status' => 1))
     ->condition('type', 'theme')
     ->condition('name', $admin_theme)
     ->execute();
-  //theme_enable(array($theme));
-  //variable_set('theme_default', $theme);
+  theme_enable(array($theme));
+  variable_set('theme_default', $theme);
   variable_set('admin_theme', $admin_theme);
-  variable_set('node_admin_theme', '1');
+  // Don't use the admin theme when creating content
+  variable_set('node_admin_theme', '0');
 
   // Add text formats.
   $filtered_html_format = array(

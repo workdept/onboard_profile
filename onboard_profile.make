@@ -104,9 +104,17 @@ projects[views_bulk_operations][version] = "3.1"
 projects[og][subdir] = "contrib"
 projects[og][version] = "2.4"
 
+projects[jquery_update][subdir] = "contrib"
+projects[jquery_update][version] = "2.3"
+
 ; Themes
 
 projects[adminimal_theme][type] = "theme"
 projects[adminimal_theme][download][type] = "git"
 projects[adminimal_theme][download][url] = "git://git.drupal.org/project/adminimal_theme.git"
 projects[adminimal_theme][download][branch] = "7.x-1.x"
+
+projects[bootstrap][type] = "theme
+projects[bootstrap][download][type] = "git"
+projects[bootstrap][download][url] = "git://git.drupal.org/project/bootstrap.git"
+projects[bootstrap][download][branch] = "7.x-3.0"

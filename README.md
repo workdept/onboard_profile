@@ -10,7 +10,7 @@ drush make --working-copy https://raw.github.com/bnchdrff/onboard_profile/7.x-1.
 cd onboard_webroot
 mysql -uroot -e 'create database onboard_test'
 drush site-install onboard_profile  --account-name=admin --account-pass=admin --db-url=mysql://root@localhost/onboard_test --yes
-drush en onboard_types views_ui context_ui field_ui diff admin_menu adminimal_admin_menu
+drush en onboard_types onboard_theme_helpers views_ui context_ui field_ui diff admin_menu adminimal_admin_menu
 # Organic Groups role permissions for node access get clobbered during the 
 # site install.  Revert the feature to have them set correctly
 drush fr onboard_types --yes
