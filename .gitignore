@@ -6,3 +6,4 @@ tests/bin
 tests/composer.lock
 tests/composer.phar
 themes/bootstrap
+themes/adminimal_theme
