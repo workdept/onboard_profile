@@ -71,6 +71,9 @@ projects[link][version] = "1.2"
 projects[libraries][subdir] = "contrib"
 projects[libraries][version] = "2.1"
 
+projects[mollom][subdir] = "contrib"
+projects[mollom][version] = "2.8"
+
 projects[pathauto][subdir] = "contrib"
 projects[pathauto][version] = "1.2"
 
