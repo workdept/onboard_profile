@@ -107,6 +107,9 @@ projects[og][version] = "2.4"
 projects[jquery_update][subdir] = "contrib"
 projects[jquery_update][version] = "2.3"
 
+projects[webform][subdir] = "contrib"
+projects[webform][version] = "4.0-beta1"
+
 ; Themes
 
 projects[adminimal_theme][type] = "theme"
