@@ -15,7 +15,7 @@ function onboard_types_field_default_field_instances() {
     'bundle' => 'board',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Here\'s some example help text! Do this to do this.',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -118,7 +118,7 @@ function onboard_types_field_default_field_instances() {
     'label' => 'Application Process Description',
     'required' => 0,
     'settings' => array(
-      'text_processing' => 0,
+      'text_processing' => 1,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -318,7 +318,7 @@ function onboard_types_field_default_field_instances() {
     'label' => 'Description',
     'required' => 0,
     'settings' => array(
-      'text_processing' => 0,
+      'text_processing' => 1,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -358,7 +358,7 @@ function onboard_types_field_default_field_instances() {
     'label' => 'Meeting Location',
     'required' => 0,
     'settings' => array(
-      'text_processing' => 0,
+      'text_processing' => 1,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -398,7 +398,7 @@ function onboard_types_field_default_field_instances() {
     'label' => 'Meeting Time',
     'required' => 0,
     'settings' => array(
-      'text_processing' => 0,
+      'text_processing' => 1,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -1154,6 +1154,7 @@ function onboard_types_field_default_field_instances() {
   t('Determine if this is an OG group.');
   t('Email');
   t('Group');
+  t('Here\'s some example help text! Do this to do this.');
   t('Mailing Address');
   t('Maximum number of members');
   t('Meeting Location');
