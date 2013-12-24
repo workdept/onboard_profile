@@ -228,9 +228,16 @@ input.error {
   border-color: @state-danger-border;
 }
 fieldset legend.panel-heading {
+  background-color: @dark-blue !important;
+  color: #fff !important;
+  border-radius: 0;
   float: left;
   line-height: 1em;
   margin: 0;
+
+  .panel-title {
+    font-size: @font-size-largest;
+  }
 }
 fieldset .panel-body {
   clear: both;

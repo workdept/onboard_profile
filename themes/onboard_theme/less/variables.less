@@ -97,8 +97,10 @@
 @font-family-base:        @font-family-sans-serif;
 
 @font-size-base:          14px;
-@font-size-large:         ceil(@font-size-base * 1.25); // ~18px
-@font-size-small:         ceil(@font-size-base * 0.85); // ~12px
+@font-size-large:         ceil(@font-size-base * 1.07); // ~15px
+@font-size-larger:        ceil(@font-size-base * 1.14); // ~16px
+@font-size-largest:       ceil(@font-size-base * 1.28); // ~18px
+@font-size-small:         ceil(@font-size-base * 0.92); // ~13px
 
 @font-size-h1:            ceil(@font-size-base * 2.85); // ~40px
 @font-size-h2:            floor(@font-size-base * 2.15); // ~30px
@@ -145,8 +147,8 @@
 @line-height-small:              1.5;
 
 @border-radius-base:             0;
-@border-radius-large:            6px;
-@border-radius-small:            3px;
+@border-radius-large:            0px;
+@border-radius-small:            0px;
 
 @component-active-color:         #fff;
 @component-active-bg:            @brand-primary;
@@ -209,7 +211,7 @@
 @input-color:                    @gray;
 @input-border:                   #ccc;
 @input-border-radius:            @border-radius-base;
-@input-border-focus:             #66afe9;
+@input-border-focus:             #6d2f19;
 
 @input-color-placeholder:        @gray-light;
 
@@ -217,10 +219,10 @@
 @input-height-large:             (floor(@font-size-large * @line-height-large) + (@padding-large-vertical * 2) + 2);
 @input-height-small:             (floor(@font-size-small * @line-height-small) + (@padding-small-vertical * 2) + 2);
 
-@legend-color:                   @gray-dark;
-@legend-border-color:            #e5e5e5;
+@legend-color:                   #fff; 
+@legend-border-color:            #ccc;
 
-@input-group-addon-bg:           @gray-lighter;
+@input-group-addon-bg:           @dark-blue; 
 @input-group-addon-border-color: @input-border;
 
 

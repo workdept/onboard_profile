@@ -50,3 +50,26 @@ function onboard_theme_preprocess_page(&$variables) {
 
 }
 
+/**
+ * Implements theme_field().
+ *
+ * Render the application URL as a button, with the text taken from the
+ * field_application_action_title field.
+ */
+// @bookmark
+// @todo: Decide if this is the best way to render this field.
+function onboard_theme_field__field_application_url($variables) {
+  $link_text_items = field_get_items('node', $variables['element']['#object'], 'field_application_action_title');
+   $output = '';
+
+  foreach ($variables['items'] as $delta => $item) {
+    $link_text = $link_text_items[$delta]['safe_value'];
+    $classes = 'field-item ' . ($delta % 2 ? 'odd' : 'even');
+    $output .= '<a class="' . $classes . '"' . $variables['item_attributes'][$delta] . ' href="' . drupal_render($item) . '">' . $link_text .  '</a>';
+  }
+
+  // Render the top-level DIV.
+  $output = '<div class="' . $variables['classes'] . '"' . $variables['attributes'] . '>' . $output . '</div>';
+
+  return $output; 
+} 
