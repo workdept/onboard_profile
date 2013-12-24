@@ -156,5 +156,21 @@
   </div>
 </div>
 <footer class="footer">
-  <?php print render($page['footer']); ?>
+  <?php
+  // @todo: Figure out a clean way to incorporate configurable footer.
+  //print render($page['footer']); 
+  ?>
+  <div class="container">
+    <div class="row">
+      <a class="onboard-msa-logo <?php print $grid_class_prefix; ?>3 <?php print $grid_class_prefix; ?>offset-4" href="#">
+        <?php print $onboard_msa_logo; ?>
+      </a>
+
+      <div class="<?php print $grid_class_prefix; ?>7">
+        <p>On Board is a pilot project of the Michigan Suburbs Alliance.</p>
+      
+        <p class="onboard-license">Licensed under a Creative Commons Attribution-NonCommercial-NoDerivs 3.0 Unported License.</p>
+      </div>
+    </div>
+  </div>
 </footer>

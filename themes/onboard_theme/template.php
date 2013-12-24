@@ -16,6 +16,9 @@ define('ONBOARD_THEME_GRID_CLASS_PREFIX', "col-md-");
  * @see page.tpl.php
  */
 function onboard_theme_preprocess_page(&$variables) {
+  // Make the Bootstrap class prefix available as a variable
+  $variables['grid_class_prefix'] = ONBOARD_THEME_GRID_CLASS_PREFIX;
+
   // Add information about the number of sidebars.
   if ((!empty($variables['page']['sidebar_first']) || !empty($variables['page']['logo'])) && !empty($variables['page']['sidebar_second'])) {
     $content_column_grid_columns = ONBOARD_THEME_GRID_COLUMNS - (ONBOARD_THEME_SIDEBAR_COLUMNS * 2);
@@ -38,5 +41,12 @@ function onboard_theme_preprocess_page(&$variables) {
   else {
     $variables['navbar_classes_array'][] = 'navbar-default';
   }
+
+  //$variables['onboard_msa_logo'] = drupal_get_path('theme', 'onboard_theme') . '/img/MSA_logo_white.png'; 
+  $variables['onboard_msa_logo'] = theme('image', array(
+    'path' => drupal_get_path('theme', 'onboard_theme') . '/img/MSA_logo_white.png', 
+    'alt' => t("MSA Logo"),
+  ));
+
 }
 

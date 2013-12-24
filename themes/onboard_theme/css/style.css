@@ -6858,4 +6858,11 @@ body.admin-menu {
 .footer {
   height: 185px;
   background-color: #19586f;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: bold;
+}
+.onboard-license {
+  font-size: 11px;
+  color: #c8ede6;
 }
