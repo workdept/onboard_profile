@@ -80,3 +80,61 @@
   width: 21px;
   height: 21px;
 }
+
+// Typography
+
+h1 {
+  color: @headings-color-h1; 
+}
+
+h2 {
+  color: @headings-color-h2;
+
+  &:hover {
+    color: @dark-blue;
+    text-decoration: underline;
+  }
+}
+
+.page-header {
+  border-bottom: 2px solid @page-header-border-color;
+}
+
+.breadcrumb {
+  padding-left: 0;
+  font-size: @font-size-base - 1px; 
+}
+
+// Navs
+
+.nav-tabs {
+  > li {
+    > a {
+      font-size: @font-size-base + 2px;
+      font-weight: normal;
+
+      &:hover {
+        background-color: @gray-lighter;
+      }
+    }
+  }
+}
+
+// Buttons
+
+.btn {
+  font-size: @font-size-base + 2px;
+
+  &:hover, &:focus {
+    color: @green;
+    border-color: @dark-blue;
+    background-color: #e2e2e2;
+  }
+}
+
+.btn-primary {
+  &:hover, &:focus {
+    color: @dark-blue;
+    background-color: #de4956;
+  }
+}
