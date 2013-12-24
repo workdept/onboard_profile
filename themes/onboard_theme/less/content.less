@@ -1,1 +1,82 @@
-// Insert your styling here.
+// Main logo
+
+.onboard-logo {
+  display: block;
+  margin: @onboard-padding-vertical 0;
+  .onboard-box-shadow();
+
+  > img {
+    // Pull the logo to the left to make the edge of the box line up with the
+    // content below.
+    margin-left: -@onboard-padding-horizontal;
+  }
+}
+
+.col-md-4 > .onboard-logo,
+.col-md-4 .region-sidebar-first .block {
+  // @hack: Make the width artificially shorter because part of the image hangs
+  // over the edge of the box
+  width: 220px - @onboard-shadow-offset; 
+
+  margin-bottom: @onboard-padding-vertical + @onboard-shadow-offset;
+}
+
+.region-sidebar-first {
+  border: none;
+  padding: 0;
+  background-color: transparent;
+  box-shadow: none;
+
+  .block {
+    padding: @onboard-padding-vertical 0;
+    color: #fff;
+    background-color: @dark-blue;
+    .onboard-box-shadow();
+
+    .nav {
+      > li > a {
+        padding: @onboard-padding-vertical @onboard-padding-horizontal;
+        font-size: @onboard-sidebar-font-size;
+        font-weight: bold;
+        color: @onboard-sidebar-nav-link-color; 
+
+        &:hover {
+          background-color: @onboard-sidebar-nav-link-hover-bg;
+        }
+      }
+    }
+  }
+
+  .block-title {
+    padding: (@onboard-padding-vertical / 2) @onboard-padding-horizontal 0 @onboard-padding-horizontal;
+    margin-bottom: (@onboard-padding-vertical / 2); 
+    color: @green;
+    font-size: @onboard-sidebar-font-size;
+    font-weight: bold;
+    text-transform: uppercase;
+
+    span {
+      display: block;
+      width: 100%;
+      padding-bottom: (@onboard-padding-vertical / 2);
+      border-bottom: 1px solid @green;
+    }
+  }
+}
+
+.page-content-container {
+  background-color: #fff;
+  padding: @onboard-padding-vertical @onboard-padding-horizontal;
+  .onboard-box-shadow();
+}
+
+// Pin
+
+.pin {
+  margin: -24px auto (@onboard-padding-vertical / 2);
+  display: block;
+  background-image: url(../img/pin.png);
+  background-repeat: no-repeat;
+  width: 21px;
+  height: 21px;
+}

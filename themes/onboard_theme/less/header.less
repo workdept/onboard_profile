@@ -1,1 +1,49 @@
-// Insert your styling here.
+body.admin-menu {
+  // Get rid of the 20px top margin added by default by admin_menu
+  margin-top: 0 !important;
+}
+
+// The design has a white bar at the top of the page that spans the entire
+// viewport width and goes behind both the sidebar and the main content
+// container.  Use an empty ``<header>`` element for this.
+#header-background {
+  width: 100%;
+  // Total height should be about 45px
+  height: 3 * @onboard-padding-vertical;
+  padding: @onboard-padding-vertical 0;
+  background-color: #fff;
+  position: absolute;
+}
+
+.navbar-nav > li > a {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.navbar-nav > li.first > a {
+  padding-left: 0;
+} 
+
+// My Account and login/logout buttons
+.navbar-nav.secondary {
+  position: absolute;
+  right: 0;
+
+  > li > a {
+    margin-right: 10px;
+    padding: (@onboard-padding-vertical - 2px) 10px;
+
+    background-color: @onboard-navbar-account-link-bg; 
+    color: @onboard-navbar-account-link-color;
+    font-size: @onboard-navbar-account-link-font-size;
+
+    &:hover {
+      background-color: @onboard-navbar-account-link-hover-bg;
+      color: @onboard-navbar-account-link-hover-color;
+    }
+  }
+
+  > li.last > a {
+    margin-right: 0;
+  }
+}
