@@ -1,30 +1,48 @@
-body.admin-menu {
-  // Get rid of the 20px top margin added by default by admin_menu
-  margin-top: 0 !important;
+// Total height should be about 45px
+@onboard-header-height: 3 * @onboard-padding-vertical;
+
+body {
+  .admin-menu {
+    // Get rid of the 20px top margin added by default by admin_menu
+    margin-top: 0 !important;
+  }
+
+  @media (max-width: @screen-sm-max) {
+    margin-top: @onboard-header-height;
+  } 
 }
 
 // The design has a white bar at the top of the page that spans the entire
 // viewport width and goes behind both the sidebar and the main content
 // container.  Use an empty ``<header>`` element for this.
 #header-background {
-  // Hide this for smaller displays      
-  display: none;
-
   width: 100%;
   // Total height should be about 45px
-  height: 3 * @onboard-padding-vertical;
+  height: @onboard-header-height; 
   padding: @onboard-padding-vertical 0;
   background-color: #fff;
   position: absolute;
-
-  @media (min-width: @screen-md) {
-    display: block;
+  
+  @media (max-width: @screen-sm-max) {
+    // Hide this for smaller displays because it's replaced by the navbar
+    display: none;
   }
 }
 
 #navbar {
   @media (max-width: @screen-sm-max) {
-    .onboard-box-shadow();
+    // On small displays, move the navbar to the top
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+  }
+}
+
+.main-container {
+  @media (max-width: @screen-sm-max) {
+    // On small displays, make space for the navbar to the top
+    margin-top: 3 * @onboard-padding-vertical;
   }
 }
 
