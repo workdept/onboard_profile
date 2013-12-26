@@ -695,7 +695,7 @@ pre code {
 }
 @media (min-width: 1200px) {
   .container {
-    width: 960px;
+    width: 1160px;
   }
 }
 .row {
@@ -6251,7 +6251,7 @@ body #admin-menu .dropdown li {
 }
 @media screen and (min-width: 1200px) {
   .navbar.container {
-    max-width: 930px;
+    max-width: 1130px;
   }
 }
 .navbar.container > .container {
@@ -6808,10 +6808,29 @@ body.admin-menu {
 .onboard-logo > img {
   margin-left: -15px;
 }
+@media (min-width: 992px) {
+  .onboard-logo > img {
+    max-width: 242px;
+  }
+}
+@media (min-width: 1200px) {
+  .onboard-logo > img {
+    max-width: 291px;
+  }
+}
 .col-md-4 > .onboard-logo,
 .col-md-4 .region-sidebar-first .block {
   width: 213px;
   margin-bottom: 22px;
+}
+@media (min-width: 1200px) {
+  .col-md-4 > .onboard-logo {
+    width: 258px;
+    height: 155px;
+  }
+  .col-md-4 .region-sidebar-first .block {
+    width: 260px;
+  }
 }
 .region-sidebar-first {
   border: none;

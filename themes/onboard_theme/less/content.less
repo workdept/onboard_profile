@@ -12,6 +12,22 @@
   }
 }
 
+@media (min-width: @screen-md) {
+  .onboard-logo {
+    > img {
+      max-width: 242px;
+    }
+  }
+}
+
+@media (min-width: @screen-lg) {
+  .onboard-logo {
+    > img {
+      max-width: 291px;
+    }
+  }
+}
+
 .col-md-4 > .onboard-logo,
 .col-md-4 .region-sidebar-first .block {
   // @hack: Make the width artificially shorter because part of the image hangs
@@ -19,6 +35,19 @@
   width: 220px - @onboard-shadow-offset; 
 
   margin-bottom: @onboard-padding-vertical + @onboard-shadow-offset;
+}
+
+@media (min-width: @screen-lg) {
+  .col-md-4 > .onboard-logo {
+    // @hack: Get rid of a weird little gap below and to the right of the logo
+    // image.
+    width: 258px;
+    height: 155px;
+  }
+
+  .col-md-4 .region-sidebar-first .block {
+    width: 260px;
+  }
 }
 
 .region-sidebar-first {
