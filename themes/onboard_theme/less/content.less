@@ -6,46 +6,46 @@
   .onboard-box-shadow();
 
   > img {
+    max-width: 242px;
+
     // Pull the logo to the left to make the edge of the box line up with the
     // content below.
     margin-left: -@onboard-padding-horizontal;
   }
-}
 
-@media (min-width: @screen-md) {
-  .onboard-logo {
-    > img {
-      max-width: 242px;
-    }
-  }
-}
-
-@media (min-width: @screen-lg) {
-  .onboard-logo {
+  @media (min-width: @screen-lg) {
     > img {
       max-width: 291px;
     }
   }
 }
 
-.col-md-4 > .onboard-logo,
-.col-md-4 .region-sidebar-first .block {
+.col-md-4 > .onboard-logo {
   // @hack: Make the width artificially shorter because part of the image hangs
   // over the edge of the box
   width: 220px - @onboard-shadow-offset; 
-
-  margin-bottom: @onboard-padding-vertical + @onboard-shadow-offset;
-}
-
-@media (min-width: @screen-lg) {
-  .col-md-4 > .onboard-logo {
+  
+  @media (min-width: @screen-lg) {
     // @hack: Get rid of a weird little gap below and to the right of the logo
     // image.
     width: 258px;
     height: 155px;
   }
+}
 
-  .col-md-4 .region-sidebar-first .block {
+.col-md-4 > .onboard-logo,
+.col-md-4 .region-sidebar-first .block {
+  margin-bottom: @onboard-padding-vertical + @onboard-shadow-offset;
+}
+
+.col-md-4 .region-sidebar-first .block {
+  @media (min-width: @screen-md) {
+    // @hack: Make the width artificially shorter because part of the image hangs
+    // over the edge of the box
+    width: 220px - @onboard-shadow-offset; 
+  }
+
+  @media (min-width: @screen-lg) {
     width: 260px;
   }
 }
