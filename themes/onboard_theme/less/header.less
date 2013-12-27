@@ -1,1 +1,95 @@
-// Insert your styling here.
+// Total height should be about 45px
+@onboard-header-height: 3 * @onboard-padding-vertical;
+
+body {
+  .admin-menu {
+    // Get rid of the 20px top margin added by default by admin_menu
+    margin-top: 0 !important;
+  }
+
+  @media (max-width: @screen-sm-max) {
+    margin-top: @onboard-header-height;
+  } 
+}
+
+// The design has a white bar at the top of the page that spans the entire
+// viewport width and goes behind both the sidebar and the main content
+// container.  Use an empty ``<header>`` element for this.
+#header-background {
+  width: 100%;
+  // Total height should be about 45px
+  height: @onboard-header-height; 
+  padding: @onboard-padding-vertical 0;
+  background-color: #fff;
+  position: absolute;
+  
+  @media (max-width: @screen-sm-max) {
+    // Hide this for smaller displays because it's replaced by the navbar
+    display: none;
+  }
+}
+
+#navbar {
+  @media (max-width: @screen-sm-max) {
+    // On small displays, move the navbar to the top
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+  }
+}
+
+.main-container {
+  @media (max-width: @screen-sm-max) {
+    // On small displays, make space for the navbar to the top
+    margin-top: 3 * @onboard-padding-vertical;
+  }
+}
+
+.navbar-nav {
+  @media (max-width: @grid-float-breakpoint-max) {
+    margin: (@navbar-padding-vertical / 2) 0;
+  }
+
+  > li {
+    > a {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    &.first > a {
+      padding-left: 0;
+    }
+  }
+}
+
+// My Account and login/logout buttons
+
+.navbar-nav.secondary {
+  @media (min-width: @grid-float-breakpoint) {
+    position: absolute;
+    right: 0;
+
+    > li > a {
+      margin-right: 10px;
+      padding: @onboard-padding-vertical 10px;
+      background-color: @onboard-navbar-account-link-bg; 
+      color: @onboard-navbar-account-link-color;
+      font-size: @onboard-navbar-account-link-font-size;
+
+      &:hover {
+        background-color: @onboard-navbar-account-link-hover-bg;
+        color: @onboard-navbar-account-link-hover-color;
+      }
+
+      @media (min-width: @screen-md-min) {
+        padding-top: (@onboard-padding-vertical - 2px);
+        padding-bottom: (@onboard-padding-vertical - 2px);
+      }
+    }
+
+    > li.last > a {
+      margin-right: 0;
+    }
+  }
+}

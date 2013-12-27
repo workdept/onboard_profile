@@ -1,1 +1,265 @@
-// Insert your styling here.
+// Main logo
+
+.onboard-logo {
+  display: block;
+  margin: @onboard-padding-vertical 0;
+  .onboard-box-shadow();
+
+  > img {
+    max-width: 242px;
+
+    // Pull the logo to the left to make the edge of the box line up with the
+    // content below.
+    margin-left: -@onboard-padding-horizontal;
+  }
+
+  @media (min-width: @screen-lg) {
+    > img {
+      max-width: 291px;
+    }
+  }
+}
+
+.col-md-4 > .onboard-logo {
+  // @hack: Make the width artificially shorter because part of the image hangs
+  // over the edge of the box
+  width: 220px - @onboard-shadow-offset; 
+  
+  @media (min-width: @screen-lg) {
+    // @hack: Get rid of a weird little gap below and to the right of the logo
+    // image.
+    width: 258px;
+    height: 155px;
+  }
+}
+
+.col-md-4 > .onboard-logo,
+.col-md-4 .region-sidebar-first .block {
+  margin-bottom: @onboard-padding-vertical + @onboard-shadow-offset;
+}
+
+.col-md-4 .region-sidebar-first .block {
+  @media (min-width: @screen-md) {
+    // @hack: Make the width artificially shorter because part of the image hangs
+    // over the edge of the box
+    width: 220px - @onboard-shadow-offset; 
+  }
+
+  @media (min-width: @screen-lg) {
+    width: 260px;
+  }
+}
+
+.region-sidebar-first {
+  border: none;
+  padding: 0;
+  background-color: transparent;
+  box-shadow: none;
+
+  .block {
+    padding: @onboard-padding-vertical 0;
+    color: #fff;
+    background-color: @dark-blue;
+    .onboard-box-shadow();
+
+    .nav {
+      > li > a {
+        padding: @onboard-padding-vertical @onboard-padding-horizontal;
+        font-size: @onboard-sidebar-font-size;
+        font-weight: bold;
+        color: @onboard-sidebar-nav-link-color; 
+
+        &:hover {
+          background-color: @onboard-sidebar-nav-link-hover-bg;
+        }
+      }
+    }
+  }
+
+  .block-title {
+    padding: (@onboard-padding-vertical / 2) @onboard-padding-horizontal 0 @onboard-padding-horizontal;
+    margin-bottom: (@onboard-padding-vertical / 2); 
+    color: @green;
+    font-size: @onboard-sidebar-font-size;
+    font-weight: bold;
+    text-transform: uppercase;
+
+    span {
+      display: block;
+      width: 100%;
+      padding-bottom: (@onboard-padding-vertical / 2);
+      border-bottom: 1px solid @green;
+    }
+  }
+}
+
+.page-content-container {
+  background-color: #fff;
+  padding: @onboard-padding-vertical @onboard-padding-horizontal;
+  .onboard-box-shadow();
+}
+
+// Pin
+
+.pin {
+  margin: -24px auto (@onboard-padding-vertical / 2);
+  display: block;
+  background-image: url(../img/pin.png);
+  background-repeat: no-repeat;
+  width: 21px;
+  height: 21px;
+}
+
+// Typography
+
+h1 {
+  color: @headings-color-h1; 
+}
+
+h2 {
+  color: @headings-color-h2;
+
+  &:hover {
+    color: @dark-blue;
+    text-decoration: underline;
+  }
+}
+
+.page-header {
+  border-bottom: 2px solid @page-header-border-color;
+}
+
+.breadcrumb {
+  padding-left: 0;
+  font-size: @font-size-small;
+}
+
+// Navs
+
+.nav-tabs {
+  > li {
+    > a {
+      font-size: @font-size-base + 2px;
+      font-weight: normal;
+
+      &:hover {
+        background-color: @gray-lighter;
+      }
+    }
+  }
+}
+
+// Buttons
+
+.btn {
+  font-size: @font-size-base + 2px;
+
+  &:hover, &:focus {
+    color: @green;
+    border-color: @dark-blue;
+    background-color: #e2e2e2;
+  }
+}
+
+.btn-primary {
+  &:hover, &:focus {
+    color: @dark-blue;
+    background-color: #de4956;
+  }
+}
+
+// Fields
+
+.field-label {
+  color: @dark-blue;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: @font-size-base + 1px;
+}
+
+.field-item {
+  color: @gray-dark;
+  font-size: @font-size-small;
+}
+
+// Boards
+
+.node-type-board {
+  .content {
+    .left, .right {
+      .make-md-column(@grid-columns / 2);
+      padding-left: 0px;
+    }
+  }
+
+  .field {
+    margin-bottom: @onboard-padding-horizontal;
+  }
+
+  .field-name-field-application-url {
+    > a {
+      .btn;
+      color: #fff;
+      background-color: @orange;
+      font-size: @font-size-large;
+
+      &:hover, &:focus {
+        color: #fff;
+        border-color: transparent;
+        background-color: #e04617;
+      }
+    }
+  }
+}
+
+.region-content .view-board-terms {
+  margin-bottom: @onboard-padding-horizontal;
+
+  .view-empty {
+    margin-bottom: @onboard-padding-horizontal;
+  }
+
+  .more-link a {
+    .btn-sm;
+    .btn-primary;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+// Forms
+
+label {
+  color: @dark-blue;
+  font-size: @font-size-large;
+  text-transform: uppercase;
+}
+
+.form-control {
+  &:focus {
+    .box-shadow(~"inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(57, 181, 169)");
+  }
+}
+
+// Tables
+
+td {
+  font-size: @font-size-small;
+  color: @gray-dark;
+}
+
+th {
+  font-weight: bold;
+  text-transform: uppercase;
+  color: @dark-blue;
+}
+
+tbody:first-child td {
+  border-top: 2px solid;
+}
+
+tbody:last-child td {
+  border-bottom: 1px solid;
+}
