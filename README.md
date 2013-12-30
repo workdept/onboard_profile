@@ -19,6 +19,24 @@ drush php-eval 'node_access_rebuild();'
 drush runserver --server=builtin 8080
 ```
 
+Rebuilding theme CSS
+--------------------
+
+Building the theme CSS requires LESS. 
+
+```
+npm install -g less
+```
+
+works well for installing it.
+
+To rebuild the theme CSS:
+
+```
+cd path/to/onboard_theme
+lessc less/style.less > css/style.css
+```
+
 Test
 ----
 

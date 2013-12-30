@@ -11,11 +11,29 @@ define('ONBOARD_THEME_SIDEBAR_COLUMNS', 4);
 define('ONBOARD_THEME_GRID_CLASS_PREFIX', "col-md-");
 
 /**
+ * Add JavaScript required by this theme.
+ */
+function _onboard_theme_add_js() {
+  // @todo: Use production Modernizr that only uses the needed tests once we
+  // know what we need.
+  drupal_add_js(drupal_get_path('theme', 'onboard_theme') . '/js/modernizr-latest.js', array(
+    // Set these options to make sure Modernizr is loaded first. 
+    'group' => JS_LIBRARY,
+    'every_page' => TRUE,
+    'weight' => -30,
+  ));
+
+  // @todo: Add polyfills for media queries in IE
+}
+
+/**
  * Implements hook_preprocess_page().
  *
  * @see page.tpl.php
  */
 function onboard_theme_preprocess_page(&$variables) {
+  _onboard_theme_add_js();
+
   // Make the Bootstrap class prefix available as a variable
   $variables['grid_class_prefix'] = ONBOARD_THEME_GRID_CLASS_PREFIX;
 
@@ -42,10 +60,15 @@ function onboard_theme_preprocess_page(&$variables) {
     $variables['navbar_classes_array'][] = 'navbar-default';
   }
 
-  //$variables['onboard_msa_logo'] = drupal_get_path('theme', 'onboard_theme') . '/img/MSA_logo_white.png'; 
+  // Images used frequently throughout the theme.
   $variables['onboard_msa_logo'] = theme('image', array(
     'path' => drupal_get_path('theme', 'onboard_theme') . '/img/MSA_logo_white.png', 
     'alt' => t("MSA Logo"),
+  ));
+
+  $variables['onboard_cc_logo'] = theme('image', array(
+    'path' => drupal_get_path('theme', 'onboard_theme') . '/img/cc-by-nc-nd.png',
+    'alt' => t("Creative Commons Attribution-NonCommercial-NoDerivs 3.0 Unported License Logo"),
   ));
 
 }
