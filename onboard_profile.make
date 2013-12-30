@@ -124,3 +124,11 @@ projects[bootstrap][type] = "theme"
 projects[bootstrap][download][type] = "git"
 projects[bootstrap][download][url] = "git://git.drupal.org/project/bootstrap.git"
 projects[bootstrap][download][branch] = "7.x-3.0"
+
+; Libraries
+
+libraries[bootstrap][download][type] = "get"
+libraries[bootstrap][download][url] = "https://github.com/twbs/bootstrap/archive/v3.0.3.zip"
+libraries[bootstrap][directory_name] = "bootstrap"
+libraries[bootstrap][destination] = "themes/onboard_theme"
+libraries[bootstrap][overwrite] = TRUE
