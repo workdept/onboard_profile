@@ -170,6 +170,8 @@
         <p>On Board is a pilot project of the Michigan Suburbs Alliance.</p>
       
         <p class="onboard-license">Licensed under a Creative Commons Attribution-NonCommercial-NoDerivs 3.0 Unported License.</p>
+
+        <p><?php print $onboard_cc_logo; ?></p>
       </div>
     </div>
   </div>

@@ -60,10 +60,15 @@ function onboard_theme_preprocess_page(&$variables) {
     $variables['navbar_classes_array'][] = 'navbar-default';
   }
 
-  //$variables['onboard_msa_logo'] = drupal_get_path('theme', 'onboard_theme') . '/img/MSA_logo_white.png'; 
+  // Images used frequently throughout the theme.
   $variables['onboard_msa_logo'] = theme('image', array(
     'path' => drupal_get_path('theme', 'onboard_theme') . '/img/MSA_logo_white.png', 
     'alt' => t("MSA Logo"),
+  ));
+
+  $variables['onboard_cc_logo'] = theme('image', array(
+    'path' => drupal_get_path('theme', 'onboard_theme') . '/img/cc-by-nc-nd.png',
+    'alt' => t("Creative Commons Attribution-NonCommercial-NoDerivs 3.0 Unported License Logo"),
   ));
 
 }
