@@ -1823,11 +1823,11 @@ output {
   transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
 }
 .form-control:focus {
-  border-color: #6d2f19;
+  border-color: #195b6f;
   outline: 0;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(109, 47, 25, 0.6);
-  -moz-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(109, 47, 25, 0.6);
-  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(109, 47, 25, 0.6);
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(25, 91, 111, 0.6);
+  -moz-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(25, 91, 111, 0.6);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(25, 91, 111, 0.6);
 }
 .form-control:-moz-placeholder {
   color: #999999;
@@ -6958,16 +6958,6 @@ h2:hover {
 .btn-primary:focus {
   background-color: #0e4956;
 }
-.field-label {
-  color: #195b6f;
-  font-weight: bold;
-  text-transform: uppercase;
-  font-size: 15px;
-}
-.field-item {
-  color: #333333;
-  font-size: 13px;
-}
 .node-type-board .content .left,
 .node-type-board .content .right {
   position: relative;
@@ -6982,6 +6972,16 @@ h2:hover {
     float: left;
     width: 50%;
   }
+}
+.node-type-board .field-label {
+  color: #195b6f;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 15px;
+}
+.node-type-board .field-item {
+  color: #333333;
+  font-size: 13px;
 }
 .node-type-board .field {
   margin-bottom: 15px;
