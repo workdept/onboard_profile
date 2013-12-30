@@ -2,12 +2,14 @@
 @onboard-header-height: 3 * @onboard-padding-vertical;
 
 body {
-  .admin-menu {
+  &.admin-menu {
     // Get rid of the 20px top margin added by default by admin_menu
     margin-top: 0 !important;
   }
 
   @media (max-width: @screen-sm-max) {
+    // On small screens, make space for the header which is fixed at the top
+    // of the page.
     margin-top: @onboard-header-height;
   } 
 }

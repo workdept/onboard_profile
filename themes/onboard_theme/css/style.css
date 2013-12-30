@@ -6765,7 +6765,7 @@ table .checkbox input[type="checkbox"] {
   font-weight: bold;
   line-height: 15px;
 }
-body .admin-menu {
+body.admin-menu {
   margin-top: 0 !important;
 }
 @media (max-width: 991px) {
@@ -6850,51 +6850,51 @@ body .admin-menu {
     max-width: 291px;
   }
 }
-.col-md-4 > .onboard-logo {
+.sidebar-first-container > .onboard-logo,
+.sidebar-first-container .region-sidebar-first .block {
+  margin-bottom: 22px;
+}
+.sidebar-first-container > .onboard-logo {
   width: 213px;
 }
 @media (min-width: 1200px) {
-  .col-md-4 > .onboard-logo {
+  .sidebar-first-container > .onboard-logo {
     width: 258px;
     height: 155px;
   }
 }
-.col-md-4 > .onboard-logo,
-.col-md-4 .region-sidebar-first .block {
-  margin-bottom: 22px;
-}
 @media (min-width: 992px) {
-  .col-md-4 .region-sidebar-first .block {
+  .sidebar-first-container .region-sidebar-first .block {
     width: 213px;
   }
 }
 @media (min-width: 1200px) {
-  .col-md-4 .region-sidebar-first .block {
+  .sidebar-first-container .region-sidebar-first .block {
     width: 260px;
   }
 }
-.region-sidebar-first {
+.sidebar-first-container .region-sidebar-first {
   border: none;
   padding: 0;
   background-color: transparent;
   box-shadow: none;
 }
-.region-sidebar-first .block {
+.sidebar-first-container .region-sidebar-first .block {
   padding: 15px 0;
   color: #fff;
   background-color: #19586f;
   box-shadow: 7px 7px 0 0 #b1b9c8;
 }
-.region-sidebar-first .block .nav > li > a {
+.sidebar-first-container .region-sidebar-first .block .nav > li > a {
   padding: 15px 15px;
   font-size: 16px;
   font-weight: bold;
   color: #ffffff;
 }
-.region-sidebar-first .block .nav > li > a:hover {
+.sidebar-first-container .region-sidebar-first .block .nav > li > a:hover {
   background-color: #0e4956;
 }
-.region-sidebar-first .block-title {
+.sidebar-first-container .region-sidebar-first .block-title {
   padding: 7.5px 15px 0 15px;
   margin-bottom: 7.5px;
   color: #3985a9;
@@ -6902,7 +6902,7 @@ body .admin-menu {
   font-weight: bold;
   text-transform: uppercase;
 }
-.region-sidebar-first .block-title span {
+.sidebar-first-container .region-sidebar-first .block-title span {
   display: block;
   width: 100%;
   padding-bottom: 7.5px;

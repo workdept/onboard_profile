@@ -20,17 +20,17 @@ function onboard_theme_preprocess_page(&$variables) {
   $variables['grid_class_prefix'] = ONBOARD_THEME_GRID_CLASS_PREFIX;
 
   // Add information about the number of sidebars.
-  if ((!empty($variables['page']['sidebar_first']) || !empty($variables['page']['logo'])) && !empty($variables['page']['sidebar_second'])) {
+  if ((!empty($variables['page']['sidebar_first']) || !empty($variables['logo'])) && !empty($variables['page']['sidebar_second'])) {
     $content_column_grid_columns = ONBOARD_THEME_GRID_COLUMNS - (ONBOARD_THEME_SIDEBAR_COLUMNS * 2);
   }
-  elseif (!empty($variables['page']['logo']) || !empty($variables['page']['sidebar_first']) || !empty($variables['page']['sidebar_second'])) {
+  elseif (!empty($variables['logo']) || !empty($variables['page']['sidebar_first']) || !empty($variables['page']['sidebar_second'])) {
     $content_column_grid_columns = ONBOARD_THEME_GRID_COLUMNS - ONBOARD_THEME_SIDEBAR_COLUMNS;
   }
   else {
     $content_column_grid_columns = ONBOARD_THEME_GRID_COLUMNS;
   }
   $variables['content_column_class'] = sprintf(' class="%s%d"', ONBOARD_THEME_GRID_CLASS_PREFIX, $content_column_grid_columns);
-  $variables['sidebar_first_class'] = sprintf(' class="%s%d"', ONBOARD_THEME_GRID_CLASS_PREFIX, ONBOARD_THEME_SIDEBAR_COLUMNS); 
+  $variables['sidebar_first_class'] = sprintf(' class="sidebar-first-container %s%d"', ONBOARD_THEME_GRID_CLASS_PREFIX, ONBOARD_THEME_SIDEBAR_COLUMNS); 
   $variables['sidebar_second_class'] = sprintf(' class="%s%d"', ONBOARD_THEME_GRID_CLASS_PREFIX, ONBOARD_THEME_SIDEBAR_COLUMNS); 
 
   $variables['navbar_classes_array'] = array('navbar');

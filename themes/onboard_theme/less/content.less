@@ -20,75 +20,77 @@
   }
 }
 
-.col-md-4 > .onboard-logo {
-  // @hack: Make the width artificially shorter because part of the image hangs
-  // over the edge of the box
-  width: 220px - @onboard-shadow-offset; 
-  
-  @media (min-width: @screen-lg) {
-    // @hack: Get rid of a weird little gap below and to the right of the logo
-    // image.
-    width: 258px;
-    height: 155px;
+.sidebar-first-container {
+  > .onboard-logo,
+  .region-sidebar-first .block {
+    margin-bottom: @onboard-padding-vertical + @onboard-shadow-offset;
   }
-}
 
-.col-md-4 > .onboard-logo,
-.col-md-4 .region-sidebar-first .block {
-  margin-bottom: @onboard-padding-vertical + @onboard-shadow-offset;
-}
-
-.col-md-4 .region-sidebar-first .block {
-  @media (min-width: @screen-md) {
+  > .onboard-logo {
     // @hack: Make the width artificially shorter because part of the image hangs
     // over the edge of the box
     width: 220px - @onboard-shadow-offset; 
+  
+    @media (min-width: @screen-lg) {
+      // @hack: Get rid of a weird little gap below and to the right of the logo
+      // image.
+      width: 258px;
+      height: 155px;
+    }
   }
+  
+  .region-sidebar-first .block {
+    @media (min-width: @screen-md) {
+      // @hack: Make the width artificially shorter because part of the image hangs
+      // over the edge of the box
+      width: 220px - @onboard-shadow-offset; 
+    }
 
-  @media (min-width: @screen-lg) {
-    width: 260px;
-  }
-}
-
-.region-sidebar-first {
-  border: none;
-  padding: 0;
-  background-color: transparent;
-  box-shadow: none;
-
-  .block {
-    padding: @onboard-padding-vertical 0;
-    color: #fff;
-    background-color: @dark-blue;
-    .onboard-box-shadow();
-
-    .nav {
-      > li > a {
-        padding: @onboard-padding-vertical @onboard-padding-horizontal;
-        font-size: @onboard-sidebar-font-size;
-        font-weight: bold;
-        color: @onboard-sidebar-nav-link-color; 
-
-        &:hover {
-          background-color: @onboard-sidebar-nav-link-hover-bg;
-        }
-      }
+    @media (min-width: @screen-lg) {
+      width: 260px;
     }
   }
 
-  .block-title {
-    padding: (@onboard-padding-vertical / 2) @onboard-padding-horizontal 0 @onboard-padding-horizontal;
-    margin-bottom: (@onboard-padding-vertical / 2); 
-    color: @green;
-    font-size: @onboard-sidebar-font-size;
-    font-weight: bold;
-    text-transform: uppercase;
+  .region-sidebar-first {
+    border: none;
+    padding: 0;
+    background-color: transparent;
+    box-shadow: none;
 
-    span {
-      display: block;
-      width: 100%;
-      padding-bottom: (@onboard-padding-vertical / 2);
-      border-bottom: 1px solid @green;
+    .block {
+      padding: @onboard-padding-vertical 0;
+      color: #fff;
+      background-color: @dark-blue;
+      .onboard-box-shadow();
+
+      .nav {
+        > li > a {
+          padding: @onboard-padding-vertical @onboard-padding-horizontal;
+          font-size: @onboard-sidebar-font-size;
+          font-weight: bold;
+          color: @onboard-sidebar-nav-link-color; 
+
+          &:hover {
+            background-color: @onboard-sidebar-nav-link-hover-bg;
+          }
+        }
+      }
+    }
+
+    .block-title {
+      padding: (@onboard-padding-vertical / 2) @onboard-padding-horizontal 0 @onboard-padding-horizontal;
+      margin-bottom: (@onboard-padding-vertical / 2); 
+      color: @green;
+      font-size: @onboard-sidebar-font-size;
+      font-weight: bold;
+      text-transform: uppercase;
+
+      span {
+        display: block;
+        width: 100%;
+        padding-bottom: (@onboard-padding-vertical / 2);
+        border-bottom: 1px solid @green;
+      }
     }
   }
 }
