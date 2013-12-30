@@ -6891,6 +6891,9 @@ body.admin-menu {
   font-weight: bold;
   color: #ffffff;
 }
+.sidebar-first-container .region-sidebar-first .block .nav > li > a.active {
+  color: #39b5a9;
+}
 .sidebar-first-container .region-sidebar-first .block .nav > li > a:hover {
   background-color: #0e4956;
 }

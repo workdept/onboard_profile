@@ -70,6 +70,10 @@
           font-weight: bold;
           color: @onboard-sidebar-nav-link-color; 
 
+          &.active {
+            color: @teal;
+          }
+
           &:hover {
             background-color: @onboard-sidebar-nav-link-hover-bg;
           }
@@ -80,7 +84,7 @@
     .block-title {
       padding: (@onboard-padding-vertical / 2) @onboard-padding-horizontal 0 @onboard-padding-horizontal;
       margin-bottom: (@onboard-padding-vertical / 2); 
-      color: @green;
+      color: @teal;
       font-size: @onboard-sidebar-font-size;
       font-weight: bold;
       text-transform: uppercase;
@@ -89,7 +93,7 @@
         display: block;
         width: 100%;
         padding-bottom: (@onboard-padding-vertical / 2);
-        border-bottom: 1px solid @green;
+        border-bottom: 1px solid @teal;
       }
     }
   }
@@ -157,7 +161,7 @@ h2 {
   font-size: @font-size-base + 2px;
 
   &:hover, &:focus {
-    color: @green;
+    color: @teal;
     border-color: @dark-blue;
     background-color: #e2e2e2;
   }
@@ -223,7 +227,7 @@ h2 {
     .btn-primary;
 
     &:hover {
-      color: @green;
+      color: @teal;
       text-decoration: none;
     }
   }
