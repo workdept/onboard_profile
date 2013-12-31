@@ -7064,6 +7064,20 @@ fieldset[disabled] .node-type-board .field-name-field-application-url > a {
   border-color: transparent;
   background-color: #e04617;
 }
+.node-board.node-teaser h2 {
+  margin-top: 0;
+  color: #39b5a9;
+}
+.node-board.node-teaser h2:hover {
+  text-decoration: none;
+}
+.node-board.node-teaser h2 a {
+  color: #39b5a9;
+}
+.node-board.node-teaser h2 a:hover {
+  text-decoration: none !important;
+  border-bottom: 2px solid #39b5a9;
+}
 .region-content .view-board-terms {
   margin-bottom: 15px;
 }

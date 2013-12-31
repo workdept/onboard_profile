@@ -233,6 +233,31 @@ h2 {
   }
 }
 
+.node-board {
+  // Board as listed on "My Boards" page
+  &.node-teaser {
+    h2 {
+      margin-top: 0;
+      color: @teal;
+
+      &:hover {
+        text-decoration: none;
+      }
+
+      a {
+        color: @teal;
+
+        &:hover {
+          // We want a thicker border than what text-decoration: underline
+          // offers
+          text-decoration: none !important;
+          border-bottom: 2px solid @teal;
+        }
+      }
+    }
+  }
+}
+
 .region-content .view-board-terms {
   margin-bottom: @onboard-padding-horizontal;
 
