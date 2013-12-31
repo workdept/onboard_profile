@@ -39,29 +39,33 @@
     }
   }
   
-  .region-sidebar-first .block {
-    @media (min-width: @screen-md) {
-      // @hack: Make the width artificially shorter because part of the image hangs
-      // over the edge of the box
-      width: 220px - @onboard-shadow-offset; 
-    }
-
-    @media (min-width: @screen-lg) {
-      width: 260px;
-    }
-  }
-
   .region-sidebar-first {
     border: none;
     padding: 0;
     background-color: transparent;
     box-shadow: none;
 
+    a, label {
+      // The default for these is @dark-blue, the same as the background, so
+      // we need to change it to make the text visible.
+      color: #fff;
+    }
+
     .block {
       padding: @onboard-padding-vertical 0;
       color: #fff;
       background-color: @dark-blue;
       .onboard-box-shadow();
+
+      @media (min-width: @screen-md) {
+        // @hack: Make the width artificially shorter because part of the image hangs
+        // over the edge of the box
+        width: 220px - @onboard-shadow-offset; 
+      }
+
+      @media (min-width: @screen-lg) {
+        width: 260px;
+      }
 
       .nav {
         > li > a {
@@ -77,6 +81,20 @@
           &:hover {
             background-color: @onboard-sidebar-nav-link-hover-bg;
           }
+        }
+      }
+
+      form {
+        padding: @onboard-padding-vertical @onboard-padding-horizontal;
+      }
+
+      #user-login-form {
+
+        ul {
+          // The default padding unneccessarilt indents the text.
+          // This might be a useful style more generally, but only address it
+          // here for now.         
+          padding-left: @onboard-padding-horizontal;
         }
       }
     }
