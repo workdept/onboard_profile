@@ -7133,7 +7133,20 @@ fieldset[disabled] .node-board .links a.active {
 .region-content .view-board-terms .view-empty {
   margin-bottom: 15px;
 }
-.region-content .view-board-terms .more-link a {
+.region-content .view-board-terms .more-link,
+.region-content .view-board-terms .onboard-management-links {
+  float: left;
+}
+.region-content .view-board-terms .onboard-management-links {
+  padding-left: 15px;
+}
+.region-content .view-board-terms .onboard-management-links li {
+  margin-bottom: 0;
+  list-style: none;
+  display: inline-block;
+}
+.region-content .view-board-terms .more-link a,
+.region-content .view-board-terms .onboard-management-links a {
   padding: 5px 10px;
   font-size: 13px;
   line-height: 1.5;
@@ -7143,46 +7156,73 @@ fieldset[disabled] .node-board .links a.active {
   border-color: #195b6f;
 }
 .region-content .view-board-terms .more-link a:hover,
+.region-content .view-board-terms .onboard-management-links a:hover,
 .region-content .view-board-terms .more-link a:focus,
+.region-content .view-board-terms .onboard-management-links a:focus,
 .region-content .view-board-terms .more-link a:active,
+.region-content .view-board-terms .onboard-management-links a:active,
 .region-content .view-board-terms .more-link a.active,
-.open .dropdown-toggle.region-content .view-board-terms .more-link a {
+.region-content .view-board-terms .onboard-management-links a.active,
+.open .dropdown-toggle.region-content .view-board-terms .more-link a,
+.open .dropdown-toggle.region-content .view-board-terms .onboard-management-links a {
   color: #ffffff;
   background-color: #11404e;
   border-color: #0e323d;
 }
 .region-content .view-board-terms .more-link a:active,
+.region-content .view-board-terms .onboard-management-links a:active,
 .region-content .view-board-terms .more-link a.active,
-.open .dropdown-toggle.region-content .view-board-terms .more-link a {
+.region-content .view-board-terms .onboard-management-links a.active,
+.open .dropdown-toggle.region-content .view-board-terms .more-link a,
+.open .dropdown-toggle.region-content .view-board-terms .onboard-management-links a {
   background-image: none;
 }
 .region-content .view-board-terms .more-link a.disabled,
+.region-content .view-board-terms .onboard-management-links a.disabled,
 .region-content .view-board-terms .more-link a[disabled],
+.region-content .view-board-terms .onboard-management-links a[disabled],
 fieldset[disabled] .region-content .view-board-terms .more-link a,
+fieldset[disabled] .region-content .view-board-terms .onboard-management-links a,
 .region-content .view-board-terms .more-link a.disabled:hover,
+.region-content .view-board-terms .onboard-management-links a.disabled:hover,
 .region-content .view-board-terms .more-link a[disabled]:hover,
+.region-content .view-board-terms .onboard-management-links a[disabled]:hover,
 fieldset[disabled] .region-content .view-board-terms .more-link a:hover,
+fieldset[disabled] .region-content .view-board-terms .onboard-management-links a:hover,
 .region-content .view-board-terms .more-link a.disabled:focus,
+.region-content .view-board-terms .onboard-management-links a.disabled:focus,
 .region-content .view-board-terms .more-link a[disabled]:focus,
+.region-content .view-board-terms .onboard-management-links a[disabled]:focus,
 fieldset[disabled] .region-content .view-board-terms .more-link a:focus,
+fieldset[disabled] .region-content .view-board-terms .onboard-management-links a:focus,
 .region-content .view-board-terms .more-link a.disabled:active,
+.region-content .view-board-terms .onboard-management-links a.disabled:active,
 .region-content .view-board-terms .more-link a[disabled]:active,
+.region-content .view-board-terms .onboard-management-links a[disabled]:active,
 fieldset[disabled] .region-content .view-board-terms .more-link a:active,
+fieldset[disabled] .region-content .view-board-terms .onboard-management-links a:active,
 .region-content .view-board-terms .more-link a.disabled.active,
+.region-content .view-board-terms .onboard-management-links a.disabled.active,
 .region-content .view-board-terms .more-link a[disabled].active,
-fieldset[disabled] .region-content .view-board-terms .more-link a.active {
+.region-content .view-board-terms .onboard-management-links a[disabled].active,
+fieldset[disabled] .region-content .view-board-terms .more-link a.active,
+fieldset[disabled] .region-content .view-board-terms .onboard-management-links a.active {
   background-color: #195b6f;
   border-color: #195b6f;
 }
-.region-content .view-board-terms .more-link a .badge {
+.region-content .view-board-terms .more-link a .badge,
+.region-content .view-board-terms .onboard-management-links a .badge {
   color: #195b6f;
   background-color: #fff;
 }
 .region-content .view-board-terms .more-link a:hover,
-.region-content .view-board-terms .more-link a:focus {
+.region-content .view-board-terms .onboard-management-links a:hover,
+.region-content .view-board-terms .more-link a:focus,
+.region-content .view-board-terms .onboard-management-links a:focus {
   background-color: #0e4956;
 }
-.region-content .view-board-terms .more-link a:hover {
+.region-content .view-board-terms .more-link a:hover,
+.region-content .view-board-terms .onboard-management-links a:hover {
   color: #39b5a9;
   text-decoration: none;
 }

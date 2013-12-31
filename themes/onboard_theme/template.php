@@ -102,3 +102,26 @@ function onboard_theme_field__field_application_url($variables) {
 
   return $output; 
 } 
+
+/**
+ * Implements template_preprocess().
+ */
+function onboard_theme_preprocess(&$variables, $hook) {
+  if ($hook == 'views_more') {
+    $view = $variables['view'];
+
+    if($view->name == 'board_terms' && $view->current_display == 'block_1' && count($view->args)) {
+      $node = node_load($view->args[0]);
+      
+      if (onboard_types_show_management_links($node, 'full')) {
+        $links = onboard_types_management_links($node);
+        $variables['management_links'] = theme_links(array(
+          'links' => $links,
+          'attributes' => array(
+            'class' => 'onboard-management-links',         
+          ),        
+        ));
+      }
+    }
+  }
+}

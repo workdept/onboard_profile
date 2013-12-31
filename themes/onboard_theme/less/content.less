@@ -275,7 +275,25 @@ h2 {
     margin-bottom: @onboard-padding-horizontal;
   }
 
-  .more-link a {
+  // We've moved the Board's management links here instead of showing them 
+  // with the rest of the node
+  .more-link,
+  .onboard-management-links {
+    float: left;
+  }
+
+  .onboard-management-links {
+    padding-left: @onboard-padding-horizontal;
+    
+    li {
+      margin-bottom: 0;
+      list-style: none;
+      display: inline-block;
+    }
+  }
+
+  .more-link a,
+  .onboard-management-links a {
     .btn-sm;
     .btn-primary;
 
