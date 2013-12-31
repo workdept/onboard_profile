@@ -7123,10 +7123,9 @@ fieldset[disabled] .region-content .view-board-terms .more-link a.active {
   color: #39b5a9;
   text-decoration: none;
 }
-.node-type-webform .field-name-field-body {
-  margin-bottom: 15px;
-}
-.node-type-webform .form-item {
+.node-type-webform .field-name-field-body,
+.node-type-webform .form-item,
+.node-type-webform .description {
   margin-bottom: 15px;
 }
 .node-type-webform .form-text.form-email {
