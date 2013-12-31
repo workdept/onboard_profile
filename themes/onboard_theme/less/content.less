@@ -233,6 +233,24 @@ h2 {
   }
 }
 
+// Webforms
+
+.node-type-webform {
+  .field-name-field-body {
+    margin-bottom: @onboard-padding-vertical;
+  }
+
+  .form-item {
+    margin-bottom: @onboard-padding-vertical;
+  }
+
+  .form-text.form-email {
+    // @hack: For some reason, the email field doesn't get the .form-control
+    // class. Give it the same styles.
+    .form-control;
+  }
+}
+
 // Forms
 
 label {
