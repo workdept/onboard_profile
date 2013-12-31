@@ -194,7 +194,7 @@ function onboard_types_node_view($node, $view_mode, $langcode) {
     // remove "read more"
     unset($node->content['links']['node']);
 
-    if ($node->type == 'board' && user_access('Board term: Create new content')) {
+    if ($node->type == 'board' && user_access('create board_term content')) {
       $node->content['links']['add_board_term'] = array(
         '#links' => array(
           array(
@@ -208,7 +208,7 @@ function onboard_types_node_view($node, $view_mode, $langcode) {
       );
     }
 
-    if ($node->type == 'board_term' && user_access('Board term: Edit own content')) {
+    if ($node->type == 'board_term' && user_access('edit own board_term content')) {
       $node->content['links']['manage_board_term'] = array(
         '#links' => array(
           array(
