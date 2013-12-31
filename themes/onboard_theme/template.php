@@ -14,16 +14,22 @@ define('ONBOARD_THEME_GRID_CLASS_PREFIX', "col-md-");
  * Add JavaScript required by this theme.
  */
 function _onboard_theme_add_js() {
-  // @todo: Use production Modernizr that only uses the needed tests once we
-  // know what we need.
-  drupal_add_js(drupal_get_path('theme', 'onboard_theme') . '/js/modernizr-latest.js', array(
-    // Set these options to make sure Modernizr is loaded first. 
+  // I originally wanted to load this using Modernizr, but I was running into
+  // problems with Modernizr.load(), similar to the issue described at
+  // https://github.com/Modernizr/Modernizr/issues/729.  For now, Respond.js
+  // is the only polyfill needed, and it includes a test whether it's needed,
+  // so just add it directly.
+
+  // Note that Respond.js, and other popular media query polyfills don't work
+  // with @imported CSS.  So, we have to turn on CSS aggregation to test
+  // this out.
+  drupal_add_js(drupal_get_path('theme', 'onboard_theme') . '/js/respond.src.js', array(
+    // Set these options to make sure this is one of the first scripts to be
+    // loaded.
     'group' => JS_LIBRARY,
     'every_page' => TRUE,
     'weight' => -30,
   ));
-
-  // @todo: Add polyfills for media queries in IE
 }
 
 /**

@@ -39,29 +39,33 @@
     }
   }
   
-  .region-sidebar-first .block {
-    @media (min-width: @screen-md) {
-      // @hack: Make the width artificially shorter because part of the image hangs
-      // over the edge of the box
-      width: 220px - @onboard-shadow-offset; 
-    }
-
-    @media (min-width: @screen-lg) {
-      width: 260px;
-    }
-  }
-
   .region-sidebar-first {
     border: none;
     padding: 0;
     background-color: transparent;
     box-shadow: none;
 
+    a, label {
+      // The default for these is @dark-blue, the same as the background, so
+      // we need to change it to make the text visible.
+      color: #fff;
+    }
+
     .block {
       padding: @onboard-padding-vertical 0;
       color: #fff;
       background-color: @dark-blue;
       .onboard-box-shadow();
+
+      @media (min-width: @screen-md) {
+        // @hack: Make the width artificially shorter because part of the image hangs
+        // over the edge of the box
+        width: 220px - @onboard-shadow-offset; 
+      }
+
+      @media (min-width: @screen-lg) {
+        width: 260px;
+      }
 
       .nav {
         > li > a {
@@ -70,9 +74,27 @@
           font-weight: bold;
           color: @onboard-sidebar-nav-link-color; 
 
+          &.active {
+            color: @teal;
+          }
+
           &:hover {
             background-color: @onboard-sidebar-nav-link-hover-bg;
           }
+        }
+      }
+
+      form {
+        padding: @onboard-padding-vertical @onboard-padding-horizontal;
+      }
+
+      #user-login-form {
+
+        ul {
+          // The default padding unneccessarilt indents the text.
+          // This might be a useful style more generally, but only address it
+          // here for now.         
+          padding-left: @onboard-padding-horizontal;
         }
       }
     }
@@ -80,7 +102,7 @@
     .block-title {
       padding: (@onboard-padding-vertical / 2) @onboard-padding-horizontal 0 @onboard-padding-horizontal;
       margin-bottom: (@onboard-padding-vertical / 2); 
-      color: @green;
+      color: @teal;
       font-size: @onboard-sidebar-font-size;
       font-weight: bold;
       text-transform: uppercase;
@@ -89,7 +111,7 @@
         display: block;
         width: 100%;
         padding-bottom: (@onboard-padding-vertical / 2);
-        border-bottom: 1px solid @green;
+        border-bottom: 1px solid @teal;
       }
     }
   }
@@ -157,7 +179,7 @@ h2 {
   font-size: @font-size-base + 2px;
 
   &:hover, &:focus {
-    color: @green;
+    color: @teal;
     border-color: @dark-blue;
     background-color: #e2e2e2;
   }
@@ -169,20 +191,6 @@ h2 {
   }
 }
 
-// Fields
-
-.field-label {
-  color: @dark-blue;
-  font-weight: bold;
-  text-transform: uppercase;
-  font-size: @font-size-base + 1px;
-}
-
-.field-item {
-  color: @gray-dark;
-  font-size: @font-size-small;
-}
-
 // Boards
 
 .node-type-board {
@@ -191,6 +199,18 @@ h2 {
       .make-md-column(@grid-columns / 2);
       padding-left: 0px;
     }
+  }
+
+  .field-label {
+    color: @dark-blue;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: @font-size-base + 1px;
+  }
+
+  .field-item {
+    color: @gray-dark;
+    font-size: @font-size-small;
   }
 
   .field {
@@ -225,9 +245,27 @@ h2 {
     .btn-primary;
 
     &:hover {
-      color: @green;
+      color: @teal;
       text-decoration: none;
     }
+  }
+}
+
+// Webforms
+
+.node-type-webform {
+  .field-name-field-body {
+    margin-bottom: @onboard-padding-vertical;
+  }
+
+  .form-item {
+    margin-bottom: @onboard-padding-vertical;
+  }
+
+  .form-text.form-email {
+    // @hack: For some reason, the email field doesn't get the .form-control
+    // class. Give it the same styles.
+    .form-control;
   }
 }
 
