@@ -7064,6 +7064,55 @@ fieldset[disabled] .node-type-board .field-name-field-application-url > a {
   border-color: transparent;
   background-color: #e04617;
 }
+.node-board .links a {
+  padding: 5px 10px;
+  font-size: 13px;
+  line-height: 1.5;
+  border-radius: 0px;
+  color: #ffffff;
+  background-color: #195b6f;
+  border-color: #195b6f;
+}
+.node-board .links a:hover,
+.node-board .links a:focus,
+.node-board .links a:active,
+.node-board .links a.active,
+.open .dropdown-toggle.node-board .links a {
+  color: #ffffff;
+  background-color: #11404e;
+  border-color: #0e323d;
+}
+.node-board .links a:active,
+.node-board .links a.active,
+.open .dropdown-toggle.node-board .links a {
+  background-image: none;
+}
+.node-board .links a.disabled,
+.node-board .links a[disabled],
+fieldset[disabled] .node-board .links a,
+.node-board .links a.disabled:hover,
+.node-board .links a[disabled]:hover,
+fieldset[disabled] .node-board .links a:hover,
+.node-board .links a.disabled:focus,
+.node-board .links a[disabled]:focus,
+fieldset[disabled] .node-board .links a:focus,
+.node-board .links a.disabled:active,
+.node-board .links a[disabled]:active,
+fieldset[disabled] .node-board .links a:active,
+.node-board .links a.disabled.active,
+.node-board .links a[disabled].active,
+fieldset[disabled] .node-board .links a.active {
+  background-color: #195b6f;
+  border-color: #195b6f;
+}
+.node-board .links a .badge {
+  color: #195b6f;
+  background-color: #fff;
+}
+.node-board .links a:hover,
+.node-board .links a:focus {
+  background-color: #0e4956;
+}
 .node-board.node-teaser h2 {
   margin-top: 0;
   color: #39b5a9;
