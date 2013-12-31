@@ -6798,17 +6798,17 @@ body.admin-menu {
     margin-top: 45px;
   }
 }
+.navbar-collapse {
+  padding-left: 0;
+}
 @media (max-width: 579px) {
   .navbar-nav {
     margin: 7.5px 0;
   }
 }
 .navbar-nav > li > a {
-  padding-left: 20px;
-  padding-right: 20px;
-}
-.navbar-nav > li.first > a {
-  padding-left: 0;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 @media (min-width: 580px) {
   .navbar-nav.secondary {

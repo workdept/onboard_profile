@@ -48,6 +48,13 @@ body {
   }
 }
 
+.navbar-collapse {
+  // Use the padding in .navbar-nav > li > a to provide left-hand side padding
+  // So that the text of the first item aligns with the text in the container
+  // below. 
+  padding-left: 0;
+}
+
 .navbar-nav {
   @media (max-width: @grid-float-breakpoint-max) {
     margin: (@navbar-padding-vertical / 2) 0;
@@ -55,12 +62,12 @@ body {
 
   > li {
     > a {
-      padding-left: 20px;
-      padding-right: 20px;
-    }
-
-    &.first > a {
-      padding-left: 0;
+      // This is a little different than the spec,
+      // 15px + 15px = 30px between items instead of 40px,
+      // but it makes the active highlighting and left allignment
+      // of the first item work better.
+      padding-left: @navbar-padding-horizontal;
+      padding-right: @navbar-padding-horizontal;
     }
   }
 }
