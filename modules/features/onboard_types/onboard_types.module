@@ -202,6 +202,7 @@ function onboard_types_node_view($node, $view_mode, $langcode) {
             'href' => 'node/add/board-term',
             'query' => array(
               'field_board' => $node->nid,
+              'destination' => current_path(),
             ),
           ),
         ),
@@ -214,10 +215,16 @@ function onboard_types_node_view($node, $view_mode, $langcode) {
           array(
             'title' => 'edit',
             'href' => 'node/' . $node->nid . '/edit',
+            'query' => array(
+              'destination' => current_path(),
+            ),
           ),
           array(
             'title' => 'delete',
             'href' => 'node/' . $node->nid . '/delete',
+            'query' => array(
+              'destination' => current_path(),
+            ),
           ),
         ),
       );
