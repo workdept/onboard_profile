@@ -410,7 +410,11 @@ Nori grape silver beet broccoli kombu beet greens fava bean potato quandong cele
   'body' => array(
     'und' => array(
       0 => array(
-        'value' => '<p>Jelly beans applicake bear claw candy canes tootsie roll marzipan danish cake. Topping marzipan toffee icing macaroon jelly-o oat cake. Soufflé marzipan halvah halvah oat cake gingerbread gingerbread tootsie roll. Muffin danish pie croissant toffee pudding dragée. Apple pie jujubes jujubes. Liquorice cookie wafer. Topping sesame snaps halvah. Oat cake sweet sweet danish cake carrot cake soufflé chupa chups bonbon.</p>
+        'value' => 'Effective local governments rely on local appointed boards and commissions for advice, ideas, and assistance in achieving public goals. These include library boards, planning commissions, arts councils and many more.
+
+On Board is a new way to find information about the boards and commissions in your community. Our pilot project helps you learn how get involved and helps local governments share more information with their residents. 
+
+Get started by checking out the board and commissions that are part of our pilot governments:
 
 <a href="city/ferndale/boards">Ferndale</a>
 
@@ -419,7 +423,9 @@ Nori grape silver beet broccoli kombu beet greens fava bean potato quandong cele
 <a href="city/washtenaw-county/boards">Washtenaw County</a>',
         'summary' => '',
         'format' => 'filtered_html',
-        'safe_value' => '<p>Jelly beans applicake bear claw candy canes tootsie roll marzipan danish cake. Topping marzipan toffee icing macaroon jelly-o oat cake. Soufflé marzipan halvah halvah oat cake gingerbread gingerbread tootsie roll. Muffin danish pie croissant toffee pudding dragée. Apple pie jujubes jujubes. Liquorice cookie wafer. Topping sesame snaps halvah. Oat cake sweet sweet danish cake carrot cake soufflé chupa chups bonbon.</p>
+        'safe_value' => '<p>Effective local governments rely on local appointed boards and commissions for advice, ideas, and assistance in achieving public goals. These include library boards, planning commissions, arts councils and many more.</p>
+<p>On Board is a new way to find information about the boards and commissions in your community. Our pilot project helps you learn how get involved and helps local governments share more information with their residents. </p>
+<p>Get started by checking out the board and commissions that are part of our pilot governments:</p>
 <p><a href="city/ferndale/boards">Ferndale</a></p>
 <p><a href="city/ypsilanti/boards">Ypsilanti</a></p>
 <p><a href="city/washtenaw-county/boards">Washtenaw County</a></p>
