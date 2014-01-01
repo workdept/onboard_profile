@@ -324,15 +324,30 @@ h2 {
   }
 }
 
+// Public: cities view
+
 .view-public-cities {
-  // Front page display
+
+  // Front Page Block display
+
   &.view-display-id-block_1 {
     margin-top: @grid-gutter-width;
 
     .views-row {
-      .make-md-column(@grid-columns / 3);
 
       margin-bottom: @grid-gutter-width;
+
+      @media (min-width: @screen-xs) {
+        .make-xs-column(@grid-columns / 2);
+      }
+
+      @media (min-width: @screen-sm) {
+        .make-sm-column(@grid-columns / 3);
+      }
+
+      @media (min-width: @screen-md-min) {
+        .make-md-column(@grid-columns / 3);
+      }
 
       .pin {
         z-index: 10;
@@ -341,7 +356,6 @@ h2 {
         position: relative;
       }
 
-
       .views-field-name {
         position: relative;
         border: 10px solid @teal2;
@@ -349,6 +363,14 @@ h2 {
 
         &:hover {
           background-color: @yellow; 
+        }
+
+        @media (max-width: @screen-xs-max) {
+          height: 200px;
+        }
+
+        @media (min-width: @screen-sm) {
+          height: 220px;
         }
 
         @media (min-width: @screen-md) {
