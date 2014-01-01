@@ -6765,8 +6765,15 @@ table .checkbox input[type="checkbox"] {
   font-weight: bold;
   line-height: 15px;
 }
-body.admin-menu {
-  margin-top: 0 !important;
+@media (min-width: 992px) {
+  body.admin-menu {
+    margin-top: 0 !important;
+  }
+}
+@media (max-width: 729px) {
+  body.admin-menu .main-container {
+    margin-top: 65px;
+  }
 }
 @media (max-width: 991px) {
   body {
@@ -6791,6 +6798,21 @@ body.admin-menu {
     width: 100%;
     top: 0;
     left: 0;
+  }
+}
+@media (max-width: 729px) {
+  .admin-menu #navbar {
+    top: 56px;
+  }
+}
+@media (min-width: 730px) {
+  .admin-menu #navbar {
+    top: 28px;
+  }
+}
+@media (min-width: 992px) {
+  .admin-menu #navbar {
+    top: 0px;
   }
 }
 @media (max-width: 991px) {

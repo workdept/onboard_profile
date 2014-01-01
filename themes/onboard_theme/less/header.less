@@ -3,8 +3,17 @@
 
 body {
   &.admin-menu {
-    // Get rid of the 20px top margin added by default by admin_menu
-    margin-top: 0 !important;
+    @media (min-width: @screen-md) {
+      // Get rid of the 20px top margin added by default by admin_menu
+      margin-top: 0 !important;
+    }
+
+    .main-container {
+      // Accomodate 2 row admin menu
+      @media (max-width: 729px) {
+        margin-top: 65px;
+      }
+    }
   }
 
   @media (max-width: @screen-sm-max) {
@@ -38,6 +47,21 @@ body {
     width: 100%;
     top: 0;
     left: 0;
+  }
+}
+
+.admin-menu #navbar {
+  @media (max-width: 729px) {
+    top: 56px;
+  }
+
+  @media (min-width: 730px) {
+    // Push header below the admin menu
+    top: 28px;
+  }
+
+  @media (min-width: @screen-md) {
+    top: 0px;
   }
 }
 
