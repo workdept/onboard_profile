@@ -187,11 +187,11 @@ function onboard_types_form_alter(&$form, &$form_state, $form_id) {
 function onboard_types_show_management_links($node, $view_mode) {
   $visibility_conditions = array(
     'board' => array(
-      'view_modes' => ['full', 'teaser',],
+      'view_modes' => array('full', 'teaser',),
       'permission' => 'create board_term content',
     ),
     'board_term' => array(
-      'view_modes' => ['full', 'teaser',],
+      'view_modes' => array('full', 'teaser',),
       'permission' => 'edit own board_term content',
     ),
   );
