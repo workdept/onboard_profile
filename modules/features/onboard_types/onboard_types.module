@@ -182,44 +182,91 @@ function onboard_types_form_alter(&$form, &$form_state, $form_id) {
 }
 
 /**
+ * Returns true if management links be shown for this node type and view.
+ */
+function onboard_types_show_management_links($node, $view_mode) {
+  $visibility_conditions = array(
+    'board' => array(
+      'view_modes' => ['full', 'teaser',],
+      'permission' => 'create board_term content',
+    ),
+    'board_term' => array(
+      'view_modes' => ['full', 'teaser',],
+      'permission' => 'edit own board_term content',
+    ),
+  );
+
+  if (!array_key_exists($node->type, $visibility_conditions)) {
+    return FALSE;
+  }
+
+  if (!user_permission($visibility_conditions[$node->type]['permission'])) {
+    return FALSE;
+  }
+
+  return in_array($view_mode, $visibility_conditions[$node->type]['view_modes']);
+}
+
+function onboard_types_management_links($node) {
+  if ($node->type == 'board') {
+    return array(
+      array(
+        'title' => 'add board term',
+        'href' => 'node/add/board-term',
+        'query' => array(
+          'field_board' => $node->nid,
+          'destination' => current_path(),
+        ),
+      ),
+    );
+  }
+  else if ($node->type == 'board_term') {
+    return array(
+      array(
+        'title' => 'edit',
+        'href' => 'node/' . $node->nid . '/edit',
+        'query' => array(
+          'destination' => current_path(),
+        ),
+      ),
+      array(
+        'title' => 'delete',
+        'href' => 'node/' . $node->nid . '/delete',
+        'query' => array(
+          'destination' => current_path(),
+        ),
+      ),
+    );
+  }
+  else {
+    return array();
+  }
+}
+
+/**
  * Implements hook_node_view().
  *
  * Add management links to board type.
  */
 function onboard_types_node_view($node, $view_mode, $langcode) {
   // only show management links during certain view modes
-  $edity_view_mode = ($view_mode == 'full' || $view_mode == 'teaser');
-
-  if ($edity_view_mode) {
+  if (onboard_types_show_management_links($node, $view_mode)) {
     // remove "read more"
     unset($node->content['links']['node']);
 
-    if ($node->type == 'board' && user_access('Board term: Create new content')) {
+    // @hack: Even though the view mode is checked in
+    // onboard_types_show_management_links, we check again here.
+    // This is because the links should show up in the full view
+    // of a board node, but not in the links region. Instead,
+    // we render them below the list of board members
+    if ($node->type == 'board' && $view_mode != 'full') {
       $node->content['links']['add_board_term'] = array(
-        '#links' => array(
-          array(
-            'title' => 'add board term',
-            'href' => 'node/add/board-term',
-            'query' => array(
-              'field_board' => $node->nid,
-            ),
-          ),
-        ),
+        '#links' => onboard_types_management_links($node),
       );
     }
-
-    if ($node->type == 'board_term' && user_access('Board term: Edit own content')) {
+    else if ($node->type == 'board_term') {
       $node->content['links']['manage_board_term'] = array(
-        '#links' => array(
-          array(
-            'title' => 'edit',
-            'href' => 'node/' . $node->nid . '/edit',
-          ),
-          array(
-            'title' => 'delete',
-            'href' => 'node/' . $node->nid . '/delete',
-          ),
-        ),
+          '#links' => onboard_types_management_links($node),
       );
     }
   }

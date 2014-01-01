@@ -788,6 +788,11 @@ function onboard_types_views_default_views() {
   $handler->display->display_options['menu']['name'] = 'main-menu';
   $handler->display->display_options['menu']['context'] = 0;
   $handler->display->display_options['menu']['context_only_inline'] = 0;
+
+  /* Display: Front Page Block */
+  $handler = $view->new_display('block', 'Front Page Block', 'block_1');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['display_description'] = 'Block displayed on the front page';
   $export['public_cities'] = $view;
 
   $view = new view();

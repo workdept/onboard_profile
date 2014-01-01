@@ -6765,8 +6765,15 @@ table .checkbox input[type="checkbox"] {
   font-weight: bold;
   line-height: 15px;
 }
-body.admin-menu {
-  margin-top: 0 !important;
+@media (min-width: 992px) {
+  body.admin-menu {
+    margin-top: 0 !important;
+  }
+}
+@media (max-width: 729px) {
+  body.admin-menu .main-container {
+    margin-top: 65px;
+  }
 }
 @media (max-width: 991px) {
   body {
@@ -6791,6 +6798,21 @@ body.admin-menu {
     width: 100%;
     top: 0;
     left: 0;
+  }
+}
+@media (max-width: 729px) {
+  .admin-menu #navbar {
+    top: 56px;
+  }
+}
+@media (min-width: 730px) {
+  .admin-menu #navbar {
+    top: 28px;
+  }
+}
+@media (min-width: 992px) {
+  .admin-menu #navbar {
+    top: 0px;
   }
 }
 @media (max-width: 991px) {
@@ -7064,13 +7086,89 @@ fieldset[disabled] .node-type-board .field-name-field-application-url > a {
   border-color: transparent;
   background-color: #e04617;
 }
+.node-board .links a {
+  padding: 5px 10px;
+  font-size: 13px;
+  line-height: 1.5;
+  border-radius: 0px;
+  color: #ffffff;
+  background-color: #195b6f;
+  border-color: #195b6f;
+}
+.node-board .links a:hover,
+.node-board .links a:focus,
+.node-board .links a:active,
+.node-board .links a.active,
+.open .dropdown-toggle.node-board .links a {
+  color: #ffffff;
+  background-color: #11404e;
+  border-color: #0e323d;
+}
+.node-board .links a:active,
+.node-board .links a.active,
+.open .dropdown-toggle.node-board .links a {
+  background-image: none;
+}
+.node-board .links a.disabled,
+.node-board .links a[disabled],
+fieldset[disabled] .node-board .links a,
+.node-board .links a.disabled:hover,
+.node-board .links a[disabled]:hover,
+fieldset[disabled] .node-board .links a:hover,
+.node-board .links a.disabled:focus,
+.node-board .links a[disabled]:focus,
+fieldset[disabled] .node-board .links a:focus,
+.node-board .links a.disabled:active,
+.node-board .links a[disabled]:active,
+fieldset[disabled] .node-board .links a:active,
+.node-board .links a.disabled.active,
+.node-board .links a[disabled].active,
+fieldset[disabled] .node-board .links a.active {
+  background-color: #195b6f;
+  border-color: #195b6f;
+}
+.node-board .links a .badge {
+  color: #195b6f;
+  background-color: #fff;
+}
+.node-board .links a:hover,
+.node-board .links a:focus {
+  background-color: #0e4956;
+}
+.node-board.node-teaser h2 {
+  margin-top: 0;
+  color: #39b5a9;
+}
+.node-board.node-teaser h2:hover {
+  text-decoration: none;
+}
+.node-board.node-teaser h2 a {
+  color: #39b5a9;
+}
+.node-board.node-teaser h2 a:hover {
+  text-decoration: none !important;
+  border-bottom: 2px solid #39b5a9;
+}
 .region-content .view-board-terms {
   margin-bottom: 15px;
 }
 .region-content .view-board-terms .view-empty {
   margin-bottom: 15px;
 }
-.region-content .view-board-terms .more-link a {
+.region-content .view-board-terms .more-link,
+.region-content .view-board-terms .onboard-management-links {
+  float: left;
+}
+.region-content .view-board-terms .onboard-management-links {
+  padding-left: 15px;
+}
+.region-content .view-board-terms .onboard-management-links li {
+  margin-bottom: 0;
+  list-style: none;
+  display: inline-block;
+}
+.region-content .view-board-terms .more-link a,
+.region-content .view-board-terms .onboard-management-links a {
   padding: 5px 10px;
   font-size: 13px;
   line-height: 1.5;
@@ -7080,46 +7178,73 @@ fieldset[disabled] .node-type-board .field-name-field-application-url > a {
   border-color: #195b6f;
 }
 .region-content .view-board-terms .more-link a:hover,
+.region-content .view-board-terms .onboard-management-links a:hover,
 .region-content .view-board-terms .more-link a:focus,
+.region-content .view-board-terms .onboard-management-links a:focus,
 .region-content .view-board-terms .more-link a:active,
+.region-content .view-board-terms .onboard-management-links a:active,
 .region-content .view-board-terms .more-link a.active,
-.open .dropdown-toggle.region-content .view-board-terms .more-link a {
+.region-content .view-board-terms .onboard-management-links a.active,
+.open .dropdown-toggle.region-content .view-board-terms .more-link a,
+.open .dropdown-toggle.region-content .view-board-terms .onboard-management-links a {
   color: #ffffff;
   background-color: #11404e;
   border-color: #0e323d;
 }
 .region-content .view-board-terms .more-link a:active,
+.region-content .view-board-terms .onboard-management-links a:active,
 .region-content .view-board-terms .more-link a.active,
-.open .dropdown-toggle.region-content .view-board-terms .more-link a {
+.region-content .view-board-terms .onboard-management-links a.active,
+.open .dropdown-toggle.region-content .view-board-terms .more-link a,
+.open .dropdown-toggle.region-content .view-board-terms .onboard-management-links a {
   background-image: none;
 }
 .region-content .view-board-terms .more-link a.disabled,
+.region-content .view-board-terms .onboard-management-links a.disabled,
 .region-content .view-board-terms .more-link a[disabled],
+.region-content .view-board-terms .onboard-management-links a[disabled],
 fieldset[disabled] .region-content .view-board-terms .more-link a,
+fieldset[disabled] .region-content .view-board-terms .onboard-management-links a,
 .region-content .view-board-terms .more-link a.disabled:hover,
+.region-content .view-board-terms .onboard-management-links a.disabled:hover,
 .region-content .view-board-terms .more-link a[disabled]:hover,
+.region-content .view-board-terms .onboard-management-links a[disabled]:hover,
 fieldset[disabled] .region-content .view-board-terms .more-link a:hover,
+fieldset[disabled] .region-content .view-board-terms .onboard-management-links a:hover,
 .region-content .view-board-terms .more-link a.disabled:focus,
+.region-content .view-board-terms .onboard-management-links a.disabled:focus,
 .region-content .view-board-terms .more-link a[disabled]:focus,
+.region-content .view-board-terms .onboard-management-links a[disabled]:focus,
 fieldset[disabled] .region-content .view-board-terms .more-link a:focus,
+fieldset[disabled] .region-content .view-board-terms .onboard-management-links a:focus,
 .region-content .view-board-terms .more-link a.disabled:active,
+.region-content .view-board-terms .onboard-management-links a.disabled:active,
 .region-content .view-board-terms .more-link a[disabled]:active,
+.region-content .view-board-terms .onboard-management-links a[disabled]:active,
 fieldset[disabled] .region-content .view-board-terms .more-link a:active,
+fieldset[disabled] .region-content .view-board-terms .onboard-management-links a:active,
 .region-content .view-board-terms .more-link a.disabled.active,
+.region-content .view-board-terms .onboard-management-links a.disabled.active,
 .region-content .view-board-terms .more-link a[disabled].active,
-fieldset[disabled] .region-content .view-board-terms .more-link a.active {
+.region-content .view-board-terms .onboard-management-links a[disabled].active,
+fieldset[disabled] .region-content .view-board-terms .more-link a.active,
+fieldset[disabled] .region-content .view-board-terms .onboard-management-links a.active {
   background-color: #195b6f;
   border-color: #195b6f;
 }
-.region-content .view-board-terms .more-link a .badge {
+.region-content .view-board-terms .more-link a .badge,
+.region-content .view-board-terms .onboard-management-links a .badge {
   color: #195b6f;
   background-color: #fff;
 }
 .region-content .view-board-terms .more-link a:hover,
-.region-content .view-board-terms .more-link a:focus {
+.region-content .view-board-terms .onboard-management-links a:hover,
+.region-content .view-board-terms .more-link a:focus,
+.region-content .view-board-terms .onboard-management-links a:focus {
   background-color: #0e4956;
 }
-.region-content .view-board-terms .more-link a:hover {
+.region-content .view-board-terms .more-link a:hover,
+.region-content .view-board-terms .onboard-management-links a:hover {
   color: #39b5a9;
   text-decoration: none;
 }
@@ -7180,6 +7305,100 @@ textarea.node-type-webform .form-text.form-email {
   -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(57, 181, 169);
   -moz-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(57, 181, 169);
   box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(57, 181, 169);
+}
+.view-public-cities.view-display-id-block_1 {
+  margin-top: 20px;
+}
+.view-public-cities.view-display-id-block_1 .views-row {
+  margin-bottom: 20px;
+}
+@media (min-width: 480px) {
+  .view-public-cities.view-display-id-block_1 .views-row {
+    position: relative;
+    float: left;
+    width: 50%;
+    min-height: 1px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+@media (min-width: 768px) {
+  .view-public-cities.view-display-id-block_1 .views-row {
+    position: relative;
+    min-height: 1px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+@media (min-width: 768px) and (min-width: 768px) {
+  .view-public-cities.view-display-id-block_1 .views-row {
+    float: left;
+    width: 33.33333333333333%;
+  }
+}
+@media (min-width: 992px) {
+  .view-public-cities.view-display-id-block_1 .views-row {
+    position: relative;
+    min-height: 1px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+@media (min-width: 992px) and (min-width: 992px) {
+  .view-public-cities.view-display-id-block_1 .views-row {
+    float: left;
+    width: 33.33333333333333%;
+  }
+}
+.view-public-cities.view-display-id-block_1 .views-row .pin {
+  z-index: 10;
+  margin-top: 0;
+  margin-bottom: -10px;
+  position: relative;
+}
+.view-public-cities.view-display-id-block_1 .views-row .views-field-name {
+  position: relative;
+  border: 10px solid #38b5a8;
+  background-color: white;
+}
+.view-public-cities.view-display-id-block_1 .views-row .views-field-name:hover {
+  background-color: #ffd921;
+}
+@media (max-width: 767px) {
+  .view-public-cities.view-display-id-block_1 .views-row .views-field-name {
+    height: 200px;
+  }
+}
+@media (min-width: 768px) {
+  .view-public-cities.view-display-id-block_1 .views-row .views-field-name {
+    height: 220px;
+  }
+}
+@media (min-width: 992px) {
+  .view-public-cities.view-display-id-block_1 .views-row .views-field-name {
+    height: 213px;
+  }
+}
+@media (min-width: 1200px) {
+  .view-public-cities.view-display-id-block_1 .views-row .views-field-name {
+    height: 243px;
+  }
+}
+.view-public-cities.view-display-id-block_1 .views-row .views-field-name a {
+  width: 90%;
+  height: 28px;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  text-align: center;
+  display: block;
+  line-height: 1;
+  color: #f25c21;
+  font-weight: bold;
+  font-size: 28px;
 }
 label {
   color: #195b6f;

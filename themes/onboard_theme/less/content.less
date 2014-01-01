@@ -134,6 +134,10 @@
   height: 21px;
 }
 
+.pin-blue {
+  // @todo: Add image for blue colored pin
+}
+
 // Typography
 
 h1 {
@@ -233,6 +237,41 @@ h2 {
   }
 }
 
+.node-board {
+  // "Add board term" link
+  // If we add other links, we might have to revisit this
+  .links {
+    a {
+      // Style the link like a button      
+      .btn-sm;
+      .btn-primary;
+    }
+  }
+
+  // Board as listed on "My Boards" page
+  &.node-teaser {
+    h2 {
+      margin-top: 0;
+      color: @teal;
+
+      &:hover {
+        text-decoration: none;
+      }
+
+      a {
+        color: @teal;
+
+        &:hover {
+          // We want a thicker border than what text-decoration: underline
+          // offers
+          text-decoration: none !important;
+          border-bottom: 2px solid @teal;
+        }
+      }
+    }
+  }
+}
+
 .region-content .view-board-terms {
   margin-bottom: @onboard-padding-horizontal;
 
@@ -240,7 +279,25 @@ h2 {
     margin-bottom: @onboard-padding-horizontal;
   }
 
-  .more-link a {
+  // We've moved the Board's management links here instead of showing them 
+  // with the rest of the node
+  .more-link,
+  .onboard-management-links {
+    float: left;
+  }
+
+  .onboard-management-links {
+    padding-left: @onboard-padding-horizontal;
+    
+    li {
+      margin-bottom: 0;
+      list-style: none;
+      display: inline-block;
+    }
+  }
+
+  .more-link a,
+  .onboard-management-links a {
     .btn-sm;
     .btn-primary;
 
@@ -264,6 +321,89 @@ h2 {
     // @hack: For some reason, the email field doesn't get the .form-control
     // class. Give it the same styles.
     .form-control;
+  }
+}
+
+// Public: cities view
+
+.view-public-cities {
+
+  // Front Page Block display
+
+  &.view-display-id-block_1 {
+    margin-top: @grid-gutter-width;
+
+    .views-row {
+
+      margin-bottom: @grid-gutter-width;
+
+      @media (min-width: @screen-xs) {
+        .make-xs-column(@grid-columns / 2);
+      }
+
+      @media (min-width: @screen-sm) {
+        .make-sm-column(@grid-columns / 3);
+      }
+
+      @media (min-width: @screen-md-min) {
+        .make-md-column(@grid-columns / 3);
+      }
+
+      .pin {
+        z-index: 10;
+        margin-top: 0;
+        margin-bottom: -10px;
+        position: relative;
+      }
+
+      .views-field-name {
+        position: relative;
+        border: 10px solid @teal2;
+        background-color: white;
+
+        &:hover {
+          background-color: @yellow; 
+        }
+
+        @media (max-width: @screen-xs-max) {
+          height: 200px;
+        }
+
+        @media (min-width: @screen-sm) {
+          height: 220px;
+        }
+
+        @media (min-width: @screen-md) {
+          height: 213px;
+        }
+
+        @media (min-width: @screen-lg) {
+          height: 243px;
+        }
+
+        a {
+          // Center using Absolute Centering technique.
+          // See http://coding.smashingmagazine.com/2013/08/09/absolute-horizontal-vertical-centering-css/
+          width: 90%;
+          // @todo: Center 2-line values
+          height: ceil(@font-size-base * 2); // ~28px
+          margin: auto;
+          position: absolute;
+          top: 0;
+          left: 0;
+          bottom: 0;
+          right: 0;
+
+          text-align: center;
+          display: block;
+          line-height: ceil(@line-height-base * (2/3));
+
+          color: @orange;
+          font-weight: bold;
+          font-size: ceil(@font-size-base * 2); // ~28px
+        } 
+      }
+    }
   }
 }
 
