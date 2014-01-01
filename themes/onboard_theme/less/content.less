@@ -134,6 +134,10 @@
   height: 21px;
 }
 
+.pin-blue {
+  // @todo: Add image for blue colored pin
+}
+
 // Typography
 
 h1 {
@@ -329,6 +333,13 @@ h2 {
       .make-md-column(@grid-columns / 3);
 
       margin-bottom: @grid-gutter-width;
+
+      .pin {
+        z-index: 10;
+        margin-top: 0;
+        margin-bottom: -10px;
+        position: relative;
+      }
 
 
       .views-field-name {

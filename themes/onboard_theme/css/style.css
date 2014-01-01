@@ -7300,6 +7300,12 @@ textarea.node-type-webform .form-text.form-email {
     width: 33.33333333333333%;
   }
 }
+.view-public-cities.view-display-id-block_1 .views-row .pin {
+  z-index: 10;
+  margin-top: 0;
+  margin-bottom: -10px;
+  position: relative;
+}
 .view-public-cities.view-display-id-block_1 .views-row .views-field-name {
   position: relative;
   border: 10px solid #38b5a8;
