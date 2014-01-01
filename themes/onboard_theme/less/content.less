@@ -320,6 +320,60 @@ h2 {
   }
 }
 
+.view-public-cities {
+  // Front page display
+  &.view-display-id-block_1 {
+    margin-top: @grid-gutter-width;
+
+    .views-row {
+      .make-md-column(@grid-columns / 3);
+
+      margin-bottom: @grid-gutter-width;
+
+
+      .views-field-name {
+        position: relative;
+        border: 10px solid @teal2;
+        background-color: white;
+
+        &:hover {
+          background-color: @yellow; 
+        }
+
+        @media (min-width: @screen-md) {
+          height: 213px;
+        }
+
+        @media (min-width: @screen-lg) {
+          height: 243px;
+        }
+
+        a {
+          // Center using Absolute Centering technique.
+          // See http://coding.smashingmagazine.com/2013/08/09/absolute-horizontal-vertical-centering-css/
+          width: 90%;
+          // @todo: Center 2-line values
+          height: ceil(@font-size-base * 2); // ~28px
+          margin: auto;
+          position: absolute;
+          top: 0;
+          left: 0;
+          bottom: 0;
+          right: 0;
+
+          text-align: center;
+          display: block;
+          line-height: ceil(@line-height-base * (2/3));
+
+          color: @orange;
+          font-weight: bold;
+          font-size: ceil(@font-size-base * 2); // ~28px
+        } 
+      }
+    }
+  }
+}
+
 // Forms
 
 label {

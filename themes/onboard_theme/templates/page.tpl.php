@@ -145,6 +145,10 @@
       <?php endif; ?>
       <?php print render($page['content']); ?>
     </section>
+
+    <?php if (!empty($page['below_content'])): ?>
+    <?php print render($page['below_content']); ?>
+    <?php endif; ?> 
     </div>
 
     <?php if (!empty($page['sidebar_second'])): ?>
