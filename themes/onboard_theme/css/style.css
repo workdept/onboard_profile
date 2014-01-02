@@ -6986,6 +6986,8 @@ h2 {
 .btn-primary:hover,
 .btn-primary:focus {
   background-color: #0e4956;
+  text-decoration: none;
+  color: #39b5a9;
 }
 .node-type-board .content .left,
 .node-type-board .content .right {
@@ -7128,15 +7130,22 @@ fieldset[disabled] .node-board .links a.active {
 .node-board .links a:hover,
 .node-board .links a:focus {
   background-color: #0e4956;
+  text-decoration: none;
+  color: #39b5a9;
+}
+.node-board.node-teaser {
+  margin-bottom: 15px;
 }
 .node-board.node-teaser h2 {
   margin-top: 0;
+  margin-bottom: 15px;
   color: #39b5a9;
 }
 .node-board.node-teaser h2 a {
   color: #39b5a9;
 }
-.node-board.node-teaser h2 a:hover {
+.node-board.node-teaser h2 a:hover,
+.node-board.node-teaser h2 a:focus {
   text-decoration: none !important;
   border-bottom: 2px solid #39b5a9;
 }
@@ -7233,6 +7242,8 @@ fieldset[disabled] .region-content .view-board-terms .onboard-management-links a
 .region-content .view-board-terms .more-link a:focus,
 .region-content .view-board-terms .onboard-management-links a:focus {
   background-color: #0e4956;
+  text-decoration: none;
+  color: #39b5a9;
 }
 .region-content .view-board-terms .more-link a:hover,
 .region-content .view-board-terms .onboard-management-links a:hover {

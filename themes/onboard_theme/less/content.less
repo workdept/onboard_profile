@@ -187,6 +187,8 @@ h2 {
 .btn-primary {
   &:hover, &:focus {
     background-color: @darker-blue; 
+    text-decoration: none;
+    color: @teal;
   }
 }
 
@@ -245,14 +247,18 @@ h2 {
 
   // Board as listed on "My Boards" page
   &.node-teaser {
+    margin-bottom: @onboard-padding-vertical;
+
     h2 {
       margin-top: 0;
+      margin-bottom: @onboard-padding-vertical;
+
       color: @teal;
 
       a {
         color: @teal;
 
-        &:hover {
+        &:hover, &:focus {
           // We want a thicker border than what text-decoration: underline
           // offers
           text-decoration: none !important;
