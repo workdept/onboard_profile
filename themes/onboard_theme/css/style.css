@@ -7391,6 +7391,9 @@ textarea.node-type-webform .form-text.form-email {
   font-weight: bold;
   font-size: 28px;
 }
+.view-public-cities.view-display-id-block_1 .views-row .views-field-name a:hover {
+  text-decoration: none;
+}
 label {
   color: #195b6f;
   font-size: 15px;

@@ -392,6 +392,11 @@ h2 {
           color: @orange;
           font-weight: bold;
           font-size: ceil(@font-size-base * 2); // ~28px
+
+          &:hover {
+            // Override default hover state for links.
+            text-decoration: none;
+          }
         } 
       }
     }
