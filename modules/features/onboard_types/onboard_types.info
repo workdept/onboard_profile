@@ -5,6 +5,7 @@ package = Features
 version = 7.x-0.0
 project = onboard_types
 dependencies[] = addressfield
+dependencies[] = better_formats
 dependencies[] = context
 dependencies[] = ctools
 dependencies[] = date
