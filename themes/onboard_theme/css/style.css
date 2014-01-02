@@ -206,7 +206,7 @@ table {
   img {
     max-width: 100% !important;
   }
-  @page  {
+  @page {
     margin: 2cm .5cm;
   }
   p,
@@ -1769,7 +1769,6 @@ input[type="checkbox"] {
   margin: 4px 0 0;
   margin-top: 1px \9;
   /* IE8-9 */
-
   line-height: normal;
 }
 input[type="file"] {
@@ -6464,7 +6463,6 @@ ul li.leaf {
   width: 17em;
   float: right;
   /* LTR */
-
   margin-top: 1.4em;
 }
 .password-strength-title {
@@ -6473,7 +6471,6 @@ ul li.leaf {
 .password-strength-text {
   float: right;
   /* LTR */
-
   font-weight: bold;
 }
 .password-indicator {
@@ -6494,7 +6491,6 @@ input.password-field {
 div.password-confirm {
   float: right;
   /* LTR */
-
   margin-top: 1.5em;
   visibility: hidden;
   width: 17em;
@@ -6512,7 +6508,6 @@ div.password-suggestions ul {
 .password-parent {
   clear: left;
   /* LTR */
-
   margin: 0;
   width: 36.3em;
 }
@@ -6955,6 +6950,9 @@ table .checkbox input[type="checkbox"] {
   background-repeat: no-repeat;
   width: 21px;
   height: 21px;
+}
+.pin.pin-blue {
+  background-image: url(../img/pin-blue.png);
 }
 h1 {
   color: #f25c21;
