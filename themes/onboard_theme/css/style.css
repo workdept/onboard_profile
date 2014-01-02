@@ -6960,10 +6960,6 @@ h1 {
 h2 {
   color: #39b5a9;
 }
-h2:hover {
-  color: #195b6f;
-  text-decoration: underline;
-}
 .page-header {
   border-bottom: 2px solid #39b5a9;
 }
@@ -7136,9 +7132,6 @@ fieldset[disabled] .node-board .links a.active {
 .node-board.node-teaser h2 {
   margin-top: 0;
   color: #39b5a9;
-}
-.node-board.node-teaser h2:hover {
-  text-decoration: none;
 }
 .node-board.node-teaser h2 a {
   color: #39b5a9;
