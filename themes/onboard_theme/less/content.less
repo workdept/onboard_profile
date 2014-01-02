@@ -132,10 +132,10 @@
   background-repeat: no-repeat;
   width: 21px;
   height: 21px;
-}
 
-.pin-blue {
-  // @todo: Add image for blue colored pin
+  &.pin-blue {
+    background-image: url(../img/pin-blue.png);
+  }
 }
 
 // Typography
@@ -146,11 +146,6 @@ h1 {
 
 h2 {
   color: @headings-color-h2;
-
-  &:hover {
-    color: @dark-blue;
-    text-decoration: underline;
-  }
 }
 
 .page-header {
@@ -192,6 +187,8 @@ h2 {
 .btn-primary {
   &:hover, &:focus {
     background-color: @darker-blue; 
+    text-decoration: none;
+    color: @teal;
   }
 }
 
@@ -250,18 +247,18 @@ h2 {
 
   // Board as listed on "My Boards" page
   &.node-teaser {
+    margin-bottom: @onboard-padding-vertical;
+
     h2 {
       margin-top: 0;
-      color: @teal;
+      margin-bottom: @onboard-padding-vertical;
 
-      &:hover {
-        text-decoration: none;
-      }
+      color: @teal;
 
       a {
         color: @teal;
 
-        &:hover {
+        &:hover, &:focus {
           // We want a thicker border than what text-decoration: underline
           // offers
           text-decoration: none !important;
@@ -401,6 +398,11 @@ h2 {
           color: @orange;
           font-weight: bold;
           font-size: ceil(@font-size-base * 2); // ~28px
+
+          &:hover {
+            // Override default hover state for links.
+            text-decoration: none;
+          }
         } 
       }
     }

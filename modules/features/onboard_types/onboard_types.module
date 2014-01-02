@@ -211,7 +211,7 @@ function onboard_types_management_links($node) {
   if ($node->type == 'board') {
     return array(
       array(
-        'title' => 'add board term',
+        'title' => 'create board term',
         'href' => 'node/add/board-term',
         'query' => array(
           'field_board' => $node->nid,
