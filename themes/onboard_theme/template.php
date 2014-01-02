@@ -23,7 +23,7 @@ function _onboard_theme_add_js() {
   // Note that Respond.js, and other popular media query polyfills don't work
   // with @imported CSS.  So, we have to turn on CSS aggregation to test
   // this out.
-  drupal_add_js(drupal_get_path('theme', 'onboard_theme') . '/js/respond.src.js', array(
+  drupal_add_js(drupal_get_path('theme', 'onboard_theme') . '/js/respond.min.js', array(
     // Set these options to make sure this is one of the first scripts to be
     // loaded.
     'group' => JS_LIBRARY,
