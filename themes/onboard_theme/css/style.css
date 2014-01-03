@@ -6853,6 +6853,9 @@ table .checkbox input[type="checkbox"] {
     padding-bottom: 13px;
   }
 }
+.main-container {
+  min-height: 600px;
+}
 .onboard-logo {
   display: block;
   margin: 15px 0;
