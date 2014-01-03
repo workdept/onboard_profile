@@ -7363,8 +7363,10 @@ textarea.node-type-webform .form-text.form-email {
 }
 .view-public-cities.view-display-id-block_1 .views-row .views-field-name {
   position: relative;
+  width: 100%;
   border: 10px solid #38b5a8;
   background-color: white;
+  display: table;
 }
 .view-public-cities.view-display-id-block_1 .views-row .views-field-name:hover {
   background-color: #ffd921;
@@ -7389,23 +7391,22 @@ textarea.node-type-webform .form-text.form-email {
     height: 243px;
   }
 }
+.view-public-cities.view-display-id-block_1 .views-row .views-field-name .field-content {
+  display: table-cell;
+  vertical-align: middle;
+}
 .view-public-cities.view-display-id-block_1 .views-row .views-field-name a {
   width: 90%;
-  height: 28px;
-  margin: auto;
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  text-align: center;
+  margin: 0 auto;
   display: block;
+  text-align: center;
   line-height: 1;
   color: #f25c21;
   font-weight: bold;
   font-size: 28px;
 }
-.view-public-cities.view-display-id-block_1 .views-row .views-field-name a:hover {
+.view-public-cities.view-display-id-block_1 .views-row .views-field-name a:hover,
+.view-public-cities.view-display-id-block_1 .views-row .views-field-name a:focus {
   text-decoration: none;
 }
 label {
