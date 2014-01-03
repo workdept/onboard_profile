@@ -105,6 +105,10 @@
     <?php
       // Hide the fields we already rendered.
       hide($content['field_description']);
+      hide($content['field_application_url']);
+      // field_application_action_title is rendered as part of
+      // field_application_url
+      hide($content['field_application_action_title']);
 
       // We hide the comments and links now so that we can render them later.
       hide($content['comments']);
