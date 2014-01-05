@@ -17,6 +17,9 @@ projects[admin_menu][version] = "3.0-rc4"
 projects[adminimal_admin_menu][subdir] = "contrib"
 projects[adminimal_admin_menu][version] = "1.4"
 
+projects[better_formats][subdir] = "contrib"
+projects[better_formats][version] = "1.0-beta1"
+
 projects[boxes][subdir] = "contrib"
 projects[boxes][version] = "1.1"
 
