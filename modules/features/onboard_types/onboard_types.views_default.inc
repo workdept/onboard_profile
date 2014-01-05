@@ -95,6 +95,10 @@ function onboard_types_views_default_views() {
   $handler->display->display_options['fields']['field_member']['settings'] = array(
     'link' => 0,
   );
+  /* Field: Content: Position */
+  $handler->display->display_options['fields']['field_position']['id'] = 'field_position';
+  $handler->display->display_options['fields']['field_position']['table'] = 'field_data_field_position';
+  $handler->display->display_options['fields']['field_position']['field'] = 'field_position';
   /* Field: Content: Term Dates */
   $handler->display->display_options['fields']['field_term_dates']['id'] = 'field_term_dates';
   $handler->display->display_options['fields']['field_term_dates']['table'] = 'field_data_field_term_dates';
@@ -336,6 +340,10 @@ function onboard_types_views_default_views() {
   $handler->display->display_options['fields']['field_member']['settings'] = array(
     'link' => 0,
   );
+  /* Field: Content: Position */
+  $handler->display->display_options['fields']['field_position']['id'] = 'field_position';
+  $handler->display->display_options['fields']['field_position']['table'] = 'field_data_field_position';
+  $handler->display->display_options['fields']['field_position']['field'] = 'field_position';
   /* Field: Content: Term Dates */
   $handler->display->display_options['fields']['field_term_dates']['id'] = 'field_term_dates';
   $handler->display->display_options['fields']['field_term_dates']['table'] = 'field_data_field_term_dates';
