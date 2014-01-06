@@ -95,6 +95,7 @@ function onboard_types_field_default_field_instances() {
   // Exported field_instance: 'node-board-field_application_process'
   $field_instances['node-board-field_application_process'] = array(
     'bundle' => 'board',
+    'description' => 'Lines and paragraphs will break automatically. Web addresses and email addresses will turn into links automatically.',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
@@ -115,7 +116,7 @@ function onboard_types_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_application_process',
-    'label' => 'Application Process Description',
+    'label' => 'Application Process',
     'required' => 0,
     'settings' => array(
       'text_processing' => 1,
@@ -275,7 +276,7 @@ function onboard_types_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_contact_phone',
-    'label' => 'Primary Contact Phone Number',
+    'label' => 'Primary Contact Phone',
     'required' => 0,
     'settings' => array(
       'text_processing' => 0,
@@ -295,6 +296,7 @@ function onboard_types_field_default_field_instances() {
   // Exported field_instance: 'node-board-field_description'
   $field_instances['node-board-field_description'] = array(
     'bundle' => 'board',
+    'description' => 'Lines and paragraphs will break automatically. Web addresses and email addresses will turn into links automatically.',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
@@ -335,6 +337,7 @@ function onboard_types_field_default_field_instances() {
   // Exported field_instance: 'node-board-field_meeting_location'
   $field_instances['node-board-field_meeting_location'] = array(
     'bundle' => 'board',
+    'description' => 'Lines and paragraphs will break automatically. Web addresses and email addresses will turn into links automatically.',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
@@ -375,6 +378,7 @@ function onboard_types_field_default_field_instances() {
   // Exported field_instance: 'node-board-field_meeting_time'
   $field_instances['node-board-field_meeting_time'] = array(
     'bundle' => 'board',
+    'description' => 'Lines and paragraphs will break automatically. Web addresses and email addresses will turn into links automatically.',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
