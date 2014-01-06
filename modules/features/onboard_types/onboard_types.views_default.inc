@@ -253,14 +253,6 @@ function onboard_types_views_default_views() {
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['footer'] = FALSE;
-  /* Footer: Global: Text area */
-  $handler->display->display_options['footer']['area']['id'] = 'area';
-  $handler->display->display_options['footer']['area']['table'] = 'views';
-  $handler->display->display_options['footer']['area']['field'] = 'area';
-  $handler->display->display_options['footer']['area']['label'] = 'csv link';
-  $handler->display->display_options['footer']['area']['content'] = '<a href="/node/[field_board]/board_terms/csv">Download all board terms as CSV spreadsheet</a>';
-  $handler->display->display_options['footer']['area']['format'] = 'filtered_html';
-  $handler->display->display_options['footer']['area']['tokenize'] = TRUE;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   /* Contextual filter: Content: Board (field_board) */
   $handler->display->display_options['arguments']['field_board_target_id_1']['id'] = 'field_board_target_id_1';
@@ -386,8 +378,10 @@ function onboard_types_views_default_views() {
     'board' => 'board',
   );
 
-  /* Display: Data export */
-  $handler = $view->new_display('views_data_export', 'Data export', 'views_data_export_1');
+  /* Display: Export all */
+  $handler = $view->new_display('views_data_export', 'Export all', 'views_data_export_1');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Export all board members';
   $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'views_data_export_csv';
@@ -403,7 +397,6 @@ function onboard_types_views_default_views() {
   $handler->display->display_options['fields']['field_member']['id'] = 'field_member';
   $handler->display->display_options['fields']['field_member']['table'] = 'field_data_field_member';
   $handler->display->display_options['fields']['field_member']['field'] = 'field_member';
-  $handler->display->display_options['fields']['field_member']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['field_member']['alter']['text'] = '[field_member] <a href="/node/[field_member-target_id]/edit?destination=node/[field_board]" title="Edit member\'s contact information">edit</a>';
   $handler->display->display_options['fields']['field_member']['settings'] = array(
     'link' => 0,
@@ -423,7 +416,80 @@ function onboard_types_views_default_views() {
     'multiple_from' => '',
     'multiple_to' => '',
   );
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'board_term' => 'board_term',
+  );
+  $handler->display->display_options['filters']['type']['group'] = 1;
   $handler->display->display_options['path'] = 'node/%/board_terms/csv';
+  $handler->display->display_options['displays'] = array(
+    'page_all' => 'page_all',
+    'default' => 0,
+    'page' => 0,
+    'block_1' => 0,
+    'block_2' => 0,
+  );
+  $handler->display->display_options['sitename_title'] = 0;
+
+  /* Display: Export active */
+  $handler = $view->new_display('views_data_export', 'Export active', 'views_data_export_2');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Export active board members';
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['style_plugin'] = 'views_data_export_csv';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Board */
+  $handler->display->display_options['fields']['field_board']['id'] = 'field_board';
+  $handler->display->display_options['fields']['field_board']['table'] = 'field_data_field_board';
+  $handler->display->display_options['fields']['field_board']['field'] = 'field_board';
+  $handler->display->display_options['fields']['field_board']['settings'] = array(
+    'link' => 0,
+  );
+  /* Field: Content: Member */
+  $handler->display->display_options['fields']['field_member']['id'] = 'field_member';
+  $handler->display->display_options['fields']['field_member']['table'] = 'field_data_field_member';
+  $handler->display->display_options['fields']['field_member']['field'] = 'field_member';
+  $handler->display->display_options['fields']['field_member']['alter']['text'] = '[field_member] <a href="/node/[field_member-target_id]/edit?destination=node/[field_board]" title="Edit member\'s contact information">edit</a>';
+  $handler->display->display_options['fields']['field_member']['settings'] = array(
+    'link' => 0,
+  );
+  /* Field: Content: Position */
+  $handler->display->display_options['fields']['field_position']['id'] = 'field_position';
+  $handler->display->display_options['fields']['field_position']['table'] = 'field_data_field_position';
+  $handler->display->display_options['fields']['field_position']['field'] = 'field_position';
+  /* Field: Content: Term Dates */
+  $handler->display->display_options['fields']['field_term_dates']['id'] = 'field_term_dates';
+  $handler->display->display_options['fields']['field_term_dates']['table'] = 'field_data_field_term_dates';
+  $handler->display->display_options['fields']['field_term_dates']['field'] = 'field_term_dates';
+  $handler->display->display_options['fields']['field_term_dates']['settings'] = array(
+    'format_type' => 'onboard_date_type_human_short',
+    'fromto' => 'both',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
+  );
+  $handler->display->display_options['path'] = 'node/%/board_terms/csv/active_only';
+  $handler->display->display_options['displays'] = array(
+    'page' => 'page',
+    'block_1' => 'block_1',
+    'default' => 0,
+    'page_all' => 0,
+    'block_2' => 0,
+  );
+  $handler->display->display_options['sitename_title'] = 0;
   $export['board_terms'] = $view;
 
   $view = new view();
