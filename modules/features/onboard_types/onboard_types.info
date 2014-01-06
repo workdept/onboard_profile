@@ -33,6 +33,7 @@ dependencies[] = taxonomy
 dependencies[] = text
 dependencies[] = uuid_features
 dependencies[] = views
+dependencies[] = views_data_export
 dependencies[] = webform
 __drupal_alter_by_ref[][node][page] = page
 __drupal_alter_by_ref[][node][webform] = webform
