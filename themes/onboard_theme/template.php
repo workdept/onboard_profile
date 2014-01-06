@@ -110,7 +110,7 @@ function onboard_theme_preprocess(&$variables, $hook) {
   if ($hook == 'views_more') {
     $view = $variables['view'];
 
-    if($view->name == 'board_terms' && $view->current_display == 'block_1' && count($view->args)) {
+    if ($view->name == 'board_terms' && $view->current_display == 'block_1' && count($view->args)) {
       $node = node_load($view->args[0]);
       
       if (onboard_types_show_management_links($node, 'full')) {
@@ -121,6 +121,26 @@ function onboard_theme_preprocess(&$variables, $hook) {
             'class' => 'onboard-management-links',         
           ),        
         ));
+      }
+    }
+  }
+  else if ($hook == 'views_view_unformatted') {
+    $view = $variables['view'];
+
+    if ($view->name == 'public_cities' && $view->current_display == 'block_1') {
+      // Add mod 3 striping classes for front page display of cities
+      //
+      // By default, Drupal does even/odd striping, but we need mod 3
+      // because cities are displayed in three columns on the home page.
+      // We need to identify the first and last elements in a "row" in
+      // order to set their padding so the blocks are left and right
+      // aligned with the container above.
+      $rows = $variables['rows'];
+      $count = 0;
+      foreach ($rows as $id => $row) {
+        $count++;
+        $variables['classes'][$id][] = 'views-row-mod3-' . ($count % 3);
+        $variables['classes_array'][$id] = isset($variables['classes'][$id]) ? implode(' ', $variables['classes'][$id]) : '';
       }
     }
   }
