@@ -104,7 +104,7 @@ function onboard_types_views_default_views() {
   $handler->display->display_options['fields']['field_term_dates']['table'] = 'field_data_field_term_dates';
   $handler->display->display_options['fields']['field_term_dates']['field'] = 'field_term_dates';
   $handler->display->display_options['fields']['field_term_dates']['settings'] = array(
-    'format_type' => 'long',
+    'format_type' => 'onboard_date_type_human_short',
     'fromto' => 'both',
     'multiple_number' => '',
     'multiple_from' => '',
