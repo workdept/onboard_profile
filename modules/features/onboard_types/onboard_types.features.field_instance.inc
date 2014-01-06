@@ -95,10 +95,9 @@ function onboard_types_field_default_field_instances() {
   // Exported field_instance: 'node-board-field_application_process'
   $field_instances['node-board-field_application_process'] = array(
     'bundle' => 'board',
-    'description' => 'Lines and paragraphs will break automatically. Web addresses and email addresses will turn into links automatically.',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Lines and paragraphs will break automatically. Web addresses and email addresses will turn into links automatically.',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -119,6 +118,32 @@ function onboard_types_field_default_field_instances() {
     'label' => 'Application Process',
     'required' => 0,
     'settings' => array(
+      'better_formats' => array(
+        'allowed_formats' => array(
+          'filtered_html' => 'filtered_html',
+          'full_html' => 0,
+          'plain_text' => 0,
+          'raw_html' => 0,
+        ),
+        'allowed_formats_toggle' => 1,
+        'default_order_toggle' => 0,
+        'default_order_wrapper' => array(
+          'formats' => array(
+            'filtered_html' => array(
+              'weight' => 0,
+            ),
+            'full_html' => array(
+              'weight' => 1,
+            ),
+            'plain_text' => array(
+              'weight' => 10,
+            ),
+            'raw_html' => array(
+              'weight' => 2,
+            ),
+          ),
+        ),
+      ),
       'text_processing' => 1,
       'user_register_form' => FALSE,
     ),
@@ -296,10 +321,9 @@ function onboard_types_field_default_field_instances() {
   // Exported field_instance: 'node-board-field_description'
   $field_instances['node-board-field_description'] = array(
     'bundle' => 'board',
-    'description' => 'Lines and paragraphs will break automatically. Web addresses and email addresses will turn into links automatically.',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Lines and paragraphs will break automatically. Web addresses and email addresses will turn into links automatically.',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -320,6 +344,32 @@ function onboard_types_field_default_field_instances() {
     'label' => 'Description',
     'required' => 0,
     'settings' => array(
+      'better_formats' => array(
+        'allowed_formats' => array(
+          'filtered_html' => 'filtered_html',
+          'full_html' => 0,
+          'plain_text' => 0,
+          'raw_html' => 0,
+        ),
+        'allowed_formats_toggle' => 1,
+        'default_order_toggle' => 0,
+        'default_order_wrapper' => array(
+          'formats' => array(
+            'filtered_html' => array(
+              'weight' => 0,
+            ),
+            'full_html' => array(
+              'weight' => 1,
+            ),
+            'plain_text' => array(
+              'weight' => 10,
+            ),
+            'raw_html' => array(
+              'weight' => 2,
+            ),
+          ),
+        ),
+      ),
       'text_processing' => 1,
       'user_register_form' => FALSE,
     ),
@@ -337,10 +387,9 @@ function onboard_types_field_default_field_instances() {
   // Exported field_instance: 'node-board-field_meeting_location'
   $field_instances['node-board-field_meeting_location'] = array(
     'bundle' => 'board',
-    'description' => 'Lines and paragraphs will break automatically. Web addresses and email addresses will turn into links automatically.',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Lines and paragraphs will break automatically. Web addresses and email addresses will turn into links automatically.',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -361,6 +410,32 @@ function onboard_types_field_default_field_instances() {
     'label' => 'Meeting Location',
     'required' => 0,
     'settings' => array(
+      'better_formats' => array(
+        'allowed_formats' => array(
+          'filtered_html' => 'filtered_html',
+          'full_html' => 0,
+          'plain_text' => 0,
+          'raw_html' => 0,
+        ),
+        'allowed_formats_toggle' => 1,
+        'default_order_toggle' => 0,
+        'default_order_wrapper' => array(
+          'formats' => array(
+            'filtered_html' => array(
+              'weight' => 0,
+            ),
+            'full_html' => array(
+              'weight' => 1,
+            ),
+            'plain_text' => array(
+              'weight' => 10,
+            ),
+            'raw_html' => array(
+              'weight' => 2,
+            ),
+          ),
+        ),
+      ),
       'text_processing' => 1,
       'user_register_form' => FALSE,
     ),
@@ -378,10 +453,9 @@ function onboard_types_field_default_field_instances() {
   // Exported field_instance: 'node-board-field_meeting_time'
   $field_instances['node-board-field_meeting_time'] = array(
     'bundle' => 'board',
-    'description' => 'Lines and paragraphs will break automatically. Web addresses and email addresses will turn into links automatically.',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Lines and paragraphs will break automatically. Web addresses and email addresses will turn into links automatically.',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -402,6 +476,32 @@ function onboard_types_field_default_field_instances() {
     'label' => 'Meeting Time',
     'required' => 0,
     'settings' => array(
+      'better_formats' => array(
+        'allowed_formats' => array(
+          'filtered_html' => 'filtered_html',
+          'full_html' => 0,
+          'plain_text' => 0,
+          'raw_html' => 0,
+        ),
+        'allowed_formats_toggle' => 1,
+        'default_order_toggle' => 0,
+        'default_order_wrapper' => array(
+          'formats' => array(
+            'filtered_html' => array(
+              'weight' => 0,
+            ),
+            'full_html' => array(
+              'weight' => 1,
+            ),
+            'plain_text' => array(
+              'weight' => 10,
+            ),
+            'raw_html' => array(
+              'weight' => 2,
+            ),
+          ),
+        ),
+      ),
       'text_processing' => 1,
       'user_register_form' => FALSE,
     ),
@@ -1215,7 +1315,7 @@ function onboard_types_field_default_field_instances() {
   // Included for use with string extractors like potx.
   t('Application Action Title');
   t('Application File');
-  t('Application Process Description');
+  t('Application Process');
   t('Application URL');
   t('Board');
   t('Body');
@@ -1225,6 +1325,7 @@ function onboard_types_field_default_field_instances() {
   t('Email');
   t('Group');
   t('Here\'s some example help text! Do this to do this.');
+  t('Lines and paragraphs will break automatically. Web addresses and email addresses will turn into links automatically.');
   t('Mailing Address');
   t('Maximum number of members');
   t('Meeting Location');
@@ -1235,7 +1336,7 @@ function onboard_types_field_default_field_instances() {
   t('Position');
   t('Primary Contact Email');
   t('Primary Contact Name');
-  t('Primary Contact Phone Number');
+  t('Primary Contact Phone');
   t('Term Dates');
 
   return $field_instances;
