@@ -6793,6 +6793,7 @@ table .checkbox input[type="checkbox"] {
     width: 100%;
     top: 0;
     left: 0;
+    z-index: 1000;
   }
 }
 @media (max-width: 729px) {
