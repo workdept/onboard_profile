@@ -338,6 +338,8 @@ function onboard_types_views_default_views() {
   $handler->display->display_options['use_more_always'] = TRUE;
   $handler->display->display_options['defaults']['use_more_text'] = FALSE;
   $handler->display->display_options['use_more_text'] = 'search past and future members';
+  $handler->display->display_options['defaults']['access'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Content: Member */
   $handler->display->display_options['fields']['field_member']['id'] = 'field_member';
