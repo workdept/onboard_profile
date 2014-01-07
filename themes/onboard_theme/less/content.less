@@ -343,20 +343,51 @@ h2 {
     margin-top: @grid-gutter-width;
 
     .views-row {
-
-      margin-bottom: @grid-gutter-width;
-
-      @media (min-width: @screen-xs) {
+      // For pretty small displays, show citiies in two columns
+      @media (min-width: @screen-xs-min) {
         .make-xs-column(@grid-columns / 2);
       }
 
+      // For all other displays, show citiies in three columns 
+      .make-sm-column(@grid-columns / 3);
+
+      .make-md-column(@grid-columns / 3);
+
+      // At the narrowest screen width, the blocks span the entire width,
+      // i.e. they're show in one column
+      padding-left: 0;
+      padding-right: 0;
+
+      // Align the edge of the city boxes with the left and right of the
+      // main content container above.
+      @media (min-width: @screen-xs-min) {
+        &.views-row-odd {
+          padding-left: 0;
+          padding-right: (@grid-gutter-width / 2);
+        }
+
+        &.views-row-even {
+          padding-left: (@grid-gutter-width / 2);
+          padding-right: 0;
+        }
+      }
+      
       @media (min-width: @screen-sm) {
-        .make-sm-column(@grid-columns / 3);
+        padding-left: floor(@grid-gutter-width / 3);
+        padding-right: floor(@grid-gutter-width / 3);
+
+        &.views-row-mod3-1 {
+          padding-left: 0;
+          padding-right: floor(@grid-gutter-width * (2 / 3));
+        }
+
+        &.views-row-mod3-0 {
+          padding-left: floor(@grid-gutter-width * (2 / 3));
+          padding-right: 0;
+        }
       }
 
-      @media (min-width: @screen-md-min) {
-        .make-md-column(@grid-columns / 3);
-      }
+      margin-bottom: @grid-gutter-width;
 
       .pin {
         z-index: 10;
