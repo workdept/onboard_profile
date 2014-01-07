@@ -13,16 +13,20 @@ function onboard_types_field_default_field_instances() {
   // Exported field_instance: 'node-board-field_application_action_title'
   $field_instances['node-board-field_application_action_title'] = array(
     'bundle' => 'board',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => 'Apply on this city\'s website',
+      ),
+    ),
     'deleted' => 0,
-    'description' => 'Here\'s some example help text! Do this to do this.',
+    'description' => 'If you are using an Application URL, use this field to customize the button that visitors click on to visit your external URL. ',
     'display' => array(
       'default' => array(
         'label' => 'above',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 4,
+        'weight' => 8,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -33,9 +37,35 @@ function onboard_types_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_application_action_title',
-    'label' => 'Application Action Title',
+    'label' => 'Application URL Button Text',
     'required' => 0,
     'settings' => array(
+      'better_formats' => array(
+        'allowed_formats' => array(
+          'filtered_html' => 'filtered_html',
+          'full_html' => 'full_html',
+          'plain_text' => 'plain_text',
+          'raw_html' => 'raw_html',
+        ),
+        'allowed_formats_toggle' => 0,
+        'default_order_toggle' => 0,
+        'default_order_wrapper' => array(
+          'formats' => array(
+            'filtered_html' => array(
+              'weight' => 0,
+            ),
+            'full_html' => array(
+              'weight' => 1,
+            ),
+            'plain_text' => array(
+              'weight' => 10,
+            ),
+            'raw_html' => array(
+              'weight' => 2,
+            ),
+          ),
+        ),
+      ),
       'text_processing' => 0,
       'user_register_form' => FALSE,
     ),
@@ -54,14 +84,14 @@ function onboard_types_field_default_field_instances() {
   $field_instances['node-board-field_application_file'] = array(
     'bundle' => 'board',
     'deleted' => 0,
-    'description' => '',
+    'description' => 'If you don\'t have a URL to direct visitors to, you can upload a PDF file that they can download to apply for this board.',
     'display' => array(
       'default' => array(
         'label' => 'above',
         'module' => 'file',
         'settings' => array(),
         'type' => 'file_default',
-        'weight' => 11,
+        'weight' => 10,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -104,7 +134,7 @@ function onboard_types_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 3,
+        'weight' => 1,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -170,7 +200,7 @@ function onboard_types_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 10,
+        'weight' => 9,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -210,7 +240,7 @@ function onboard_types_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 9,
+        'weight' => 7,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -250,7 +280,7 @@ function onboard_types_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 2,
+        'weight' => 5,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -261,9 +291,35 @@ function onboard_types_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_contact_name',
-    'label' => 'Primary Contact Name',
+    'label' => 'Primary Contact',
     'required' => 0,
     'settings' => array(
+      'better_formats' => array(
+        'allowed_formats' => array(
+          'filtered_html' => 'filtered_html',
+          'full_html' => 'full_html',
+          'plain_text' => 'plain_text',
+          'raw_html' => 'raw_html',
+        ),
+        'allowed_formats_toggle' => 0,
+        'default_order_toggle' => 0,
+        'default_order_wrapper' => array(
+          'formats' => array(
+            'filtered_html' => array(
+              'weight' => 0,
+            ),
+            'full_html' => array(
+              'weight' => 1,
+            ),
+            'plain_text' => array(
+              'weight' => 10,
+            ),
+            'raw_html' => array(
+              'weight' => 2,
+            ),
+          ),
+        ),
+      ),
       'text_processing' => 0,
       'user_register_form' => FALSE,
     ),
@@ -290,7 +346,7 @@ function onboard_types_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 8,
+        'weight' => 6,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -330,7 +386,7 @@ function onboard_types_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 5,
+        'weight' => 2,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -396,7 +452,7 @@ function onboard_types_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 7,
+        'weight' => 4,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -462,7 +518,7 @@ function onboard_types_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 6,
+        'weight' => 3,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -533,7 +589,7 @@ function onboard_types_field_default_field_instances() {
           'thousand_separator' => ' ',
         ),
         'type' => 'number_integer',
-        'weight' => 12,
+        'weight' => 11,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -579,7 +635,7 @@ function onboard_types_field_default_field_instances() {
           'thousand_separator' => ' ',
         ),
         'type' => 'number_integer',
-        'weight' => 13,
+        'weight' => 12,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -621,7 +677,7 @@ function onboard_types_field_default_field_instances() {
         'module' => 'og_ui',
         'settings' => array(),
         'type' => 'og_list_default',
-        'weight' => 1,
+        'weight' => 0,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -1313,10 +1369,10 @@ function onboard_types_field_default_field_instances() {
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('Application Action Title');
   t('Application File');
   t('Application Process');
   t('Application URL');
+  t('Application URL Button Text');
   t('Board');
   t('Body');
   t('City');
@@ -1324,7 +1380,8 @@ function onboard_types_field_default_field_instances() {
   t('Determine if this is an OG group.');
   t('Email');
   t('Group');
-  t('Here\'s some example help text! Do this to do this.');
+  t('If you are using an Application URL, use this field to customize the button that visitors click on to visit your external URL. ');
+  t('If you don\'t have a URL to direct visitors to, you can upload a PDF file that they can download to apply for this board.');
   t('Lines and paragraphs will break automatically. Web addresses and email addresses will turn into links automatically.');
   t('Mailing Address');
   t('Maximum number of members');
@@ -1334,8 +1391,8 @@ function onboard_types_field_default_field_instances() {
   t('Minimum number of members');
   t('Phone');
   t('Position');
+  t('Primary Contact');
   t('Primary Contact Email');
-  t('Primary Contact Name');
   t('Primary Contact Phone');
   t('Term Dates');
 
