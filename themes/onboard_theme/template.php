@@ -145,3 +145,12 @@ function onboard_theme_preprocess(&$variables, $hook) {
     }
   }
 }
+
+/*
+ *
+ * Override views feed icon for views_data_export CSV
+ */
+function onboard_theme_views_data_export_feed_icon__csv($options) {
+  return l("download CSV file", $options['url']);
+}
+
