@@ -7260,6 +7260,12 @@ fieldset[disabled] .region-content .view-board-terms .feed-icon a.active {
   background-color: #195b6f;
   border-color: #195b6f;
 }
+.region-content .view-board-terms .more-link a .badge,
+.region-content .view-board-terms .onboard-management-links a .badge,
+.region-content .view-board-terms .feed-icon a .badge {
+  color: #195b6f;
+  background-color: #fff;
+}
 .region-content .view-board-terms .more-link a:hover,
 .region-content .view-board-terms .onboard-management-links a:hover,
 .region-content .view-board-terms .feed-icon a:hover,
