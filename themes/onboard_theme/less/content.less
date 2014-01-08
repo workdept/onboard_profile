@@ -364,7 +364,8 @@ h2 {
 
       // Align the edge of the city boxes with the left and right of the
       // main content container above.
-      @media (min-width: @screen-xs-min) {
+      @media (min-width: @screen-xs-min) 
+      and (max-width: @screen-xs-max) {
         &.views-row-odd {
           padding-left: 0;
           padding-right: (@grid-gutter-width / 2);
