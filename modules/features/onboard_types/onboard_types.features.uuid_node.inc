@@ -406,7 +406,7 @@ Nori grape silver beet broccoli kombu beet greens fava bean potato quandong cele
   'tnid' => 0,
   'translate' => 0,
   'uuid' => 'f13cc27a-1823-4ea0-850a-6d95d055742b',
-  'revision_uid' => 1,
+  'revision_uid' => 4,
   'body' => array(
     'und' => array(
       0 => array(
@@ -414,21 +414,12 @@ Nori grape silver beet broccoli kombu beet greens fava bean potato quandong cele
 
 On Board is a new way to find information about the boards and commissions in your community. Our pilot project helps you learn how get involved and helps local governments share more information with their residents. 
 
-Get started by checking out the board and commissions that are part of our pilot governments:
-
-<a href="city/ferndale/boards">Ferndale</a>
-
-<a href="city/ypsilanti/boards">Ypsilanti</a>
-
-<a href="city/washtenaw-county/boards">Washtenaw County</a>',
+Get started by checking out the board and commissions that are part of our pilot governments:',
         'summary' => '',
         'format' => 'filtered_html',
         'safe_value' => '<p>Effective local governments rely on local appointed boards and commissions for advice, ideas, and assistance in achieving public goals. These include library boards, planning commissions, arts councils and many more.</p>
 <p>On Board is a new way to find information about the boards and commissions in your community. Our pilot project helps you learn how get involved and helps local governments share more information with their residents. </p>
 <p>Get started by checking out the board and commissions that are part of our pilot governments:</p>
-<p><a href="city/ferndale/boards">Ferndale</a></p>
-<p><a href="city/ypsilanti/boards">Ypsilanti</a></p>
-<p><a href="city/washtenaw-county/boards">Washtenaw County</a></p>
 ',
         'safe_summary' => '',
       ),

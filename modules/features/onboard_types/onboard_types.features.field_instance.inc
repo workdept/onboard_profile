@@ -842,7 +842,7 @@ function onboard_types_field_default_field_instances() {
     'bundle' => 'board_term',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Is there a position associated with this term like Chair or Secretary? If not, leave this field blank.',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -1382,6 +1382,7 @@ function onboard_types_field_default_field_instances() {
   t('Group');
   t('If you are using an Application URL, use this field to customize the button that visitors click on to visit your external URL. ');
   t('If you don\'t have a URL to direct visitors to, you can upload a PDF file that they can download to apply for this board.');
+  t('Is there a position associated with this term like Chair or Secretary? If not, leave this field blank.');
   t('Lines and paragraphs will break automatically. Web addresses and email addresses will turn into links automatically.');
   t('Mailing Address');
   t('Maximum number of members');

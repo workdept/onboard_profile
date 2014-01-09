@@ -37,7 +37,7 @@ function onboard_types_node_info() {
       'help' => '',
     ),
     'board_term' => array(
-      'name' => t('Board term'),
+      'name' => t('Board Term'),
       'base' => 'node_content',
       'description' => '',
       'has_title' => '1',
