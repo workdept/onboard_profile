@@ -259,7 +259,6 @@ function onboard_types_user_default_permissions() {
     'name' => 'unpublish editable board content',
     'roles' => array(
       'administrator' => 'administrator',
-      'clerk' => 'clerk',
     ),
     'module' => 'publishcontent',
   );
@@ -269,7 +268,6 @@ function onboard_types_user_default_permissions() {
     'name' => 'unpublish editable board_term content',
     'roles' => array(
       'administrator' => 'administrator',
-      'clerk' => 'clerk',
     ),
     'module' => 'publishcontent',
   );
@@ -279,7 +277,6 @@ function onboard_types_user_default_permissions() {
     'name' => 'unpublish editable member content',
     'roles' => array(
       'administrator' => 'administrator',
-      'clerk' => 'clerk',
     ),
     'module' => 'publishcontent',
   );
