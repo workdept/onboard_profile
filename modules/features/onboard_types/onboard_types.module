@@ -399,10 +399,10 @@ function onboard_types_field_widget_inline_entity_form_form_alter(&$element, &$f
  * If user is a clerk, redirect to user/boards after login.
  */
 function onboard_types_user_login(&$edit, $account) {
-  $is_not_edit_page = (!isset($_POST['form_id']) || $_POST['form_id']);
-  $is_clerk = $is_not_edit_page && in_array('clerk', $account->roles);
+  $is_edit_page = (isset($_POST['form_id']) && $_POST['form_id'] == 'user_pass_reset');
+  $is_clerk = in_array('clerk', $account->roles);
 
-  if ($is_clerk) {
+  if ($is_clerk && !$is_edit_page) {
     $_GET['destination'] = 'user/boards';
   }
 }
