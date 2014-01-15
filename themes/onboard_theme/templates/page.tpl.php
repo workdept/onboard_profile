@@ -166,16 +166,16 @@
   ?>
   <div class="container">
     <div class="row">
-      <a class="onboard-msa-logo <?php print $grid_class_prefix; ?>3 <?php print $grid_class_prefix; ?>offset-4" href="#">
+      <a class="onboard-msa-logo <?php print $grid_class_prefix; ?>3 <?php print $grid_class_prefix; ?>offset-4" href="http://www.michigansuburbsalliance.org/">
         <?php print $onboard_msa_logo; ?>
       </a>
 
       <div class="<?php print $grid_class_prefix; ?>7">
         <p>On Board is a pilot project of the Michigan Suburbs Alliance.</p>
       
-        <p class="onboard-license">Licensed under a Creative Commons Attribution-NonCommercial-NoDerivs 3.0 Unported License.</p>
+        <p class="onboard-license">Licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/3.0/">Creative Commons Attribution-NonCommercial-NoDerivs 3.0 Unported License</a>.</p>
 
-        <p><?php print $onboard_cc_logo; ?></p>
+        <p><a href="http://creativecommons.org/licenses/by-nc-nd/3.0/"><?php print $onboard_cc_logo; ?></a></p>
       </div>
     </div>
   </div>
