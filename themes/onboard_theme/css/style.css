@@ -1,4 +1,3 @@
-@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
 /*! normalize.css v2.1.3 | MIT License | git.io/normalize */
 article,
 aside,
@@ -7488,4 +7487,18 @@ tbody:last-child td {
 .onboard-license {
   font-size: 11px;
   color: #c8ede6;
+}
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../font/montserrat-regular-webfont.eot');
+  src: url('../font/montserrat-regular-webfont.eot?#iefix') format('embedded-opentype'), url('../font/montserrat-regular-webfont.svg#montserratregular') format('svg') url('../font/montserrat-regular-webfont.woff') format('woff'), url('../font/montserrat-regular-webfont.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../font/montserrat-bold-webfont.eot');
+  src: url('../font/montserrat-bold-webfont.eot?#iefix') format('embedded-opentype'), url('../font/montserrat-bold-webfont.svg#montserratbold') format('svg'), url('../font/montserrat-bold-webfont.woff') format('woff'), url('../font/montserrat-bold-webfont.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
 }
