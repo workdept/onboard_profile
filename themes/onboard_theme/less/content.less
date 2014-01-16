@@ -407,8 +407,11 @@ h2 {
         border: 10px solid @teal2;
         background-color: white;
 
-        &:hover {
+        &:hover, &:focus {
           background-color: @yellow; 
+
+          // Override default hover state for links.
+          text-decoration: none;
         }
 
         @media (max-width: @screen-xs-max) {
@@ -437,7 +440,7 @@ h2 {
           vertical-align: middle;
         }
 
-        a {
+        .centering-wrapper {
           width: 90%;
           margin: 0 auto;
           display: block;
@@ -449,10 +452,6 @@ h2 {
           font-weight: bold;
           font-size: ceil(@font-size-base * 2); // ~28px
 
-          &:hover, &:focus {
-            // Override default hover state for links.
-            text-decoration: none;
-          }
         } 
       }
     }

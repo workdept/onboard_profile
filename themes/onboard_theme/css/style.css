@@ -7414,8 +7414,10 @@ textarea.node-type-webform .form-text.form-email {
   background-color: white;
   display: table;
 }
-.view-public-cities.view-display-id-block_1 .views-row .views-field-name:hover {
+.view-public-cities.view-display-id-block_1 .views-row .views-field-name:hover,
+.view-public-cities.view-display-id-block_1 .views-row .views-field-name:focus {
   background-color: #ffd921;
+  text-decoration: none;
 }
 @media (max-width: 767px) {
   .view-public-cities.view-display-id-block_1 .views-row .views-field-name {
@@ -7441,7 +7443,7 @@ textarea.node-type-webform .form-text.form-email {
   display: table-cell;
   vertical-align: middle;
 }
-.view-public-cities.view-display-id-block_1 .views-row .views-field-name a {
+.view-public-cities.view-display-id-block_1 .views-row .views-field-name .centering-wrapper {
   width: 90%;
   margin: 0 auto;
   display: block;
@@ -7450,10 +7452,6 @@ textarea.node-type-webform .form-text.form-email {
   color: #f25c21;
   font-weight: bold;
   font-size: 28px;
-}
-.view-public-cities.view-display-id-block_1 .views-row .views-field-name a:hover,
-.view-public-cities.view-display-id-block_1 .views-row .views-field-name a:focus {
-  text-decoration: none;
 }
 label {
   color: #195b6f;
@@ -7489,5 +7487,8 @@ tbody:last-child td {
 }
 .onboard-license {
   font-size: 11px;
+  color: #c8ede6;
+}
+.onboard-license a {
   color: #c8ede6;
 }

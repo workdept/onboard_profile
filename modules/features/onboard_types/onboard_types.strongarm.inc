@@ -285,21 +285,21 @@ function onboard_types_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'node_preview_board';
-  $strongarm->value = '1';
+  $strongarm->value = '0';
   $export['node_preview_board'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'node_preview_board_term';
-  $strongarm->value = '1';
+  $strongarm->value = '0';
   $export['node_preview_board_term'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'node_preview_member';
-  $strongarm->value = '1';
+  $strongarm->value = '0';
   $export['node_preview_member'] = $strongarm;
 
   $strongarm = new stdClass();
