@@ -34,8 +34,12 @@ To rebuild the theme CSS:
 
 ```
 cd path/to/onboard_theme
-lessc less/style.less > css/style.css
+lessc --compress --source-map=css/style.map --source-map-rootpath=/profiles/onboard_profile/themes/onboard_theme/ --source-map-basepath=`pwd` less/style.less > css/style.css
 ```
+
+The above command compresses the CSS and creates a source map file so browser
+developer tools will point to the style's line in the LESS file rather than
+the CSS.
 
 Test
 ----
