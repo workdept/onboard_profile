@@ -25,7 +25,7 @@ function onboard_theme_helpers_uuid_features_default_content() {
   'tnid' => 0,
   'translate' => 0,
   'uuid' => '4c252070-8b71-42eb-9fca-d21364c33927',
-  'revision_uid' => 1,
+  'revision_uid' => 0,
   'body' => array(
     'und' => array(
       0 => array(
@@ -61,7 +61,7 @@ function onboard_theme_helpers_uuid_features_default_content() {
   'tnid' => 0,
   'translate' => 0,
   'uuid' => 'dbc85b7e-0109-4f7b-82e4-d5f9463ad7eb',
-  'revision_uid' => 1,
+  'revision_uid' => 0,
   'body' => array(
     'und' => array(
       0 => array(
