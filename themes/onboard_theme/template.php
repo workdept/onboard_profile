@@ -30,6 +30,10 @@ function _onboard_theme_add_js() {
     'every_page' => TRUE,
     'weight' => -30,
   ));
+
+  if (module_exists('date_popup') && current_path() == 'node/add/board-term') {
+    drupal_add_js(drupal_get_path('theme', 'onboard_theme') . '/js/fix_datepicker_position.js');
+  }
 }
 
 /**
