@@ -70,14 +70,14 @@ Cupcake soufflé apple pie marzipan. Gummies donut tart bear claw. Chupa chups g
   'tnid' => 0,
   'translate' => 0,
   'uuid' => 'a49de065-9828-45ea-aec5-4ccd0b4bf8bf',
-  'revision_uid' => 1,
+  'revision_uid' => 7,
   'field_body' => array(
     'und' => array(
       0 => array(
-        'value' => 'Gummi bears marshmallow dessert tootsie roll tootsie roll croissant tiramisu. Sesame snaps pie tiramisu muffin bear claw. Chocolate bar biscuit tart lemon drops topping candy canes. Pie sweet topping marzipan cupcake pie. Marshmallow cheesecake candy. Cupcake halvah muffin jelly beans powder jelly beans candy. Chocolate chocolate bar jelly beans apple pie apple pie fruitcake.',
+        'value' => 'On Board is designed to provide you with information about boards and commissions and give you a clear pathway to getting involved. Have we accomplished our goals? How might we improve? Please complete the form below in as much detail as possible. ',
         'summary' => '',
         'format' => 'filtered_html',
-        'safe_value' => '<p>Gummi bears marshmallow dessert tootsie roll tootsie roll croissant tiramisu. Sesame snaps pie tiramisu muffin bear claw. Chocolate bar biscuit tart lemon drops topping candy canes. Pie sweet topping marzipan cupcake pie. Marshmallow cheesecake candy. Cupcake halvah muffin jelly beans powder jelly beans candy. Chocolate chocolate bar jelly beans apple pie apple pie fruitcake.</p>
+        'safe_value' => '<p>On Board is designed to provide you with information about boards and commissions and give you a clear pathway to getting involved. Have we accomplished our goals? How might we improve? Please complete the form below in as much detail as possible.</p>
 ',
         'safe_summary' => '',
       ),
@@ -242,17 +242,14 @@ Cupcake soufflé apple pie marzipan. Gummies donut tart bear claw. Chupa chups g
   'tnid' => 0,
   'translate' => 0,
   'uuid' => 'd9d31c1a-6518-4b8f-bb6b-897e6f693a28',
-  'revision_uid' => 1,
+  'revision_uid' => 7,
   'field_body' => array(
     'und' => array(
       0 => array(
-        'value' => 'Need help? Call Emily Thompson at the Michigan Suburbs Alliance at...
-
-Gummi bears marshmallow dessert tootsie roll tootsie roll croissant tiramisu. Sesame snaps pie tiramisu muffin bear claw. Chocolate bar biscuit tart lemon drops topping candy canes. Pie sweet topping marzipan cupcake pie. Marshmallow cheesecake candy. Cupcake halvah muffin jelly beans powder jelly beans candy. Chocolate chocolate bar jelly beans apple pie apple pie fruitcake.',
+        'value' => 'Need help? Call Emily Thompson at the Michigan Suburbs Alliance at (313) 444-4830 or complete the form below in as much detail as possible. ',
         'summary' => '',
         'format' => 'filtered_html',
-        'safe_value' => '<p>Need help? Call Emily Thompson at the Michigan Suburbs Alliance at...</p>
-<p>Gummi bears marshmallow dessert tootsie roll tootsie roll croissant tiramisu. Sesame snaps pie tiramisu muffin bear claw. Chocolate bar biscuit tart lemon drops topping candy canes. Pie sweet topping marzipan cupcake pie. Marshmallow cheesecake candy. Cupcake halvah muffin jelly beans powder jelly beans candy. Chocolate chocolate bar jelly beans apple pie apple pie fruitcake.</p>
+        'safe_value' => '<p>Need help? Call Emily Thompson at the Michigan Suburbs Alliance at (313) 444-4830 or complete the form below in as much detail as possible.</p>
 ',
         'safe_summary' => '',
       ),
@@ -364,23 +361,29 @@ Gummi bears marshmallow dessert tootsie roll tootsie roll croissant tiramisu. Se
   'tnid' => 0,
   'translate' => 0,
   'uuid' => 'db6dd32f-330c-40b2-98fb-c15be223dc56',
-  'revision_uid' => 1,
+  'revision_uid' => 7,
   'body' => array(
     'und' => array(
       0 => array(
-        'value' => 'Veggies es bonus vobis, proinde vos postulo essum magis kohlrabi welsh onion daikon amaranth tatsoi tomatillo melon azuki bean garlic.
+        'value' => 'On Board is a project of the <a href="http://www.michigansuburbsalliance.org/">Michigan Suburbs Alliance</a>, a 501(c)3 nonprofit organization, which works to foster and support cooperative approaches to the challenges facing Michigan’s metropolitan areas. Through innovative initiatives we organize, serve and advocate for metro Detroit’s cities in order to help them be vibrant, healthy and beautiful communities. We also strive to actively engage a diverse group of people in municipal and regional affairs. 
 
-Gumbo beet greens corn soko endive gumbo gourd. Parsley shallot courgette tatsoi pea sprouts fava bean collard greens dandelion okra wakame tomato. Dandelion cucumber earthnut pea peanut soko zucchini.
+<strong>On Board<strong>
 
-Turnip greens yarrow ricebean rutabaga endive cauliflower sea lettuce kohlrabi amaranth water spinach avocado daikon napa cabbage asparagus winter purslane kale. Celery potato scallion desert raisin horseradish spinach carrot soko. Lotus root water spinach fennel kombu maize bamboo shoot green bean swiss chard seakale pumpkin onion chickpea gram corn pea. Brussels sprout coriander water chestnut gourd swiss chard wakame kohlrabi beetroot carrot watercress. Corn amaranth salsify bunya nuts nori azuki bean chickweed potato bell pepper artichoke.
+In late 2012, the City of Detroit and 22 of its suburban neighbors asked us to research Millennial participating in local government. These communities believe young people are excited about opportunities for development and growth in metro Detroit, but assumed these residents were underrepresented and therefore limited in their ability to affect change.
 
-Nori grape silver beet broccoli kombu beet greens fava bean potato quandong celery. Bunya nuts black-eyed pea prairie turnip leek lentil turnip greens parsnip. Sea lettuce lettuce water chestnut eggplant winter purslane fennel azuki bean earthnut pea sierra leone bologi leek soko chicory celtuce parsley jÃ­cama salsify. ',
+With this in mind, we looked at Millennial representation on boards and commissions in 23 cities across metro Detroit, and at how cities share information and recruit applicants. Our research shows young people (age 18-35) are underrepresented: they account for 22.5% of the population in metro Detroit and 29.0% of registered voters, but only 6.0% of board and commission members. What’s more, few communities provide comprehensive information about their boards and commissions online. 
+
+Armed with this new information, we applied for a grant from the <a href="http://www.knightfoundation.org/">James S. and John L. Knight Foundation</a> to bring information about local boards and commissions, and the application and appointment process in particular, online. <a href="http://opengov.newschallenge.org/open/open-government/submission/really-simple-service-rss-bringing-opportunity-online/">(View our proposal here.)</a> Last summer, we were awarded a $50,000 Prototype Fund grant and since then we’ve been hard at work to build and bring you On Board! 
+
+Interested in learning more about or participating in On Board? Contact Emily Thompson at the Michigan Suburbs Alliance at (313) 444-4830 or emily@suburbsalliance.org. ',
         'summary' => '',
         'format' => 'filtered_html',
-        'safe_value' => '<p>Veggies es bonus vobis, proinde vos postulo essum magis kohlrabi welsh onion daikon amaranth tatsoi tomatillo melon azuki bean garlic.</p>
-<p>Gumbo beet greens corn soko endive gumbo gourd. Parsley shallot courgette tatsoi pea sprouts fava bean collard greens dandelion okra wakame tomato. Dandelion cucumber earthnut pea peanut soko zucchini.</p>
-<p>Turnip greens yarrow ricebean rutabaga endive cauliflower sea lettuce kohlrabi amaranth water spinach avocado daikon napa cabbage asparagus winter purslane kale. Celery potato scallion desert raisin horseradish spinach carrot soko. Lotus root water spinach fennel kombu maize bamboo shoot green bean swiss chard seakale pumpkin onion chickpea gram corn pea. Brussels sprout coriander water chestnut gourd swiss chard wakame kohlrabi beetroot carrot watercress. Corn amaranth salsify bunya nuts nori azuki bean chickweed potato bell pepper artichoke.</p>
-<p>Nori grape silver beet broccoli kombu beet greens fava bean potato quandong celery. Bunya nuts black-eyed pea prairie turnip leek lentil turnip greens parsnip. Sea lettuce lettuce water chestnut eggplant winter purslane fennel azuki bean earthnut pea sierra leone bologi leek soko chicory celtuce parsley jÃ­cama salsify.</p>
+        'safe_value' => '<p>On Board is a project of the <a href="http://www.michigansuburbsalliance.org/">Michigan Suburbs Alliance</a>, a 501(c)3 nonprofit organization, which works to foster and support cooperative approaches to the challenges facing Michigan’s metropolitan areas. Through innovative initiatives we organize, serve and advocate for metro Detroit’s cities in order to help them be vibrant, healthy and beautiful communities. We also strive to actively engage a diverse group of people in municipal and regional affairs. </p>
+<p><strong>On Board<strong></strong></strong></p>
+<p>In late 2012, the City of Detroit and 22 of its suburban neighbors asked us to research Millennial participating in local government. These communities believe young people are excited about opportunities for development and growth in metro Detroit, but assumed these residents were underrepresented and therefore limited in their ability to affect change.</p>
+<p>With this in mind, we looked at Millennial representation on boards and commissions in 23 cities across metro Detroit, and at how cities share information and recruit applicants. Our research shows young people (age 18-35) are underrepresented: they account for 22.5% of the population in metro Detroit and 29.0% of registered voters, but only 6.0% of board and commission members. What’s more, few communities provide comprehensive information about their boards and commissions online. </p>
+<p>Armed with this new information, we applied for a grant from the <a href="http://www.knightfoundation.org/">James S. and John L. Knight Foundation</a> to bring information about local boards and commissions, and the application and appointment process in particular, online. <a href="http://opengov.newschallenge.org/open/open-government/submission/really-simple-service-rss-bringing-opportunity-online/">(View our proposal here.)</a> Last summer, we were awarded a $50,000 Prototype Fund grant and since then we’ve been hard at work to build and bring you On Board! </p>
+<p>Interested in learning more about or participating in On Board? Contact Emily Thompson at the Michigan Suburbs Alliance at (313) 444-4830 or <a href="mailto:emily@suburbsalliance.org">emily@suburbsalliance.org</a>.</p>
 ',
         'safe_summary' => '',
       ),
@@ -406,20 +409,21 @@ Nori grape silver beet broccoli kombu beet greens fava bean potato quandong cele
   'tnid' => 0,
   'translate' => 0,
   'uuid' => 'f13cc27a-1823-4ea0-850a-6d95d055742b',
-  'revision_uid' => 4,
+  'revision_uid' => 7,
   'body' => array(
     'und' => array(
       0 => array(
-        'value' => 'Effective local governments rely on local appointed boards and commissions for advice, ideas, and assistance in achieving public goals. These include library boards, planning commissions, arts councils and many more.
+        'value' => '<strong> Interested in joining the thousands of volunteers who serve on a local board or commission in metro Detroit?<strong>
 
-On Board is a new way to find information about the boards and commissions in your community. Our pilot project helps you learn how get involved and helps local governments share more information with their residents. 
+Local governments rely on local appointed bodies for advice, ideas, and assistance in achieving public goals. Unfortunately many residents are unaware of or don’t understand how to engage with these bodies. We hope to change this with On Board, which is designed to help local governments keep track of and share information with residents, and give residents a clear pathway to getting involved.
 
-Get started by checking out the board and commissions that are part of our pilot governments:',
+<strong> Get started by checking out the boards and commissions in your community:<strong>
+',
         'summary' => '',
         'format' => 'filtered_html',
-        'safe_value' => '<p>Effective local governments rely on local appointed boards and commissions for advice, ideas, and assistance in achieving public goals. These include library boards, planning commissions, arts councils and many more.</p>
-<p>On Board is a new way to find information about the boards and commissions in your community. Our pilot project helps you learn how get involved and helps local governments share more information with their residents. </p>
-<p>Get started by checking out the board and commissions that are part of our pilot governments:</p>
+        'safe_value' => '<p><strong> Interested in joining the thousands of volunteers who serve on a local board or commission in metro Detroit?<strong></strong></strong></p>
+<p>Local governments rely on local appointed bodies for advice, ideas, and assistance in achieving public goals. Unfortunately many residents are unaware of or don’t understand how to engage with these bodies. We hope to change this with On Board, which is designed to help local governments keep track of and share information with residents, and give residents a clear pathway to getting involved.</p>
+<p><strong> Get started by checking out the boards and commissions in your community:<strong></strong></strong></p>
 ',
         'safe_summary' => '',
       ),
