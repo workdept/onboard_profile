@@ -158,3 +158,25 @@ function onboard_theme_views_data_export_feed_icon__csv($options) {
   return l("download CSV file", $options['url']);
 }
 
+
+/**
+ * Implements hook_css_alter().
+ *   
+ */
+function onboard_theme_css_alter(&$css) {
+  $bootstrap_cdn = theme_get_setting('bootstrap_cdn');
+  $cdn_js_only = theme_get_setting('onboard_theme_bootstrap_cdn_js_only');
+
+  if ($bootstrap_cdn && $cdn_js_only) {
+    // We only want to load JavaScript from the CDN, not the CSS, since we
+    // custom compile it. 
+    if (theme_get_setting('bootstrap_bootswatch')) {
+      $cdn = '//netdna.bootstrapcdn.com/bootswatch/' . $bootstrap_cdn  . '/' . theme_get_setting('bootstrap_bootswatch') . '/bootstrap.min.css';
+    }
+    else {
+      $cdn = '//netdna.bootstrapcdn.com/bootstrap/' . $bootstrap_cdn  . '/css/bootstrap.min.css';
+    }
+
+    unset($css[$cdn]);
+  }
+}
