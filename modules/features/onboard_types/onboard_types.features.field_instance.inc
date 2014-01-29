@@ -907,7 +907,7 @@ function onboard_types_field_default_field_instances() {
   $field_instances['node-board_term-field_term_dates'] = array(
     'bundle' => 'board_term',
     'deleted' => 0,
-    'description' => '',
+    'description' => 'For indefinite or lifetime appointments, set the start and end dates to the same value.',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -935,7 +935,7 @@ function onboard_types_field_default_field_instances() {
     'required' => 1,
     'settings' => array(
       'default_value' => 'blank',
-      'default_value2' => 'same',
+      'default_value2' => 'blank',
       'default_value_code' => '',
       'default_value_code2' => '',
       'user_register_form' => FALSE,
@@ -1371,6 +1371,7 @@ function onboard_types_field_default_field_instances() {
   t('Description');
   t('Determine if this is an OG group.');
   t('Email');
+  t('For indefinite or lifetime appointments, set the start and end dates to the same value.');
   t('Group');
   t('If you are using an Application URL, use this field to customize the button that visitors click on to visit your external URL. ');
   t('If you don\'t have a URL to direct visitors to, you can upload a PDF file that they can download to apply for this board.');
