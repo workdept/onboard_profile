@@ -104,8 +104,11 @@ projects[uuid][version] = "1.0-alpha5"
 projects[uuid_features][subdir] = "contrib"
 projects[uuid_features][version] = "1.0-alpha3"
 
-projects[views][subdir] = "contrib"
-projects[views][version] = "3.7"
+projects[views][download][type] = "git"
+projects[views][download][url] = "git://git.drupal.org/project/views.git"
+projects[views][download][branch] = "7.x-3.x"
+projects[views][patch][6242858][url] = "https://drupal.org/files/issues/views-filter-compare-handler-for-duple-dates-6242858-37.patch"
+projects[views][patch][6242858][md5] = "7b3175436acf535a1369d6b04b80fee8"
 
 projects[views_bulk_operations][subdir] = "contrib"
 projects[views_bulk_operations][version] = "3.1"
